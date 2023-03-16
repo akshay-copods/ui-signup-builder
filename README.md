@@ -1,4 +1,4 @@
-# test-template-mfe
+# signup-builder-mfe-final
 
 
 ## In package.json update the name:
