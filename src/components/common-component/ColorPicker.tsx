@@ -17,7 +17,7 @@ export const ColorPickerComponent = ({
 }) => {
   return (
     <div className="flex  items-center">
-      <span className="text-xs w-2/4  text-[#00000073]">{label}</span>
+      <span className="text-xs w-2/4  text-customBlack-400">{label}</span>
       <div className="flex w-2/4 items-center gap-2">
         <Colorpicker
           blockStyles={{

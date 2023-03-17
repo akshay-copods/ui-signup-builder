@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useThemeStore } from "../../../../store/ThemeStore";
+import { useThemeStore } from "../../../../../store/ThemeStore";
 
 export const Theme = () => {
   const {

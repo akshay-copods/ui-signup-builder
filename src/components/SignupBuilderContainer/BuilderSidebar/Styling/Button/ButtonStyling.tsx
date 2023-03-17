@@ -1,5 +1,5 @@
 import React from "react";
-import { SocialButtonStyling } from "../../..";
+import { SocialButtonStyling } from "../../../..";
 
 
 export const ButtonStyling = () => {
