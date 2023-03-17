@@ -1,6 +1,5 @@
 import { SelectProps } from "antd";
 
-
 import { EditOutlined } from "@ant-design/icons";
 import React from "react";
 
@@ -26,10 +25,6 @@ export const themeConfig = [
     },
   },
 ];
-
-
-
-
 
 export const fontSizes = [
   { value: "12px", label: "12px" },
@@ -77,7 +72,6 @@ export const logoAlignments: SelectProps["options"] = [
 ];
 export const layoutType = [
   {
-  
     layout: "EQUAL_SPLIT",
     text: "Equally Split",
 
@@ -89,8 +83,7 @@ export const layoutType = [
     // image: <PrimaryLayout />,
   },
 ];
-export const buttonStates: SelectProps["options"] = [
- 
+export const buttonStates = [
   {
     label: "default State",
     value: "DEFAULT",
@@ -126,7 +119,7 @@ export const themeBox = [
     text: "Texture",
   },
 ];
-export const customLayoutData=[
+export const customLayoutData = [
   {
     label: "Testimonals",
     value: "testimonals ",
@@ -148,22 +141,21 @@ export const customLayoutData=[
     // logo: <EditOutlined />,
     checked: false,
   },
-   {
+  {
     label: "Marketing Banner",
     value: "marketingBanner ",
 
     // logo: <EditOutlined />,
     checked: false,
   },
-   {
+  {
     label: "Statements",
     value: "statements ",
 
     // logo: <EditOutlined />,
     checked: true,
   },
-]
-
+];
 
 // login types data config
 export const emailPassData = [

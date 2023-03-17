@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MenuProps, Menu } from "antd";
-import './sidebar.css'
+import "./sidebar.css";
 import { ButtonStyling, Theme } from "../..";
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -23,17 +23,17 @@ function getItem(
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub3"];
 
- export const BuilderSidebar = () => {
+export const BuilderSidebar = () => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
 
   const items: MenuItem[] = [
-    getItem("Theme", "sub1", "", [getItem(<Theme/>, "1")]),
-    getItem("Layout", "sub2", "", [getItem("layout", "2")]),
-    getItem("Buttons", "sub3", "", [getItem(<ButtonStyling/>, "3")]),
-    getItem("Logo Image", "sub4", "", [getItem("logoimage", "4")]),
-    getItem("Colors", "sub5", "", [getItem("colors", "5")]),
-    getItem("Input Field", "sub6", "", [getItem("inputfield", "6")]),
-    getItem("Typography", "sub7", "", [getItem("typo", "7")]),
+    // getItem("Theme", "sub1", "", [getItem(<Theme />, "1")]),
+    // getItem("Layout", "sub2", "", [getItem("layout", "2")]),
+    getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
+    // getItem("Logo Image", "sub4", "", [getItem("logoimage", "4")]),
+    // getItem("Colors", "sub5", "", [getItem("colors", "5")]),
+    // getItem("Input Field", "sub6", "", [getItem("inputfield", "6")]),
+    // getItem("Typography", "sub7", "", [getItem("typo", "7")]),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {

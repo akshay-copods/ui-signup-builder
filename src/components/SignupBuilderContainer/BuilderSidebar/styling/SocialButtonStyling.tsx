@@ -31,67 +31,31 @@ export const SocialButtonStyling = () => {
     getSocialButtonStateTheme,
     setSocialButtonStateTheme,
   } = useButtonStore();
+
+  // To store accordian state
+  const [currentAccordian, setCurrentAccordian] = useState(1);
+
+  // To store button state
   const [socialButtonState, setSocialButtonState] =
     useState<CurrentButtonState>(CurrentButtonState.DEFAULT);
 
-  const [socialButtonFontColor, setSocialButtonFontColor] = useState(
-    getSocialButtonStateTheme(socialButtonState).fontColor
+  // To store current button state styles
+  const [currentSocialButtonStyles, setCurrentSocialButtonStyles] = useState(
+    getSocialButtonStateTheme(socialButtonState)
   );
-  const [bgColor, setBgColor] = useState();
-  const [color1, setColorFont] = useState<AnyColorFormat>({
-    hex: "#000000",
-  });
-  const [color2, setColorBg] = useState<AnyColorFormat>({
-    hex: "#FFFFFF",
-  });
-  const onFontChnage = (colors: AnyColorFormat) => {
-    setColorFont(colors), setSocialButtonFontColor(colors.hex);
-  };
-  const onBgChange = (colors: AnyColorFormat) => {
-    setColorBg(colors), setBgColor(colors.hex);
-  };
 
-  // const handleFontWeight = (value: string) => {
-  //   signUpState.setState({
-  //     ...signUpState.state,
-  //     buttons: {
-  //       ...signUpState.state.buttons,
-  //       socialButtons: {
-  //         ...signUpState.state.buttons.socialButtons,
-  //         fontWeight: (signUpState.state.buttons.socialButtons.fontWeight =
-  //           value),
-  //       },
-  //     },
-  //   });
-  // };
-  // useEffect(() => {
-  //   signUpState.setState({
-  //     ...signUpState.state,
-  //     buttons: {
-  //       ...signUpState.state.buttons,
-  //       socialButtons: {
-  //         ...signUpState.state.buttons.socialButtons,
-  //         socialButtonFontColor: (signUpState.state.buttons.socialButtons.socialButtonFontColor =
-  //           socialButtonFontColor),
-  //       },
-  //     },
-  //   });
-  //   signUpState.setState({
-  //     ...signUpState.state,
-  //     buttons: {
-  //       ...signUpState.state.buttons,
-  //       socialButtons: {
-  //         ...signUpState.state.buttons.socialButtons,
-  //         backgroundColor:
-  //           (signUpState.state.buttons.socialButtons.backgroundColor = bgColor),
-  //       },
-  //     },
-  //   });
-  // }, [socialButtonFontColor, setsocialButtonFontColor, bgColor, setBgColor]);
+  // To get global Social Button Styles
+  useEffect(() => {
+    setCurrentSocialButtonStyles(getSocialButtonStateTheme(socialButtonState));
+  }, [socialButtonState]);
 
-  console.log(getSocialButtonStateTheme(socialButtonState).fontSize, "get");
-  const [currentAccordian, setCurrentAccordian] = useState(1);
-  
+  // To update global Social Button Styles
+  useEffect(
+    () =>
+      setSocialButtonStateTheme(socialButtonState, currentSocialButtonStyles),
+    [currentSocialButtonStyles]
+  );
+
   return (
     <div className="flex flex-col pb-5 gap-5">
       <div
@@ -111,9 +75,8 @@ export const SocialButtonStyling = () => {
         <span className="text-xs text-[#000000d9] font-medium">
           Social Button Styling
         </span>
-
         {currentAccordian === 1 ? (
-          <UpOutlined  className="text-black" />
+          <UpOutlined className="text-black" />
         ) : (
           <DownOutlined className="text-black" />
         )}
@@ -127,18 +90,13 @@ export const SocialButtonStyling = () => {
       >
         <div className="flex justify-between w-full items-center">
           <span className="text-xs text-[#000000d9] font-medium">Position</span>
-
-          <div className={`flex  gap-2 items-center`}>
+          <div className="flex gap-2 items-center">
             <VerticalAlignTopOutlined
-              className={`w-4 h-4 cursor-pointer
-                    "text-black"
-                `}
+              className="w-1 h-1 cursor-pointer text-black"
               onClick={() => setSocialButtonPosition(Position.TOP)}
             />
             <VerticalAlignBottomOutlined
-              className={`w-4 h-4 cursor-pointer 
-                    "text-black"
-                `}
+              className="w-1 h-1 cursor-pointer text-black"
               onClick={() => setSocialButtonPosition(Position.BOTTOM)}
             />
           </div>
@@ -167,14 +125,12 @@ export const SocialButtonStyling = () => {
                     />
                     {data.image}
                   </div>
-
                   <span className="text-gray-400">{data.text}</span>
                 </div>
               );
             })}
           </div>
         </div>
-
         <div className="flex flex-col gap-2">
           <h4 className="text-xs text-customBlack-600 font-medium">Styling</h4>
           {/* {testing values} */}
@@ -184,29 +140,23 @@ export const SocialButtonStyling = () => {
               onChange={(value) => setSocialButtonState(value)}
               options={buttonStates}
             />
-
             <SelectComponent
               label={"Font Size"}
-              value={
-                getSocialButtonStateTheme(socialButtonState).fontSize
-              }
+              value={currentSocialButtonStyles.fontSize}
               onChange={(value) =>
-               { console.log(value),
-                setSocialButtonStateTheme(socialButtonState, {
-                  ...getSocialButtonStateTheme(socialButtonState),
+                setCurrentSocialButtonStyles({
+                  ...currentSocialButtonStyles,
                   fontSize: value,
-                })}
+                })
               }
               options={fontSizes}
             />
             <SelectComponent
               label={"Font Weight"}
-              value={
-                getSocialButtonStateTheme(socialButtonState).fontWeight
-              }
+              value={currentSocialButtonStyles.fontWeight}
               onChange={(value) =>
-                setSocialButtonStateTheme(socialButtonState, {
-                  ...getSocialButtonStateTheme(socialButtonState),
+                setCurrentSocialButtonStyles({
+                  ...currentSocialButtonStyles,
                   fontWeight: value,
                 })
               }
@@ -214,31 +164,36 @@ export const SocialButtonStyling = () => {
             />
             <ColorPickerComponent
               label="Font Color"
-              value={color1}
+              value={currentSocialButtonStyles.fontColor}
               popup={true}
-              onChange={onFontChnage}
-              fontColor={socialButtonFontColor}
+              onChange={(value) => {
+                setCurrentSocialButtonStyles({
+                  ...currentSocialButtonStyles,
+                  fontColor: value.hex,
+                });
+              }}
+              fontColor={currentSocialButtonStyles.fontColor}
             />
             <ColorPickerComponent
               label="Background Color"
-              value={color2}
+              value={currentSocialButtonStyles.backgroundColor}
               popup={true}
-              onChange={onBgChange}
-              fontColor={bgColor}
+              onChange={(value) => {
+                setCurrentSocialButtonStyles({
+                  ...currentSocialButtonStyles,
+                  backgroundColor: value.hex,
+                });
+              }}
+              fontColor={currentSocialButtonStyles.backgroundColor}
             />
-
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-customBlack-400">
+            <div className="flex items-center">
+              <span className="text-xs w-2/4 text-customBlack-400">
                 Border Radius
               </span>
-              <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-100 bg-white py-1.5 px-3 gap-6 items-center">
-                  <MinusOutlined className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-white-100" />
-
-                  <span className="flex items-center text-xs">0</span>
-
-                  <PlusOutlined className="border rounded-[50px] flex justify-center items-center h-5 w-5 bg-white-100" />
-                </div>
+              <div className="flex border border-100 bg-white py-1.5 px-3 gap-6 items-center justify-between">
+                <MinusOutlined className="border flex justify-center items-center rounded-full h-5 w-5 bg-white-100" />
+                <div className="text-sm">0</div>
+                <PlusOutlined className="border rounded-full flex justify-center items-center h-5 w-5 bg-white-100" />
               </div>
             </div>
           </div>
