@@ -6,8 +6,8 @@ export type InputLabelTheme = {
 
 export type InputBoxTheme = {
   borderColor: string;
-  borderSize: string;
-  borderRadius: string;
+  borderSize: number;
+  borderRadius: number;
   width: string;
 };
 export enum CurrentInputFieldState {

@@ -192,15 +192,18 @@ export const SocialButtonStyling = () => {
                 Border Radius
               </span>
               <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-100 bg-white py-1.5 px-3 gap-6 items-center">
+                <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined
-                    className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-white-100"
+                    className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
                     onClick={() =>
                       setSocialButtonStateTheme(socialButtonState, {
                         ...getSocialButtonStateTheme(socialButtonState),
                         borderRadius:
-                          getSocialButtonStateTheme(socialButtonState)
-                            .borderRadius - 1,
+                        getSocialButtonStateTheme(socialButtonState).borderRadius
+                        > 0
+                        ? getSocialButtonStateTheme(socialButtonState).borderRadius
+                           - 1
+                        : 0,
                       })
                     }
                   />
@@ -227,7 +230,7 @@ export const SocialButtonStyling = () => {
                             .borderRadius + 1,
                       })
                     }
-                    className="border rounded-[50px] flex justify-center items-center h-5 w-5 bg-white-100"
+                    className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
                   />
                 </div>
               </div>

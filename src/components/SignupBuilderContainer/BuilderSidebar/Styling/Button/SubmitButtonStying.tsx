@@ -21,28 +21,28 @@ export const SubmitButtonStying = () => {
   const [currentAccordian, setCurrentAccordian] = useState(1);
 
   // To store button state
-  const [socialButtonState, setSocialButtonState] =
+  const [submitButtonState, setSubmitButtonState] =
     useState<CurrentButtonState>(CurrentButtonState.DEFAULT);
 
   // To store current button state styles
   const [currentSocialButtonStyles, setCurrentSocialButtonStyles] = useState(
-    getSubmitButtonStateTheme(socialButtonState)
+    getSubmitButtonStateTheme(submitButtonState)
   );
 
-  // To get global Social Button Styles
+  // To get global submit Button Styles
   useEffect(() => {
-    setCurrentSocialButtonStyles(getSubmitButtonStateTheme(socialButtonState));
-  }, [socialButtonState]);
+    setCurrentSocialButtonStyles(getSubmitButtonStateTheme(submitButtonState));
+  }, [submitButtonState]);
 
-  // To update global Social Button Styles
+  // To update global submit Button Styles
   useEffect(
     () =>
-      setSubmitButtonStateTheme(socialButtonState, currentSocialButtonStyles),
+      setSubmitButtonStateTheme(submitButtonState, currentSocialButtonStyles),
     [currentSocialButtonStyles]
   );
 
   return (
-    <div className="flex py-5  border-t-2 border-dashed border-[#D9D9D9] flex-col gap-5">
+    <div className="flex py-5  border-t-2 border-dashed border-natural-5 flex-col gap-5">
       <div
         className="flex gap-2 items-center"
         onKeyUp={(e) => {
@@ -78,8 +78,8 @@ export const SubmitButtonStying = () => {
           {/* {testing values} */}
           <div className="flex  flex-col gap-4">
             <SelectComponent
-              value={socialButtonState}
-              onChange={(value) => setSocialButtonState(value)}
+              value={submitButtonState}
+              onChange={(value) => setSubmitButtonState(value)}
               options={buttonStates}
             />
             <SelectComponent
@@ -133,36 +133,44 @@ export const SubmitButtonStying = () => {
                 Border Radius
               </span>
               <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-100 bg-white py-1.5 px-3 gap-6 items-center">
+                <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined
-                    className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-white-100"
+                    className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
                     onClick={() =>
-                      setSubmitButtonStateTheme(socialButtonState, {
-                        ...getSubmitButtonStateTheme(socialButtonState),
+                      setSubmitButtonStateTheme(submitButtonState, {
+                        ...getSubmitButtonStateTheme(submitButtonState),
                         borderRadius:
-                          getSubmitButtonStateTheme(socialButtonState)
-                            .borderRadius - 1,
+                        getSubmitButtonStateTheme(submitButtonState).borderRadius
+                        > 0
+                        ? getSubmitButtonStateTheme(submitButtonState).borderRadius
+                           - 1
+                        : 0,
                       })
                     }
                   />
- <span className="flex items-center text-xs">
-                    {getSubmitButtonStateTheme(socialButtonState).borderRadius > 0 &&
-                    getSubmitButtonStateTheme(socialButtonState).borderRadius < 10
-                      ? `0${getSubmitButtonStateTheme(socialButtonState).borderRadius}`
-                      : getSubmitButtonStateTheme(socialButtonState).borderRadius}
+                  <span className="flex items-center text-xs">
+                    {getSubmitButtonStateTheme(submitButtonState).borderRadius >
+                      0 &&
+                    getSubmitButtonStateTheme(submitButtonState).borderRadius <
+                      10
+                      ? `0${
+                          getSubmitButtonStateTheme(submitButtonState)
+                            .borderRadius
+                        }`
+                      : getSubmitButtonStateTheme(submitButtonState)
+                          .borderRadius}
                   </span>
-                
 
                   <PlusOutlined
                     onClick={() =>
-                      setSubmitButtonStateTheme(socialButtonState, {
-                        ...getSubmitButtonStateTheme(socialButtonState),
+                      setSubmitButtonStateTheme(submitButtonState, {
+                        ...getSubmitButtonStateTheme(submitButtonState),
                         borderRadius:
-                          getSubmitButtonStateTheme(socialButtonState)
+                          getSubmitButtonStateTheme(submitButtonState)
                             .borderRadius + 1,
                       })
                     }
-                    className="border rounded-[50px] flex justify-center items-center h-5 w-5 bg-white-100"
+                    className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
                   />
                 </div>
               </div>

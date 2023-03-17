@@ -20,7 +20,8 @@ module.exports = {
           200:'#ffe7ba'
         },
         'natural':{
-          4:'#F0F0F0'
+          4:'#F0F0F0',
+          5:'#D9D9D9'
         },
         'customBlack': {
           400: '#00000073',
@@ -33,13 +34,10 @@ module.exports = {
       height:{
         88:'88px'
       },
-      borderColor:{
-        100:'#D9D9D9'
-      },
-      backgroundColor:{
-        "white":{
-          100:'#F0F5FF'
-        }
+     
+      
+      borderRadius:{
+        50:'50px'
       }
     },
   },

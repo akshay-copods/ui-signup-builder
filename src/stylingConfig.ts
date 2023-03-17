@@ -102,6 +102,26 @@ export const buttonStates = [
   },
 ];
 
+export const inputStates = [
+  {
+    label: "default State",
+    value: "DEFAULT",
+  },
+  
+  {
+    label: "active State",
+    value: "ACTIVE",
+  },
+  {
+    label: "disabled State",
+    value: "DISABLED",
+  },
+  {
+    label: "Error State",
+    value: "ERROR",
+  },
+];
+
 export const themeBox = [
   {
     bg: "bg-white",

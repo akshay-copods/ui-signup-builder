@@ -8,8 +8,8 @@ export const useInputFieldStore = create<InputFieldState>()((set, get) => ({
   label: { fontColor: "black", fontSize: "14px", fontWeight: "500" },
   box: {
     borderColor: "black",
-    borderSize: "1px",
-    borderRadius: "0px",
+    borderSize: 1,
+    borderRadius: 0,
     width: "100%",
   },
   defaultState: {
