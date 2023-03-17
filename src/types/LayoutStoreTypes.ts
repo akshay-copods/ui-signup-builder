@@ -27,4 +27,5 @@ export interface LayoutState {
   setGridLayout: (layout: GridLayout) => void;
   setGridContentWidth: (width: string) => void;
   setLayoutContent: (content: LayoutContent[]) => void;
+  getLayoutContent: () => LayoutContent[];
 }

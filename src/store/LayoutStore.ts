@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { GridLayout, LayoutState } from "../types/LayoutStoreTypes";
 
-export const useLayoutStore = create<LayoutState>()((set) => ({
+export const useLayoutStore = create<LayoutState>()((set, get) => ({
   gridLayout: GridLayout.SINGLE,
   gridContentWidth: "100%",
   content: [
@@ -31,5 +31,8 @@ export const useLayoutStore = create<LayoutState>()((set) => ({
     set((state) => ({
       content: content,
     }));
+  },
+  getLayoutContent() {
+    return get().content;
   },
 }));
