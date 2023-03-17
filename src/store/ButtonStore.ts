@@ -58,7 +58,7 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
       },
       hoverState: {
         fontSize: "14px",
-        fontWeight: "500",
+        fontWeight: "600",
         fontColor: "#000000",
         backgroundColor: "#4096ff",
         borderRadius: 0,
@@ -81,15 +81,7 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
       },
     }));
   },
-  changeSocialButtonState(currentState) {
-    set((state) => ({
-      ...state,
-      socialButton: {
-        ...state.socialButton,
-        currentButtonState: currentState,
-      },
-    }));
-  },
+  
   setSubmitButtonStateTheme(currentState, stateTheme) {
     switch (currentState) {
       case CurrentButtonState.DEFAULT:

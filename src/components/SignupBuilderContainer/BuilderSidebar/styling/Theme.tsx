@@ -29,7 +29,7 @@ export const Theme =()=>{
             <div key={data.value}>
               <div
                 
-                className={`flex gap-4 h-[88px]  w-24  p-1 items-start border border-gray-300 rounded ${data.bg}`}
+                className={`flex gap-4 h-88  w-24  p-1 items-start border border-gray-300 rounded ${data.bg}`}
               >
                 <input
                   type="radio"

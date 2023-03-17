@@ -7,23 +7,36 @@ import {
   VerticalAlignTopOutlined,
 } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
-import '../sidebar.css'
-//   import {
-//     buttonStates,
-//     fontSizes,
-//     fontWeight,
-//     layoutType,
-//   } from "../../../../styleConfigs";
+import { useButtonStore } from "../../../../store/ButtonStore";
+import "../sidebar.css";
 
 import { AnyColorFormat } from "antd-colorpicker";
 import { ColorPickerComponent, SelectComponent } from "../../..";
-import { fontSizes, fontWeight, layoutType } from "../../../../stylingConfig";
-
-// import icon from '../../../assests/equallySplitLayout.svg'
+import {
+  buttonStates,
+  fontSizes,
+  fontWeight,
+  layoutType,
+} from "../../../../stylingConfig";
+import {
+  CurrentButtonState,
+  Position,
+} from "../../../../types/ButtonStoreTypes";
 
 export const SocialButtonStyling = () => {
-  
-  const [fontColor, setFontColor] = useState();
+  const {
+    socialButton,
+    setSocialButtonPosition,
+    setSocialButtonLayout,
+    getSocialButtonStateTheme,
+    setSocialButtonStateTheme,
+  } = useButtonStore();
+  const [socialButtonState, setSocialButtonState] =
+    useState<CurrentButtonState>(CurrentButtonState.DEFAULT);
+
+  const [socialButtonFontColor, setSocialButtonFontColor] = useState(
+    getSocialButtonStateTheme(socialButtonState).fontColor
+  );
   const [bgColor, setBgColor] = useState();
   const [color1, setColorFont] = useState<AnyColorFormat>({
     hex: "#000000",
@@ -31,34 +44,13 @@ export const SocialButtonStyling = () => {
   const [color2, setColorBg] = useState<AnyColorFormat>({
     hex: "#FFFFFF",
   });
-
   const onFontChnage = (colors: AnyColorFormat) => {
-    setColorFont(colors), setFontColor(colors.hex);
+    setColorFont(colors), setSocialButtonFontColor(colors.hex);
   };
   const onBgChange = (colors: AnyColorFormat) => {
     setColorBg(colors), setBgColor(colors.hex);
   };
 
-  // function onSiteChanged(e: any) {
-  //   signUpState.setState({
-  //     ...signUpState.state,
-  //     buttons: (signUpState.state.buttons.socialButtons.layout.layoutType =
-  //       e.target.value),
-  //   });
-  // }
-
-  // const handleFontSize = (value: string) => {
-  //   signUpState.setState({
-  //     ...signUpState.state,
-  //     buttons: {
-  //       ...signUpState.state.buttons,
-  //       socialButtons: {
-  //         ...signUpState.state.buttons.socialButtons,
-  //         fontSize: (signUpState.state.buttons.socialButtons.fontSize = value),
-  //       },
-  //     },
-  //   });
-  // };
   // const handleFontWeight = (value: string) => {
   //   signUpState.setState({
   //     ...signUpState.state,
@@ -79,8 +71,8 @@ export const SocialButtonStyling = () => {
   //       ...signUpState.state.buttons,
   //       socialButtons: {
   //         ...signUpState.state.buttons.socialButtons,
-  //         fontColor: (signUpState.state.buttons.socialButtons.fontColor =
-  //           fontColor),
+  //         socialButtonFontColor: (signUpState.state.buttons.socialButtons.socialButtonFontColor =
+  //           socialButtonFontColor),
   //       },
   //     },
   //   });
@@ -95,22 +87,13 @@ export const SocialButtonStyling = () => {
   //       },
   //     },
   //   });
-  // }, [fontColor, setFontColor, bgColor, setBgColor]);
+  // }, [socialButtonFontColor, setsocialButtonFontColor, bgColor, setBgColor]);
 
-  // const handleChange = (value: string | string[]) => {
-  //   signUpState.setState({
-  //     ...signUpState.state,
-  //     buttons: {
-  //       ...signUpState.state.buttons,
-  //       socialButtons: {
-  //         ...signUpState.state.buttons.socialButtons,
-  //         buttonState: (signUpState.state.buttons.socialButtons.buttonState =
-  //           value),
-  //       },
-  //     },
-  //   });
-  // };
+  console.log(getSocialButtonStateTheme(socialButtonState).fontSize, "get");
   const [currentAccordian, setCurrentAccordian] = useState(1);
+  useEffect(()=>{
+
+  },[])
   return (
     <div className="flex flex-col pb-5 gap-5">
       <div
@@ -132,9 +115,9 @@ export const SocialButtonStyling = () => {
         </span>
 
         {currentAccordian === 1 ? (
-          <UpOutlined className="text-black" />
+          <UpOutlined className="text-black w-4 h-4" />
         ) : (
-          <DownOutlined className="text-black" />
+          <DownOutlined className="text-black w-4 h-4" />
         )}
       </div>
       {/* {position} */}
@@ -149,36 +132,40 @@ export const SocialButtonStyling = () => {
 
           <div className={`flex  gap-2 items-center`}>
             <VerticalAlignTopOutlined
-              className={`w-4 h-4 cursor-pointer
+              className={`w-1 h-1 cursor-pointer
                     "text-black"
                 `}
+              onClick={() => setSocialButtonPosition(Position.TOP)}
             />
             <VerticalAlignBottomOutlined
-              className={`w-4 h-4 cursor-pointer 
+              className={`w-1 h-1 cursor-pointer 
                     "text-black"
                 `}
+              onClick={() => setSocialButtonPosition(Position.BOTTOM)}
             />
           </div>
         </div>
         {/* {Layout} */}
         <div className="flex flex-col gap-2">
-          <span className="text-xs text-[#000000d9] font-medium">Layout</span>
+          <span className="text-xs text-customBlack-600 font-medium">
+            Layout
+          </span>
           <div className="flex gap-2 items-center">
             {layoutType.map((data: any) => {
               return (
                 <div key={data.layout}>
                   <div
-                    className={`flex gap-4 h-[88px] relative justify-center items-center  w-24 p-1  border border-gray-300 rounded`}
+                    className={`flex gap-4 h-88 relative justify-center items-center  w-24 p-1  border border-gray-300 rounded`}
+                    onClick={() => setSocialButtonLayout(data.layout)}
                   >
                     <input
                       className="absolute top-2 left-2"
                       type="radio"
                       value={data.layout}
-                      // checked={
-                      //   signUpState.state.buttons.socialButtons.layout
-                      //     .layoutType === data.layout
-                      // }
-                      // onChange={onSiteChanged}
+                      checked={socialButton.layout === data.layout}
+                      onChange={(e: any) =>
+                        setSocialButtonLayout(e.target.value)
+                      }
                     />
                     {data.image}
                   </div>
@@ -191,26 +178,40 @@ export const SocialButtonStyling = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h4 className="text-xs text-[#000000d9] font-medium">Styling</h4>
+          <h4 className="text-xs text-customBlack-600 font-medium">Styling</h4>
+          {/* {testing values} */}
+          <span>{getSocialButtonStateTheme(socialButtonState).fontSize}</span> 
           <div className="flex  flex-col gap-4">
             <SelectComponent
-              defaultValue={"Default State"}
-              onChange={undefined}
-              options={undefined} 
-              // onChange={handleChange}
-              // options={buttonStates}
+              defaultValue={socialButtonState}
+              onChange={(value) => setSocialButtonState(value)}
+              options={buttonStates}
             />
 
             <SelectComponent
               label={"Font Size"}
-              defaultValue={"14px"}
-              onChange={undefined}
+              defaultValue={
+                getSocialButtonStateTheme(socialButtonState).fontSize
+              }
+              onChange={(value) =>
+                setSocialButtonStateTheme(socialButtonState, {
+                  ...getSocialButtonStateTheme(socialButtonState),
+                  fontSize: value,
+                })
+              }
               options={fontSizes}
             />
             <SelectComponent
               label={"Font Weight"}
-              defaultValue={"semibold"}
-              onChange={undefined}
+              defaultValue={
+                getSocialButtonStateTheme(socialButtonState).fontWeight
+              }
+              onChange={(value) =>
+                setSocialButtonStateTheme(socialButtonState, {
+                  ...getSocialButtonStateTheme(socialButtonState),
+                  fontWeight: value,
+                })
+              }
               options={fontWeight}
             />
             <ColorPickerComponent
@@ -218,7 +219,7 @@ export const SocialButtonStyling = () => {
               value={color1}
               popup={true}
               onChange={onFontChnage}
-              fontColor={fontColor}
+              fontColor={socialButtonFontColor}
             />
             <ColorPickerComponent
               label="Background Color"
@@ -229,25 +230,16 @@ export const SocialButtonStyling = () => {
             />
 
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">
+              <span className="text-xs w-2/4  text-customBlack-400">
                 Border Radius
               </span>
               <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
-                  <MinusOutlined
-                    className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-[#F0F5FF]"
-                    
-                  />
+                <div className="flex border border-100 bg-white py-1.5 px-3 gap-6 items-center">
+                  <MinusOutlined className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-white-100" />
 
-                  <span className="flex items-center text-xs">
-       0
-                  </span>
+                  <span className="flex items-center text-xs">0</span>
 
-                  <PlusOutlined
-                    className="border rounded-[50px] flex justify-center items-center h-5 w-5 bg-[#F0F5FF]"
-                  
-                    
-                  />
+                  <PlusOutlined className="border rounded-[50px] flex justify-center items-center h-5 w-5 bg-white-100" />
                 </div>
               </div>
             </div>
@@ -257,4 +249,3 @@ export const SocialButtonStyling = () => {
     </div>
   );
 };
-

@@ -77,33 +77,35 @@ export const logoAlignments: SelectProps["options"] = [
 ];
 export const layoutType = [
   {
-    layout: "Equally-Split",
+  
+    layout: "EQUAL_SPLIT",
     text: "Equally Split",
 
     // image: <EqualSplitLayout />,
   },
   {
-    layout: "One-Primary",
+    layout: "ONE_PRIMARY",
     text: "One Primary",
     // image: <PrimaryLayout />,
   },
 ];
 export const buttonStates: SelectProps["options"] = [
+ 
   {
     label: "default State",
-    value: "Default State",
+    value: "DEFAULT",
   },
   {
     label: "hover State",
-    value: "Hover State",
+    value: "HOVER",
   },
   {
     label: "active State",
-    value: "Active State",
+    value: "ACTIVE",
   },
   {
     label: "disabled State",
-    value: "Disabled State",
+    value: "DISABLED",
   },
 ];
 

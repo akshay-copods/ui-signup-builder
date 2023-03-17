@@ -21,10 +21,25 @@ module.exports = {
         },
         'natural':{
           4:'#F0F0F0'
-        }
+        },
+        'customBlack': {
+          400: '#00000073',
+          600: '#000000D9',
+        },
       },
       width:{
   355:'355px'
+      },
+      height:{
+        88:'88px'
+      },
+      borderColor:{
+        100:'#D9D9D9'
+      },
+      backgroundColor:{
+        "white":{
+          100:'#F0F5FF'
+        }
       }
     },
   },

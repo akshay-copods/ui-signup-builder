@@ -50,4 +50,5 @@ export interface ButtonTypes {
   ) => void;
   setSocialButtonLayout: (layout: SocialMediaButtonLayout) => void;
   setSocialButtonPosition: (position: Position) => void;
+
 }
