@@ -81,7 +81,7 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
       },
     }));
   },
-  
+
   setSubmitButtonStateTheme(currentState, stateTheme) {
     switch (currentState) {
       case CurrentButtonState.DEFAULT:
