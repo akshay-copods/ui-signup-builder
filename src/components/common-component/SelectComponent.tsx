@@ -3,12 +3,12 @@ import React from "react";
 import "../SignupBuilderContainer/BuilderSidebar/sidebar.css";
 export const SelectComponent = ({
   label,
-  defaultValue,
+  value,
   onChange,
   options,
 }: {
   label?: string;
-  defaultValue: string;
+  value: string;
   onChange: (e:any)=>void;
   options: SelectProps[] | undefined;
 }) => {
@@ -21,7 +21,7 @@ export const SelectComponent = ({
       <div className={` ${label?"w-2/4":"w-full"} flex gap-2 items-center`}>
         <Select
           className="w-full"
-          defaultValue={defaultValue}
+          value={value}
           onChange={onChange}
           options={options}
           style={{ borderRadius: "2px" }}

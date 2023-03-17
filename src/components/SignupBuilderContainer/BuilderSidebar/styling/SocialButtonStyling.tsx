@@ -91,9 +91,7 @@ export const SocialButtonStyling = () => {
 
   console.log(getSocialButtonStateTheme(socialButtonState).fontSize, "get");
   const [currentAccordian, setCurrentAccordian] = useState(1);
-  useEffect(()=>{
-
-  },[])
+  
   return (
     <div className="flex flex-col pb-5 gap-5">
       <div
@@ -115,9 +113,9 @@ export const SocialButtonStyling = () => {
         </span>
 
         {currentAccordian === 1 ? (
-          <UpOutlined className="text-black w-4 h-4" />
+          <UpOutlined  className="text-black" />
         ) : (
-          <DownOutlined className="text-black w-4 h-4" />
+          <DownOutlined className="text-black" />
         )}
       </div>
       {/* {position} */}
@@ -132,13 +130,13 @@ export const SocialButtonStyling = () => {
 
           <div className={`flex  gap-2 items-center`}>
             <VerticalAlignTopOutlined
-              className={`w-1 h-1 cursor-pointer
+              className={`w-4 h-4 cursor-pointer
                     "text-black"
                 `}
               onClick={() => setSocialButtonPosition(Position.TOP)}
             />
             <VerticalAlignBottomOutlined
-              className={`w-1 h-1 cursor-pointer 
+              className={`w-4 h-4 cursor-pointer 
                     "text-black"
                 `}
               onClick={() => setSocialButtonPosition(Position.BOTTOM)}
@@ -180,30 +178,30 @@ export const SocialButtonStyling = () => {
         <div className="flex flex-col gap-2">
           <h4 className="text-xs text-customBlack-600 font-medium">Styling</h4>
           {/* {testing values} */}
-          <span>{getSocialButtonStateTheme(socialButtonState).fontSize}</span> 
           <div className="flex  flex-col gap-4">
             <SelectComponent
-              defaultValue={socialButtonState}
+              value={socialButtonState}
               onChange={(value) => setSocialButtonState(value)}
               options={buttonStates}
             />
 
             <SelectComponent
               label={"Font Size"}
-              defaultValue={
+              value={
                 getSocialButtonStateTheme(socialButtonState).fontSize
               }
               onChange={(value) =>
+               { console.log(value),
                 setSocialButtonStateTheme(socialButtonState, {
                   ...getSocialButtonStateTheme(socialButtonState),
                   fontSize: value,
-                })
+                })}
               }
               options={fontSizes}
             />
             <SelectComponent
               label={"Font Weight"}
-              defaultValue={
+              value={
                 getSocialButtonStateTheme(socialButtonState).fontWeight
               }
               onChange={(value) =>
