@@ -17,6 +17,7 @@
     "@iconify/react": "^4.1.0",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
+    "antd-colorpicker": "^1.0.0",
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
@@ -36,10 +37,9 @@
     "graphql-request": "^5.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-library": "*",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.8.2",
-    "zustand": "^4.3.6",
-    "react-library": "*"
-
+    "zustand": "^4.3.6"
   }
 }
