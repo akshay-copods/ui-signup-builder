@@ -1,51 +1,12 @@
 import { create } from "zustand";
-interface ButtonStateTheme {
-  backgroundColor: string;
-  borderRadius: number;
-  fontColor: string;
-  fontSize: string;
-  fontWeight: string;
-}
-enum SocialMediaButtonLayout {
-  "EQUAL_SPLIT" = "EQUAL_SPLIT",
-  "ONE_PRIMARY" = "ONE_PRIMARY",
-}
-interface ButtonStates {
-  defaultState: ButtonStateTheme;
-  activeState: ButtonStateTheme;
-  disabledState: ButtonStateTheme;
-  hoverState: ButtonStateTheme;
-}
-enum CurrentButtonState {
-  "DEFAULT" = "DEFAULT",
-  "ACTIVE" = "ACTIVE",
-  "DISABLED" = "DISABLED",
-  "HOVER" = "HOVER",
-}
-interface SubmitButtonType {}
-interface ButtonTypes {
-  submitButton: {
-    currentButtonState: CurrentButtonState;
-    styles: ButtonStates;
-  };
-  socialButton: {
-    position: boolean;
-    layout: SocialMediaButtonLayout;
-    styles: ButtonStates;
-  };
-  changeSubmitButtonState: (currentState: CurrentButtonState) => void;
-  changeSocialButtonState: (currentState: CurrentButtonState) => void;
-  getSubmitButtonStateTheme: (
-    currentState: CurrentButtonState
-  ) => ButtonStateTheme;
-  setSubmitButtonStateTheme: (
-    currentState: CurrentButtonState,
-    stateTheme: ButtonStateTheme
-  ) => void;
-}
+import {
+  ButtonTypes,
+  CurrentButtonState,
+  Position,
+  SocialMediaButtonLayout,
+} from "../types/ButtonStoreTypes";
 export const useButtonStore = create<ButtonTypes>()((set, get) => ({
   submitButton: {
-    currentButtonState: CurrentButtonState.DEFAULT,
     styles: {
       defaultState: {
         fontSize: "14px",
@@ -78,8 +39,7 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
     },
   },
   socialButton: {
-    currentButtonState: CurrentButtonState.DEFAULT,
-    position: false,
+    position: Position.TOP,
     layout: SocialMediaButtonLayout.EQUAL_SPLIT,
     styles: {
       defaultState: {
@@ -129,20 +89,6 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
         currentButtonState: currentState,
       },
     }));
-  },
-  getSubmitButtonStateTheme(currentState) {
-    switch (currentState) {
-      case CurrentButtonState.DEFAULT:
-        return get().submitButton.styles.defaultState;
-      case CurrentButtonState.ACTIVE:
-        return get().submitButton.styles.activeState;
-      case CurrentButtonState.DISABLED:
-        return get().submitButton.styles.disabledState;
-      case CurrentButtonState.HOVER:
-        return get().submitButton.styles.hoverState;
-      default:
-        return get().submitButton.styles.defaultState;
-    }
   },
   setSubmitButtonStateTheme(currentState, stateTheme) {
     switch (currentState) {
@@ -207,5 +153,119 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
         }));
         break;
     }
+  },
+  getSubmitButtonStateTheme(currentState) {
+    switch (currentState) {
+      case CurrentButtonState.DEFAULT:
+        return get().submitButton.styles.defaultState;
+      case CurrentButtonState.ACTIVE: {
+        return get().submitButton.styles.activeState;
+      }
+      case CurrentButtonState.DISABLED: {
+        return get().submitButton.styles.disabledState;
+      }
+      case CurrentButtonState.HOVER: {
+        return get().submitButton.styles.hoverState;
+      }
+      default: {
+        return get().submitButton.styles.defaultState;
+      }
+    }
+  },
+  getSocialButtonStateTheme(currentButtonState) {
+    switch (currentButtonState) {
+      case CurrentButtonState.DEFAULT:
+        return get().socialButton.styles.defaultState;
+      case CurrentButtonState.ACTIVE:
+        return get().socialButton.styles.activeState;
+      case CurrentButtonState.DISABLED:
+        return get().socialButton.styles.disabledState;
+      case CurrentButtonState.HOVER:
+        return get().socialButton.styles.hoverState;
+      default:
+        return get().socialButton.styles.defaultState;
+    }
+  },
+  setSocialButtonStateTheme(currentState, stateTheme) {
+    switch (currentState) {
+      case CurrentButtonState.DEFAULT:
+        set((state) => ({
+          ...state,
+          socialButton: {
+            ...state.socialButton,
+            styles: {
+              ...state.socialButton.styles,
+              defaultState: stateTheme,
+            },
+          },
+        }));
+        break;
+      case CurrentButtonState.ACTIVE:
+        set((state) => ({
+          ...state,
+          socialButton: {
+            ...state.socialButton,
+            styles: {
+              ...state.socialButton.styles,
+              activeState: stateTheme,
+            },
+          },
+        }));
+        break;
+      case CurrentButtonState.DISABLED:
+        set((state) => ({
+          ...state,
+          socialButton: {
+            ...state.socialButton,
+            styles: {
+              ...state.socialButton.styles,
+              disabledState: stateTheme,
+            },
+          },
+        }));
+        break;
+      case CurrentButtonState.HOVER:
+        set((state) => ({
+          ...state,
+          socialButton: {
+            ...state.socialButton,
+            styles: {
+              ...state.socialButton.styles,
+              hoverState: stateTheme,
+            },
+          },
+        }));
+        break;
+      default:
+        set((state) => ({
+          ...state,
+          socialButton: {
+            ...state.socialButton,
+            styles: {
+              ...state.socialButton.styles,
+              defaultState: stateTheme,
+            },
+          },
+        }));
+        break;
+    }
+  },
+  setSocialButtonLayout(layout) {
+    set((state) => ({
+      ...state,
+      socialButton: {
+        ...state.socialButton,
+        layout,
+      },
+    }));
+  },
+  setSocialButtonPosition(position) {
+    set((state) => ({
+      ...state,
+      socialButton: {
+        ...state.socialButton,
+        position,
+      },
+    }));
   },
 }));
