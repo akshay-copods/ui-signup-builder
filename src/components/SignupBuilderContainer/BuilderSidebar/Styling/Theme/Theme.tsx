@@ -75,7 +75,7 @@ export const Theme = () => {
                 checked={state.value === data.value}
               />
             </div>
-            <span className="text-xs  text-[#00000073]">{data.text}</span>
+            <span className="text-xs  text-customBlack-400">{data.text}</span>
           </div>
         );
       })}

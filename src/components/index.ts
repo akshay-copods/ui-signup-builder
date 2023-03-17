@@ -10,3 +10,4 @@ export {ButtonStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/But
 export {SelectComponent} from './common-component/SelectComponent'
 export {ColorPickerComponent} from './common-component/ColorPicker'
 export {SocialButtonStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Button/SocialButtonStyling'
+export {SubmitButtonStying} from './SignupBuilderContainer/BuilderSidebar/Styling/Button/SubmitButtonStying'

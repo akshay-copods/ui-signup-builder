@@ -31,9 +31,9 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
       },
       hoverState: {
         fontSize: "14px",
-        fontWeight: "500",
-        fontColor: "#FFFFFF",
-        backgroundColor: "#070930",
+        fontWeight: "600",
+        fontColor: "#000000",
+        backgroundColor: "#4096ff",
         borderRadius: 0,
       },
     },

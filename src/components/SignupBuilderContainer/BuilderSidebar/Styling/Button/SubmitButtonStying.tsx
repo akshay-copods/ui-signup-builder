@@ -1,35 +1,21 @@
+import React, { useEffect, useState } from "react";
+import { useButtonStore } from "../../../../../store/ButtonStore";
+import { CurrentButtonState } from "../../../../../types/ButtonStoreTypes";
 import {
   DownOutlined,
   MinusOutlined,
   PlusOutlined,
   UpOutlined,
-  VerticalAlignBottomOutlined,
-  VerticalAlignTopOutlined,
 } from "@ant-design/icons";
-import React, { useEffect, useState } from "react";
-import { useButtonStore } from "../../../../../store/ButtonStore";
-import "../../sidebar.css";
-
 import { ColorPickerComponent, SelectComponent } from "../../../..";
 import {
   buttonStates,
   fontSizes,
   fontWeight,
-  layoutType,
 } from "../../../../../stylingConfig";
-import {
-  CurrentButtonState,
-  Position,
-} from "../../../../../types/ButtonStoreTypes";
-
-export const SocialButtonStyling = () => {
-  const {
-    socialButton,
-    setSocialButtonPosition,
-    setSocialButtonLayout,
-    getSocialButtonStateTheme,
-    setSocialButtonStateTheme,
-  } = useButtonStore();
+export const SubmitButtonStying = () => {
+  const { getSubmitButtonStateTheme, setSubmitButtonStateTheme } =
+    useButtonStore();
 
   // To store accordian state
   const [currentAccordian, setCurrentAccordian] = useState(1);
@@ -40,23 +26,23 @@ export const SocialButtonStyling = () => {
 
   // To store current button state styles
   const [currentSocialButtonStyles, setCurrentSocialButtonStyles] = useState(
-    getSocialButtonStateTheme(socialButtonState)
+    getSubmitButtonStateTheme(socialButtonState)
   );
 
   // To get global Social Button Styles
   useEffect(() => {
-    setCurrentSocialButtonStyles(getSocialButtonStateTheme(socialButtonState));
+    setCurrentSocialButtonStyles(getSubmitButtonStateTheme(socialButtonState));
   }, [socialButtonState]);
 
   // To update global Social Button Styles
   useEffect(
     () =>
-      setSocialButtonStateTheme(socialButtonState, currentSocialButtonStyles),
+      setSubmitButtonStateTheme(socialButtonState, currentSocialButtonStyles),
     [currentSocialButtonStyles]
   );
 
   return (
-    <div className="flex flex-col pb-5 gap-5">
+    <div className="flex py-5  border-t-2 border-dashed border-[#D9D9D9] flex-col gap-5">
       <div
         className="flex gap-2 items-center"
         onKeyUp={(e) => {
@@ -87,51 +73,6 @@ export const SocialButtonStyling = () => {
           (currentAccordian === 1 ? "h-full" : "max-h-0")
         }
       >
-        <div className="flex justify-between w-full items-center">
-          <span className="text-xs text-customBlack-600 font-medium">
-            Position
-          </span>
-          <div className="flex gap-2 items-center">
-            <VerticalAlignTopOutlined
-              className="w-1 h-1 cursor-pointer text-black"
-              onClick={() => setSocialButtonPosition(Position.TOP)}
-            />
-            <VerticalAlignBottomOutlined
-              className="w-1 h-1 cursor-pointer text-black"
-              onClick={() => setSocialButtonPosition(Position.BOTTOM)}
-            />
-          </div>
-        </div>
-        {/* {Layout} */}
-        <div className="flex flex-col gap-2">
-          <span className="text-xs text-customBlack-600 font-medium">
-            Layout
-          </span>
-          <div className="flex gap-2 items-center">
-            {layoutType.map((data: any) => {
-              return (
-                <div key={data.layout}>
-                  <div
-                    className={`flex gap-4 h-88 relative justify-center items-center  w-24 p-1  border border-gray-300 rounded`}
-                    onClick={() => setSocialButtonLayout(data.layout)}
-                  >
-                    <input
-                      className="absolute top-2 left-2"
-                      type="radio"
-                      value={data.layout}
-                      checked={socialButton.layout === data.layout}
-                      onChange={(e: any) =>
-                        setSocialButtonLayout(e.target.value)
-                      }
-                    />
-                    {data.image}
-                  </div>
-                  <span className="text-gray-400">{data.text}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
         <div className="flex flex-col gap-2">
           <h4 className="text-xs text-customBlack-600 font-medium">Styling</h4>
           {/* {testing values} */}
@@ -196,34 +137,28 @@ export const SocialButtonStyling = () => {
                   <MinusOutlined
                     className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-white-100"
                     onClick={() =>
-                      setSocialButtonStateTheme(socialButtonState, {
-                        ...getSocialButtonStateTheme(socialButtonState),
+                      setSubmitButtonStateTheme(socialButtonState, {
+                        ...getSubmitButtonStateTheme(socialButtonState),
                         borderRadius:
-                          getSocialButtonStateTheme(socialButtonState)
+                          getSubmitButtonStateTheme(socialButtonState)
                             .borderRadius - 1,
                       })
                     }
                   />
-
-                  <span className="flex items-center text-xs">
-                    {getSocialButtonStateTheme(socialButtonState).borderRadius >
-                      0 &&
-                    getSocialButtonStateTheme(socialButtonState).borderRadius <
-                      10
-                      ? `0${
-                          getSocialButtonStateTheme(socialButtonState)
-                            .borderRadius
-                        }`
-                      : getSocialButtonStateTheme(socialButtonState)
-                          .borderRadius}
+ <span className="flex items-center text-xs">
+                    {getSubmitButtonStateTheme(socialButtonState).borderRadius > 0 &&
+                    getSubmitButtonStateTheme(socialButtonState).borderRadius < 10
+                      ? `0${getSubmitButtonStateTheme(socialButtonState).borderRadius}`
+                      : getSubmitButtonStateTheme(socialButtonState).borderRadius}
                   </span>
+                
 
                   <PlusOutlined
                     onClick={() =>
-                      setSocialButtonStateTheme(socialButtonState, {
-                        ...getSocialButtonStateTheme(socialButtonState),
+                      setSubmitButtonStateTheme(socialButtonState, {
+                        ...getSubmitButtonStateTheme(socialButtonState),
                         borderRadius:
-                          getSocialButtonStateTheme(socialButtonState)
+                          getSubmitButtonStateTheme(socialButtonState)
                             .borderRadius + 1,
                       })
                     }
