@@ -18,7 +18,13 @@ module.exports = {
         },
         'sunsetOrange':{
           200:'#ffe7ba'
+        },
+        'natural':{
+          4:'#F0F0F0'
         }
+      },
+      width:{
+  355:'355px'
       }
     },
   },
