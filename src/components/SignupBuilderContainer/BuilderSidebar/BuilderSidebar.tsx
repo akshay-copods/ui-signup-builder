@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuProps, Menu } from "antd";
 import "./sidebar.css";
-import { ButtonStyling, ColorsStyling, InputFieldStyling, Theme } from "../..";
+import { ButtonStyling, ColorsStyling, InputFieldStyling, Theme, TypographyStyling } from "../..";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -33,7 +33,7 @@ export const BuilderSidebar = () => {
     // getItem("Logo Image", "sub4", "", [getItem("logoimage", "4")]),
     getItem("Colors", "sub5", "", [getItem(<ColorsStyling/>, "5")]),
     getItem("Input Field", "sub6", "", [getItem(<InputFieldStyling/>, "6")]),
-    // getItem("Typography", "sub7", "", [getItem("typo", "7")]),
+    getItem("Typography", "sub7", "", [getItem(<TypographyStyling/>, "7")]),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {
