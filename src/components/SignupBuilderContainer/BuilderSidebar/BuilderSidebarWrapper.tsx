@@ -1,4 +1,5 @@
 import { Tabs, TabsProps } from "antd";
+import React from "react";
 import { BuilderSidebar, LoginTypes } from "../..";
 export const BuilderSidebarWrapper = () => {
   const items: TabsProps["items"] = [
