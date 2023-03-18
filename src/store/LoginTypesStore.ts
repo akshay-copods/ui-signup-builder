@@ -8,7 +8,7 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
       name: "Google",
     },
     {
-      icon: "logos:google-icon",
+      icon: "logos:github-icon",
       name: "Git",
     },
   ],
@@ -25,7 +25,7 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
   ],
   setSocialLoginTypes: (socialLoginType) => {
     const socialLogin = get().socialLoginTypes.find(
-      (socialLoginType) => socialLoginType.name === socialLoginType.name
+      (loginType) => loginType.name === socialLoginType.name
     );
     set((state) => ({
       ...state,
@@ -61,5 +61,12 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
   },
   getLoginMethods() {
     return get().loginMethods;
+  },
+  getAllLoginTypes() {
+    return {
+      socialLoginTypes: get().socialLoginTypes,
+      loginMethods: get().loginMethods,
+      approvals: get().approvals,
+    };
   },
 }));

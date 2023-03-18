@@ -8,43 +8,43 @@ import {
 export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   fontFamily: FontFamily.Roboto,
   title: {
-    fontSize: '30px',
+    fontSize: "30px",
     Bold: false,
   },
   subTitle: {
-    fontSize: '14px',
+    fontSize: "14px",
     Bold: false,
   },
   links: {
-    fontSize: '16px',
+    fontSize: "12px",
     Bold: false,
-    style:'underline'
+    style: "none",
   },
   normalText: {
-    fontSize: '16px',
+    fontSize: "16px",
     Bold: false,
   },
-  getTypographyStyles(){
-  return {
-    fontFamily:get().fontFamily,
-    title:get().title,
-    subTitle:get().subTitle,
-    links:get().links,
-    normalText:get().normalText
-  }
-},
-getNormalText() {
-  return get().normalText;
-},
-getSubTitle() {
-  return get().subTitle;
-},
-getTitleText() {
-  return get().title;
-},
-getLinkText() {
-  return get().links;
-},
+  getTypographyStyles() {
+    return {
+      fontFamily: get().fontFamily,
+      title: get().title,
+      subTitle: get().subTitle,
+      links: get().links,
+      normalText: get().normalText,
+    };
+  },
+  getNormalText() {
+    return get().normalText;
+  },
+  getSubTitle() {
+    return get().subTitle;
+  },
+  getTitleText() {
+    return get().title;
+  },
+  getLinkText() {
+    return get().links;
+  },
   setFontFamily: (fontFamily: FontFamily) => set({ fontFamily }),
   setTitle: (title: TextTypography) => set({ title }),
   setSubTitle: (subTitle: TextTypography) => set({ subTitle }),

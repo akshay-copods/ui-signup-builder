@@ -21,4 +21,9 @@ export interface LoginTypesStore {
   getSocialLoginTypes: () => SocialLoginButton[];
   getApprovals: () => Approval[];
   getLoginMethods: () => LoginMethods;
+  getAllLoginTypes: () => {
+    socialLoginTypes: SocialLoginButton[];
+    loginMethods: LoginMethods;
+    approvals: Approval[];
+  };
 }

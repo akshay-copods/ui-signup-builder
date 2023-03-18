@@ -40,7 +40,7 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
     },
   },
   socialButton: {
-    position: Position.TOP,
+    position: Position.BOTTOM,
     layout: SocialMediaButtonLayout.EQUAL_SPLIT,
     styles: {
       defaultState: {
