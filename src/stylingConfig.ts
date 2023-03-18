@@ -1,8 +1,5 @@
 import { SelectProps } from "antd";
 
-import { EditOutlined } from "@ant-design/icons";
-import React from "react";
-
 export const themeConfig = [
   {
     light: {
@@ -31,9 +28,6 @@ export const fontSizes = [
   { value: "14px", label: "14px" },
   { value: "16px", label: "16px" },
   { value: "18px", label: "18px" },
-  { value: "20px", label: "20px" },
-  { value: "24px", label: "24px" },
-  { value: "30px", label: "30px" },
 ];
 export const fontWeight = [
   { value: "100", label: "100" },
@@ -107,7 +101,7 @@ export const inputStates = [
     label: "default State",
     value: "DEFAULT",
   },
-  
+
   {
     label: "active State",
     value: "ACTIVE",

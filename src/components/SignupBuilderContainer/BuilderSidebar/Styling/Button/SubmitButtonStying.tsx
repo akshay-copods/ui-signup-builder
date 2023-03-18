@@ -1,82 +1,59 @@
-import React, { useEffect, useState } from "react";
-import { useButtonStore } from "../../../../../store/ButtonStore";
-import { CurrentButtonState } from "../../../../../types/ButtonStoreTypes";
 import {
   DownOutlined,
   MinusOutlined,
   PlusOutlined,
   UpOutlined,
 } from "@ant-design/icons";
+import React, { useState } from "react";
 import { ColorPickerComponent, SelectComponent } from "../../../..";
+import { useButtonStore } from "../../../../../store/ButtonStore";
 import {
   buttonStates,
   fontSizes,
   fontWeight,
 } from "../../../../../stylingConfig";
+import { CurrentButtonState } from "../../../../../types/ButtonStoreTypes";
 export const SubmitButtonStying = () => {
   const { getSubmitButtonStateTheme, setSubmitButtonStateTheme } =
     useButtonStore();
 
-  // To store accordian state
-  const [currentAccordian, setCurrentAccordian] = useState(1);
+  // To store accordion state
+  const [currentAccordion, setCurrentAccordion] = useState(false);
 
   // To store button state
   const [submitButtonState, setSubmitButtonState] =
     useState<CurrentButtonState>(CurrentButtonState.DEFAULT);
-
-  // To store current button state styles
-  const [currentSocialButtonStyles, setCurrentSocialButtonStyles] = useState(
-    getSubmitButtonStateTheme(submitButtonState)
-  );
-
-  // To get global submit Button Styles
-  useEffect(() => {
-    setCurrentSocialButtonStyles(getSubmitButtonStateTheme(submitButtonState));
-  }, [submitButtonState]);
-
-  // To update global submit Button Styles
-  useEffect(
-    () =>
-      setSubmitButtonStateTheme(submitButtonState, currentSocialButtonStyles),
-    [currentSocialButtonStyles]
-  );
+  const styles = getSubmitButtonStateTheme(submitButtonState);
 
   return (
-    <div className="flex py-5  border-t-2 border-dashed border-natural-5 flex-col gap-5">
+    <div className='flex py-5  border-t-2 border-dashed border-natural-5 flex-col gap-5'>
       <div
-        className="flex gap-2 items-center"
+        className='flex gap-2 items-center'
         onKeyUp={(e) => {
-          if (e.key === "Enter")
-            setCurrentAccordian(
-              currentAccordian === 1 ? -1 : currentAccordian === -1 ? 1 : -1
-            );
+          if (e.key === "Enter") setCurrentAccordion(!currentAccordion);
         }}
         onClick={() => {
-          setCurrentAccordian(
-            currentAccordian === 1 ? -1 : currentAccordian === -1 ? 1 : -1
-          );
-        }}
-      >
-        <span className="text-xs text-customBlack-600 font-medium">
-          Social Button Styling
+          setCurrentAccordion(!currentAccordion);
+        }}>
+        <span className='text-xs text-customBlack-600 font-medium'>
+          Submit Button Styling
         </span>
-        {currentAccordian === 1 ? (
-          <UpOutlined className="text-black" />
+        {currentAccordion ? (
+          <UpOutlined className='text-black' />
         ) : (
-          <DownOutlined className="text-black" />
+          <DownOutlined className='text-black' />
         )}
       </div>
       {/* {position} */}
       <div
         className={
-          "overflow-scroll flex flex-col gap-5 text-gray-600 transition-all " +
-          (currentAccordian === 1 ? "h-full" : "max-h-0")
-        }
-      >
-        <div className="flex flex-col gap-2">
-          <h4 className="text-xs text-customBlack-600 font-medium">Styling</h4>
+          "overflow-auto flex flex-col gap-5 text-gray-600 transition-all " +
+          (currentAccordion ? "h-full" : "max-h-0")
+        }>
+        <div className='flex flex-col gap-2'>
+          <h4 className='text-xs text-customBlack-600 font-medium'>Styling</h4>
           {/* {testing values} */}
-          <div className="flex  flex-col gap-4">
+          <div className='flex  flex-col gap-4'>
             <SelectComponent
               value={submitButtonState}
               onChange={(value) => setSubmitButtonState(value)}
@@ -84,10 +61,10 @@ export const SubmitButtonStying = () => {
             />
             <SelectComponent
               label={"Font Size"}
-              value={currentSocialButtonStyles.fontSize}
+              value={styles.fontSize}
               onChange={(value) =>
-                setCurrentSocialButtonStyles({
-                  ...currentSocialButtonStyles,
+                setSubmitButtonStateTheme(submitButtonState, {
+                  ...styles,
                   fontSize: value,
                 })
               }
@@ -95,82 +72,69 @@ export const SubmitButtonStying = () => {
             />
             <SelectComponent
               label={"Font Weight"}
-              value={currentSocialButtonStyles.fontWeight}
+              value={styles.fontWeight}
               onChange={(value) =>
-                setCurrentSocialButtonStyles({
-                  ...currentSocialButtonStyles,
+                setSubmitButtonStateTheme(submitButtonState, {
+                  ...styles,
                   fontWeight: value,
                 })
               }
               options={fontWeight}
             />
             <ColorPickerComponent
-              label="Font Color"
-              value={currentSocialButtonStyles.fontColor}
+              label='Font Color'
+              value={styles.fontColor}
               popup={true}
               onChange={(value) => {
-                setCurrentSocialButtonStyles({
-                  ...currentSocialButtonStyles,
-                  fontColor: value.hex,
+                setSubmitButtonStateTheme(submitButtonState, {
+                  ...styles,
+                  fontColor: value,
                 });
               }}
-              fontColor={currentSocialButtonStyles.fontColor}
+              fontColor={styles.fontColor}
             />
             <ColorPickerComponent
-              label="Background Color"
-              value={currentSocialButtonStyles.backgroundColor}
+              label='Background Color'
+              value={styles.backgroundColor}
               popup={true}
               onChange={(value) => {
-                setCurrentSocialButtonStyles({
-                  ...currentSocialButtonStyles,
-                  backgroundColor: value.hex,
+                setSubmitButtonStateTheme(submitButtonState, {
+                  ...styles,
+                  backgroundColor: value,
                 });
               }}
-              fontColor={currentSocialButtonStyles.backgroundColor}
+              fontColor={styles.backgroundColor}
             />
-            <div className="flex items-center">
-              <span className="text-xs w-2/4 text-customBlack-400">
+            <div className='flex items-center'>
+              <span className='text-xs w-2/4 text-customBlack-400'>
                 Border Radius
               </span>
-              <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
+              <div className='flex items-center w-2/4 gap-2'>
+                <div className='flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center'>
                   <MinusOutlined
-                    className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
+                    className='border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100'
                     onClick={() =>
                       setSubmitButtonStateTheme(submitButtonState, {
-                        ...getSubmitButtonStateTheme(submitButtonState),
+                        ...styles,
                         borderRadius:
-                        getSubmitButtonStateTheme(submitButtonState).borderRadius
-                        > 0
-                        ? getSubmitButtonStateTheme(submitButtonState).borderRadius
-                           - 1
-                        : 0,
+                          styles.borderRadius > 0 ? styles.borderRadius - 1 : 0,
                       })
                     }
                   />
-                  <span className="flex items-center text-xs">
-                    {getSubmitButtonStateTheme(submitButtonState).borderRadius >
-                      0 &&
-                    getSubmitButtonStateTheme(submitButtonState).borderRadius <
-                      10
-                      ? `0${
-                          getSubmitButtonStateTheme(submitButtonState)
-                            .borderRadius
-                        }`
-                      : getSubmitButtonStateTheme(submitButtonState)
-                          .borderRadius}
+                  <span className='flex items-center text-xs'>
+                    {styles.borderRadius > 0 && styles.borderRadius < 10
+                      ? `0${styles.borderRadius}`
+                      : styles.borderRadius}
                   </span>
 
                   <PlusOutlined
                     onClick={() =>
                       setSubmitButtonStateTheme(submitButtonState, {
-                        ...getSubmitButtonStateTheme(submitButtonState),
-                        borderRadius:
-                          getSubmitButtonStateTheme(submitButtonState)
-                            .borderRadius + 1,
+                        ...styles,
+                        borderRadius: styles.borderRadius + 1,
                       })
                     }
-                    className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
+                    className='border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100'
                   />
                 </div>
               </div>
