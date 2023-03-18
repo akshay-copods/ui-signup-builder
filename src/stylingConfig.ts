@@ -195,15 +195,19 @@ export const emailPassData = [
 
 export const socialButtonOptions = [
   {
+    
     icon: "logos:google-icon",
     name: "Google",
   },
-  {
+  { 
     icon: "logos:apple",
     name: "Apple",
   },
-  { icon: "logos:github-icon", name: "Git" },
+  {  
+    icon: "logos:github-icon", 
+    name: "Git" },
   {
+    
     name: "Linkedin",
     icon: "logos:linkedin-icon",
   },

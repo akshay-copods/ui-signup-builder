@@ -77,7 +77,7 @@ export const TypographyStyling = () => {
                 onClick={() =>
                   setNormalText({
                     ...getNormalText(),
-                    Bold: normalText.Bold=!normalText.Bold,
+                    Bold: (normalText.Bold = !normalText.Bold),
                   })
                 }
               >
@@ -92,7 +92,7 @@ export const TypographyStyling = () => {
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -106,7 +106,7 @@ export const TypographyStyling = () => {
                 onClick={() =>
                   setTitle({
                     ...getTitleText(),
-                    Bold: title.Bold =! title.Bold,
+                    Bold: (title.Bold = !title.Bold),
                   })
                 }
               >
@@ -121,7 +121,7 @@ export const TypographyStyling = () => {
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -135,7 +135,7 @@ export const TypographyStyling = () => {
                 onClick={() =>
                   setSubTitle({
                     ...getSubTitle(),
-                    Bold: subTitle.Bold=! subTitle.Bold,
+                    Bold: (subTitle.Bold = !subTitle.Bold),
                   })
                 }
               >
@@ -150,7 +150,7 @@ export const TypographyStyling = () => {
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -166,7 +166,7 @@ export const TypographyStyling = () => {
                 onClick={() =>
                   setLinks({
                     ...getLinkText(),
-                    Bold: links.Bold =! links.Bold,
+                    Bold: (links.Bold = !links.Bold),
                   })
                 }
               >
@@ -181,7 +181,7 @@ export const TypographyStyling = () => {
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -199,7 +199,7 @@ export const TypographyStyling = () => {
                   })
                 }
                 options={linkStyle}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
