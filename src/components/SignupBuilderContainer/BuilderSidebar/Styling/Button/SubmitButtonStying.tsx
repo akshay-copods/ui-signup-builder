@@ -58,7 +58,7 @@ export const SubmitButtonStying = () => {
         }}
       >
         <span className="text-xs text-customBlack-600 font-medium">
-          Social Button Styling
+          Submit Button Styling
         </span>
         {currentAccordian === 1 ? (
           <UpOutlined className="text-black" />

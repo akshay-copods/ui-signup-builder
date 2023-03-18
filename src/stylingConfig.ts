@@ -51,7 +51,7 @@ export const linkStyle = [
   { value: "underline-none", label: "Underline None" },
 ];
 
-export const fontFamily = [
+export const fontsFamily = [
   { value: "'Open Sans', sans-serif", label: "Inter" },
   { value: "'Roboto', sans-serif", label: "Roboto" },
   { value: "cursive", label: "Cursive" },
