@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { useThemeStore } from "../../../../../store/ThemeStore";
 
 export const Theme = () => {
-  const {
-    changeBackgroundColor,
-    changePrimaryColor,
-    changeTextColor,
-    changeSecondaryColor,
-  } = useThemeStore();
+  const { setTheme } = useThemeStore();
 
   const themeBox = [
     {
@@ -45,7 +40,7 @@ export const Theme = () => {
       },
     },
   ];
-  const [state, setState] = useState({
+  const [themeState, setThemeState] = useState({
     value: "light",
     config: {
       backgroundColor: "black",
@@ -55,27 +50,26 @@ export const Theme = () => {
     },
   });
   return (
-    <div className="flex px-5 gap-2 items-center">
+    <div className='flex px-5 gap-2 items-center'>
       {themeBox.map((data: any) => {
         return (
           <div key={data.value}>
             <div
               className={`flex gap-4 h-88  w-24  p-1 items-start border border-gray-300 rounded ${data.bg}`}
               onClick={() => {
-                setState({ value: data.value, config: data.config });
-                changePrimaryColor(data.config.primaryColor);
-                changeBackgroundColor(data.config.backgroundColor);
-                changeSecondaryColor(data.config.secondaryColor);
-                changeTextColor(data.config.textColor);
-              }}
-            >
+                setThemeState({ value: data.value, config: data.config });
+                setTheme(data.config);
+              }}>
               <input
-                type="radio"
+                type='radio'
+                onChange={() => {
+                  setThemeState({ value: data.value, config: data.config });
+                }}
                 value={data.value}
-                checked={state.value === data.value}
+                checked={themeState.value === data.value}
               />
             </div>
-            <span className="text-xs  text-customBlack-400">{data.text}</span>
+            <span className='text-xs  text-customBlack-400'>{data.text}</span>
           </div>
         );
       })}
