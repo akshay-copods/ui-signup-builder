@@ -5,6 +5,7 @@ import {
   Position,
   SocialMediaButtonLayout,
 } from "../types/ButtonStoreTypes";
+
 export const useButtonStore = create<ButtonTypes>()((set, get) => ({
   submitButton: {
     styles: {

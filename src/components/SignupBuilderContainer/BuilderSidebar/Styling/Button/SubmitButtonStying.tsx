@@ -7,6 +7,7 @@ import {
 import React, { useState } from "react";
 import { ColorPickerComponent, SelectComponent } from "../../../..";
 import { useButtonStore } from "../../../../../store/ButtonStore";
+import { useThemeStore } from "../../../../../store/ThemeStore";
 import {
   buttonStates,
   fontSizes,
@@ -16,7 +17,7 @@ import { CurrentButtonState } from "../../../../../types/ButtonStoreTypes";
 export const SubmitButtonStying = () => {
   const { getSubmitButtonStateTheme, setSubmitButtonStateTheme } =
     useButtonStore();
-
+  const {theme}= useThemeStore()
   // To store accordion state
   const [currentAccordion, setCurrentAccordion] = useState(false);
 
@@ -88,7 +89,7 @@ export const SubmitButtonStying = () => {
               onChange={(value) => {
                 setSubmitButtonStateTheme(submitButtonState, {
                   ...styles,
-                  fontColor: value,
+                  fontColor: value.hex,
                 });
               }}
               fontColor={styles.fontColor}
@@ -100,7 +101,7 @@ export const SubmitButtonStying = () => {
               onChange={(value) => {
                 setSubmitButtonStateTheme(submitButtonState, {
                   ...styles,
-                  backgroundColor: value,
+                  backgroundColor: value.hex,
                 });
               }}
               fontColor={styles.backgroundColor}

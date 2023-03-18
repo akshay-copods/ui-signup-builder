@@ -14,29 +14,14 @@ export const InputFieldStyling = () => {
     setInputFieldStateTheme,
     getLabelTheme,
     setLabelTheme,
-    setBoxTheme,
-    getBoxTheme,
   } = useInputFieldStore();
 
   // To store input state
   const [inputFieldState, setInputFieldState] =
     useState<CurrentInputFieldState>(CurrentInputFieldState.DEFAULT);
 
-  // To store current input styles
-  const [currentInputStyles, setCurrentInputStyles] = useState(
-    getInputFieldStateTheme(inputFieldState)
-  );
-
-  // To get global input Styles
-  useEffect(() => {
-    setCurrentInputStyles(getInputFieldStateTheme(inputFieldState));
-  }, [inputFieldState]);
-
-  // To update global input Styles
-  useEffect(
-    () => setInputFieldStateTheme(inputFieldState, currentInputStyles),
-    [currentInputStyles]
-  );
+  // To store input field styles
+  const styles = getInputFieldStateTheme(inputFieldState);
 
   return (
     <div className="flex flex-col px-5 gap-4">
@@ -49,10 +34,10 @@ export const InputFieldStyling = () => {
 
       <SelectComponent
         label={"Font Size"}
-        value={currentInputStyles.fontSize}
+        value={styles.fontSize}
         onChange={(value) =>
-          setCurrentInputStyles({
-            ...currentInputStyles,
+          setInputFieldStateTheme(inputFieldState, {
+            ...styles,
             fontSize: value,
           })
         }
@@ -60,10 +45,10 @@ export const InputFieldStyling = () => {
       />
       <SelectComponent
         label={"Font Weight"}
-        value={currentInputStyles.fontWeight}
+        value={styles.fontWeight}
         onChange={(value) =>
-          setCurrentInputStyles({
-            ...currentInputStyles,
+          setInputFieldStateTheme(inputFieldState, {
+            ...styles,
             fontWeight: value,
           })
         }
@@ -72,27 +57,27 @@ export const InputFieldStyling = () => {
 
       <ColorPickerComponent
         label="Font Color"
-        value={currentInputStyles.fontColor}
+        value={styles.fontColor}
         popup={true}
         onChange={(value) => {
-          setCurrentInputStyles({
-            ...currentInputStyles,
+          setInputFieldStateTheme(inputFieldState, {
+            ...styles,
             fontColor: value.hex,
           });
         }}
-        fontColor={currentInputStyles.fontColor}
+        fontColor={styles.fontColor}
       />
       <ColorPickerComponent
         label="Backgroud Color"
-        value={currentInputStyles.backgroundColor}
+        value={styles.backgroundColor}
         popup={true}
         onChange={(value) => {
-          setCurrentInputStyles({
-            ...currentInputStyles,
+          setInputFieldStateTheme(inputFieldState, {
+            ...styles,
             backgroundColor: value.hex,
           });
         }}
-        fontColor={currentInputStyles.backgroundColor}
+        fontColor={styles.backgroundColor}
       />
 
       <div className="flex  items-center">
@@ -101,27 +86,31 @@ export const InputFieldStyling = () => {
           <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
             <MinusOutlined
               onClick={() =>
-                setBoxTheme({
-                  ...getBoxTheme(),
-                  borderSize:
-                    getBoxTheme().borderSize > 0
-                      ? getBoxTheme().borderSize - 1
-                      : 0,
+                setInputFieldStateTheme(inputFieldState, {
+                  ...styles,
+                  box: {
+                    ...styles.box,
+                    borderSize:
+                      styles.box.borderSize > 0 ? styles.box.borderSize - 1 : 0,
+                  },
                 })
               }
               className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
             />
             <span className="flex items-center text-xs">
-              {getBoxTheme().borderSize > 0 && getBoxTheme().borderSize < 10
-                ? `0${getBoxTheme().borderSize}`
-                : getBoxTheme().borderSize}
+              {styles.box.borderSize > 0 && styles.box.borderSize < 10
+                ? `0${styles.box.borderSize}`
+                : styles.box.borderSize}
             </span>
 
             <PlusOutlined
               onClick={() =>
-                setBoxTheme({
-                  ...getBoxTheme(),
-                  borderSize: getBoxTheme().borderSize + 1,
+                setInputFieldStateTheme(inputFieldState, {
+                  ...styles,
+                  box: {
+                    ...styles.box,
+                    borderSize: styles.box.borderSize + 1,
+                  },
                 })
               }
               className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
@@ -137,28 +126,34 @@ export const InputFieldStyling = () => {
           <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
             <MinusOutlined
               onClick={() =>
-                setBoxTheme({
-                  ...getBoxTheme(),
-                  borderRadius:
-                    getBoxTheme().borderRadius > 0
-                      ? getBoxTheme().borderRadius - 1
-                      : 0,
+                setInputFieldStateTheme(inputFieldState, {
+                  ...styles,
+                  box: {
+                    ...styles.box,
+                    borderRadius:
+                      styles.box.borderRadius > 0
+                        ? styles.box.borderRadius - 1
+                        : 0,
+                  },
                 })
               }
               className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
             />
 
             <span className="flex items-center text-xs">
-              {getBoxTheme().borderRadius > 0 && getBoxTheme().borderRadius < 10
-                ? `0${getBoxTheme().borderRadius}`
-                : getBoxTheme().borderRadius}
+              {styles.box.borderRadius > 0 && styles.box.borderRadius < 10
+                ? `0${styles.box.borderRadius}`
+                : styles.box.borderRadius}
             </span>
 
             <PlusOutlined
               onClick={() =>
-                setBoxTheme({
-                  ...getBoxTheme(),
-                  borderRadius: getBoxTheme().borderRadius + 1,
+                setInputFieldStateTheme(inputFieldState, {
+                  ...styles,
+                  box: {
+                    ...styles.box,
+                    borderRadius: styles.box.borderRadius + 1,
+                  },
                 })
               }
               className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"

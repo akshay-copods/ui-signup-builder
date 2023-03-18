@@ -152,7 +152,7 @@ export const SocialButtonStyling = () => {
               onChange={(value) => {
                 setSocialButtonStateTheme(socialButtonState, {
                   ...styles,
-                  fontColor: value,
+                  fontColor: value.hex,
                 });
               }}
               fontColor={styles.fontColor}
@@ -164,7 +164,7 @@ export const SocialButtonStyling = () => {
               onChange={(value) => {
                 setSocialButtonStateTheme(socialButtonState, {
                   ...styles,
-                  backgroundColor: value,
+                  backgroundColor: value.hex,
                 });
               }}
               fontColor={styles.backgroundColor}

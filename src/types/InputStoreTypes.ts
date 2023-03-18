@@ -22,10 +22,10 @@ export type InputStateTheme = {
   fontColor: string;
   fontSize: string;
   fontWeight: string;
+  box: InputBoxTheme;
 };
 export interface InputFieldState {
   label: InputLabelTheme;
-  box: InputBoxTheme;
   defaultState: InputStateTheme;
   activeState: InputStateTheme;
   disabledState: InputStateTheme;
@@ -39,8 +39,15 @@ export interface InputFieldState {
     currentState: CurrentInputFieldState,
     stateTheme: InputStateTheme
   ) => void;
-  getBoxTheme: () => InputBoxTheme;
-  setBoxTheme: (boxTheme: InputBoxTheme) => void;
   getLabelTheme: () => InputLabelTheme;
   setLabelTheme: (labelTheme: InputLabelTheme) => void;
+  getInputFieldData: () => {
+    label: InputLabelTheme;
+    defaultState: InputStateTheme;
+    activeState: InputStateTheme;
+    disabledState: InputStateTheme;
+    errorState: InputStateTheme;
+    hoverState: InputStateTheme;
+    focusState: InputStateTheme;
+  };
 }
