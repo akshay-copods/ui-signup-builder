@@ -13,3 +13,4 @@ export {SocialButtonStyling} from './SignupBuilderContainer/BuilderSidebar/Styli
 export {SubmitButtonStying} from './SignupBuilderContainer/BuilderSidebar/Styling/Button/SubmitButtonStying'
 export {ColorsStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Colors/ColorsStyling'
 export {InputFieldStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Input/InputFieldStyling'
+export {TypographyStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Typography/TypographyStyling'
