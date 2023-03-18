@@ -181,41 +181,35 @@ export const customLayoutData = [
 export const emailPassData = [
   {
     label: "Magic Link ",
-    value: "magicLink ",
-
-    logo: "logos:google-icon",
+    value: "magic_link ",
   },
   {
     label: "Magic Code",
-    value: "magicCode",
-    logo: "logos:google-icon",
+    value: "magic_code",
   },
   {
     label: "Enable Password Login",
-    value: "enablePasswordLogin",
-    logo: "logos:google-icon",
+    value: "password",
   },
 ];
 
 export const socialButtonOptions = [
   {
-    label: "Google",
-    value: "google",
-    logo: "logos:google-icon",
-    checked: true,
+    
+    icon: "logos:google-icon",
+    name: "Google",
   },
-  {
-    label: "Apple",
-    value: "apple",
-    logo: "logos:apple",
-    checked: false,
+  { 
+    icon: "logos:apple",
+    name: "Apple",
   },
-  { label: "Git", value: "git", logo: "logos:github-icon", checked: false },
+  {  
+    icon: "logos:github-icon", 
+    name: "Git" },
   {
-    label: "Linkedin",
-    value: "linkedin",
-    logo: "logos:linkedin-icon",
-    checked: false,
+    
+    name: "Linkedin",
+    icon: "logos:linkedin-icon",
   },
 ];
 export const userApprovelOptions = [

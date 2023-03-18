@@ -7,22 +7,28 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
       icon: "logos:google-icon",
       name: "Google",
     },
+    {
+      icon: "logos:google-icon",
+      name: "Git",
+    },
   ],
   loginMethods: LoginMethods.MAGIC_LINK,
   approvals: [
     {
+      isSelected:true,
       name: "Terms of Use",
       link: "https://www.google.com",
     },
-    {
+    {isSelected:true,
       name: "Privacy Policy",
       link: "https://www.google.com",
     },
   ],
   setSocialLoginTypes: (socialLoginType) => {
+    const present = get().socialLoginTypes.find(i=>i.name===socialLoginType.name)
     set((state) => ({
       ...state,
-      socialLoginTypes: [...state.socialLoginTypes, socialLoginType],
+      socialLoginTypes: present?get().socialLoginTypes.filter(i=>i.name!==present.name):[...state.socialLoginTypes, {...socialLoginType}],
     }));
   },
   setLoginMethods(loginMethod) {
