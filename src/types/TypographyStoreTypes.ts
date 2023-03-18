@@ -11,10 +11,12 @@ export interface TextTypography {
 }
 export interface TypographyTypes {
   fontFamily: FontFamily;
+  title: TextTypography;
   subTitle: TextTypography;
   links: TextTypography;
   normalText: TextTypography;
   setFontFamily: (fontFamily: FontFamily) => void;
+  setTitle: (title: TextTypography) => void;
   setSubTitle: (subTitle: TextTypography) => void;
   setLinks: (links: TextTypography) => void;
   setNormalText: (normalText: TextTypography) => void;

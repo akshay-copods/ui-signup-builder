@@ -6,6 +6,10 @@ import {
 } from "../types/TypographyStoreTypes";
 export const useThemeStore = create<TypographyTypes>()((set, get) => ({
   fontFamily: FontFamily.Roboto,
+  title: {
+    fontSize: 16,
+    Bold: false,
+  },
   subTitle: {
     fontSize: 16,
     Bold: false,
@@ -19,6 +23,7 @@ export const useThemeStore = create<TypographyTypes>()((set, get) => ({
     Bold: false,
   },
   setFontFamily: (fontFamily: FontFamily) => set({ fontFamily }),
+  setTitle: (title: TextTypography) => set({ title }),
   setSubTitle: (subTitle: TextTypography) => set({ subTitle }),
   setLinks: (links: TextTypography) => set({ links }),
   setNormalText: (normalText: TextTypography) => set({ normalText }),
