@@ -144,36 +144,24 @@ export const customLayoutData = [
     label: "Testimonals",
     value: "testimonals ",
 
-    // logo: <EditOutlined />,
-    checked: true,
   },
   {
     label: "Logos",
     value: "logos ",
 
-    // logo: <EditOutlined />,
-    checked: false,
   },
   {
     label: "Values",
     value: "values ",
 
-    // logo: <EditOutlined />,
-    checked: false,
   },
   {
     label: "Marketing Banner",
     value: "marketingBanner ",
-
-    // logo: <EditOutlined />,
-    checked: false,
   },
   {
     label: "Statements",
     value: "statements ",
-
-    // logo: <EditOutlined />,
-    checked: true,
   },
 ];
 
