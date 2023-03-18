@@ -10,10 +10,10 @@ export const ColorPickerComponent = ({
   fontColor
 }: {
   label: string;
-  value: any;
+  value: string;
   popup: boolean;
-  onChange: any;
-  fontColor:any
+  onChange: (e:any)=>void;
+  fontColor:string
 }) => {
   return (
     <div className="flex  items-center">
