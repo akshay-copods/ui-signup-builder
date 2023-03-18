@@ -30,7 +30,7 @@ export const fontSizes = [
   { value: "18px", label: "18px" },
 ];
 export const titleFontSizes = [
-  { value: "24x", label: "24x" },
+  { value: "24px", label: "24px" },
   { value: "26px", label: "26px" },
   { value: "28px", label: "28px" },
   { value: "30px", label: "30px" },

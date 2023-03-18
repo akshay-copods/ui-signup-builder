@@ -115,7 +115,7 @@ export const TypographyStyling = () => {
                 B
               </Button>
               <Select
-                value={styles.subTitle.fontSize}
+                value={styles.title.fontSize}
                 onChange={(value) =>
                   setTitle({
                     ...styles.title,
