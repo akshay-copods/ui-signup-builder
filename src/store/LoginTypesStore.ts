@@ -15,20 +15,23 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
   loginMethods: LoginMethods.MAGIC_LINK,
   approvals: [
     {
-      isSelected:true,
       name: "Terms of Use",
       link: "https://www.google.com",
     },
-    {isSelected:true,
+    {
       name: "Privacy Policy",
       link: "https://www.google.com",
     },
   ],
   setSocialLoginTypes: (socialLoginType) => {
-    const present = get().socialLoginTypes.find(i=>i.name===socialLoginType.name)
+    const socialLogin = get().socialLoginTypes.find(
+      (socialLoginType) => socialLoginType.name === socialLoginType.name
+    );
     set((state) => ({
       ...state,
-      socialLoginTypes: present?get().socialLoginTypes.filter(i=>i.name!==present.name):[...state.socialLoginTypes, {...socialLoginType}],
+      socialLoginTypes: socialLogin
+        ? get().socialLoginTypes.filter((i) => i.name !== socialLogin.name)
+        : [...state.socialLoginTypes, { ...socialLoginType }],
     }));
   },
   setLoginMethods(loginMethod) {
@@ -37,10 +40,17 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
       loginMethods: loginMethod,
     }));
   },
-  setApprovals(approval) {
+  setApprovals(approvalType) {
+    const approval = get().approvals.find(
+      (currentApproval) => currentApproval.name === approvalType.name
+    );
     set((state) => ({
       ...state,
-      approvals: [...state.approvals, approval],
+      approvals: approval
+        ? get()
+            .getApprovals()
+            .filter((i) => i.name !== approval.name)
+        : [...state.approvals, { ...approvalType }],
     }));
   },
   getSocialLoginTypes() {

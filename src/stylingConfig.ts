@@ -181,7 +181,7 @@ export const customLayoutData = [
 export const emailPassData = [
   {
     label: "Magic Link ",
-    value: "magic_link ",
+    value: "magic_link",
   },
   {
     label: "Magic Code",
@@ -195,34 +195,29 @@ export const emailPassData = [
 
 export const socialButtonOptions = [
   {
-    
     icon: "logos:google-icon",
     name: "Google",
   },
-  { 
+  {
     icon: "logos:apple",
     name: "Apple",
   },
-  {  
-    icon: "logos:github-icon", 
-    name: "Git" },
   {
-    
+    icon: "logos:github-icon",
+    name: "Git",
+  },
+  {
     name: "Linkedin",
     icon: "logos:linkedin-icon",
   },
 ];
-export const userApprovelOptions = [
+export const userApprovalOptions = [
   {
-    label: "Terms of Use",
-    value: "termsOfUse",
-    logo: "logos:google-icon",
-    checked: true,
+    name: "Terms of Use",
+    link: "termsOfUse",
   },
   {
-    label: "Privacy Policy",
-    value: "privacyPolicy",
-    logo: "logos:google-icon",
-    checked: true,
+    name: "Privacy Policy",
+    link: "privacyPolicy",
   },
 ];

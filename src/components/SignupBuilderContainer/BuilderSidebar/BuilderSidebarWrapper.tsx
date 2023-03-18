@@ -6,7 +6,7 @@ export const BuilderSidebarWrapper = () => {
     {
       key: "1",
       label: `Login Types`,
-        children: <LoginTypes />,
+      children: <LoginTypes />,
     },
     {
       key: "2",
