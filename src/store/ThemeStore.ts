@@ -9,6 +9,9 @@ interface ThemeState {
     errorColor: string;
   };
   setTheme: (theme: ThemeState["theme"]) => void;
+  changePrimaryColor: (color: string) => void;
+  changeErrorColor: (color: string) => void;
+  changeSecondaryColor: (color: string) => void;
 }
 
 export const useThemeStore = create<ThemeState>()((set) => ({
@@ -24,6 +27,30 @@ export const useThemeStore = create<ThemeState>()((set) => ({
       theme: {
         ...state.theme,
         ...theme,
+      },
+    }));
+  },
+  changePrimaryColor(color) {
+    set((state) => ({
+      theme: {
+        ...state.theme,
+        primaryColor: color,
+      },
+    }));
+  },
+  changeErrorColor(color) {
+    set((state) => ({
+      theme: {
+        ...state.theme,
+        errorColor: color,
+      },
+    }));
+  },
+  changeSecondaryColor(color) {
+    set((state) => ({
+      theme: {
+        ...state.theme,
+        secondaryColor: color,
       },
     }));
   },
