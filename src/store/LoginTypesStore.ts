@@ -8,7 +8,7 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
       name: "Google",
     },
   ],
-  loginMethods: LoginMethods.MAGIC_LINK,
+  loginMethods: LoginMethods.PASSWORD,
   approvals: [
     {
       name: "Terms of Use",

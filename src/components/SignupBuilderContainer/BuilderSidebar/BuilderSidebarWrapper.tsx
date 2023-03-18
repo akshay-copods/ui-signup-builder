@@ -1,12 +1,12 @@
 import React from "react";
 import { Tabs, TabsProps } from "antd";
-import { BuilderSidebar } from "../..";
+import { BuilderSidebar, LoginTypes } from "../..";
 export const BuilderSidebarWrapper = () => {
   const items: TabsProps["items"] = [
     {
       key: "1",
       label: `Login Types`,
-      //   children: <LoginTypes />,
+        children: <LoginTypes />,
     },
     {
       key: "2",

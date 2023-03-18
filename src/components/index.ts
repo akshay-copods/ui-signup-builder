@@ -14,3 +14,6 @@ export {SubmitButtonStying} from './SignupBuilderContainer/BuilderSidebar/Stylin
 export {ColorsStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Colors/ColorsStyling'
 export {InputFieldStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Input/InputFieldStyling'
 export {TypographyStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Typography/TypographyStyling'
+export {LoginTypes} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/LoginTypes'
+export {SocialLogin} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/SocialLogin'
+export {LoginMethod} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/LoginMethods'
