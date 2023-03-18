@@ -29,6 +29,12 @@ export const fontSizes = [
   { value: "16px", label: "16px" },
   { value: "18px", label: "18px" },
 ];
+export const titleFontSizes = [
+  { value: "24x", label: "24x" },
+  { value: "26px", label: "26px" },
+  { value: "28px", label: "28px" },
+  { value: "30px", label: "30px" },
+];
 export const fontWeight = [
   { value: "100", label: "100" },
   { value: "200", label: "200" },
@@ -42,7 +48,7 @@ export const fontWeight = [
 ];
 export const linkStyle = [
   { value: "underline", label: "Underline" },
-  { value: "underline-none", label: "Underline None" },
+  { value: "none", label: "Underline None" },
 ];
 
 export const fontsFamily = [

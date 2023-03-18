@@ -20,6 +20,13 @@ export interface TypographyTypes {
   subTitle: TextTypography;
   links: LinkTypography;
   normalText: TextTypography;
+  getTypographyStyles:()=> {
+    fontFamily: FontFamily;
+    title: TextTypography;
+    subTitle: TextTypography;
+    links: LinkTypography;
+    normalText: TextTypography;
+  }
   getNormalText:() => TextTypography;
   getSubTitle:() => TextTypography;
   getTitleText:() => TextTypography;

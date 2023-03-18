@@ -4,6 +4,7 @@ import {
   fontsFamily,
   fontSizes,
   linkStyle,
+  titleFontSizes,
 } from "../../../../../stylingConfig";
 import { useTypographyStore } from "../../../../../store/TypographyStore";
 import Search from "antd/es/input/Search";
@@ -12,10 +13,6 @@ export const TypographyStyling = () => {
   const {
     fontFamily,
     setFontFamily,
-    getNormalText,
-    getLinkText,
-    getTitleText,
-    getSubTitle,
     title,
     normalText,
     subTitle,
@@ -24,8 +21,9 @@ export const TypographyStyling = () => {
     setLinks,
     setTitle,
     setNormalText,
+    getTypographyStyles,
   } = useTypographyStore();
-
+  const styles = getTypographyStyles();
   return (
     <div className="p-5 pt-0 flex flex-col gap-3">
       <span className="text-xs text-customBlack-600 font-medium">
@@ -40,6 +38,9 @@ export const TypographyStyling = () => {
           onSearch={undefined}
           style={{ width: 304 }}
         />
+        <span className="text-customBlack-400 text-xs">
+          This URL must be a woff or woff2 font file type
+        </span>
         <div className="flex justify-between items-center gap-2">
           <hr className="h-px  w-full border-t border-dashed border-gray-300" />{" "}
           <div className={`text-xs w-full text-gray-600 text-center  `}>OR</div>{" "}
@@ -54,15 +55,12 @@ export const TypographyStyling = () => {
           </span>
           <div className="flex flex-col pb-4 gap-1">
             <SelectComponent
-              value={fontFamily}
+              value={styles.fontFamily}
               onChange={(value) => {
                 setFontFamily(value);
               }}
               options={fontsFamily}
             />
-            <span className="text-customBlack-400 text-xs">
-              This URL must be a woff or woff2 font file type
-            </span>
           </div>
         </div>
 
@@ -73,26 +71,28 @@ export const TypographyStyling = () => {
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
-                className="text-sm text-customBlack-600"
+                className={`text-sm text-customBlack-600 ${
+                  styles.normalText.Bold && "bg-geekblue-300"
+                }`}
                 onClick={() =>
                   setNormalText({
-                    ...getNormalText(),
-                    Bold: normalText.Bold=!normalText.Bold,
+                    ...styles.normalText,
+                    Bold: (normalText.Bold = !normalText.Bold),
                   })
                 }
               >
                 B
               </Button>
               <Select
-                value={getNormalText().fontSize}
+                value={styles.normalText.fontSize}
                 onChange={(value) =>
                   setNormalText({
-                    ...getNormalText(),
-                    fontSize: (getNormalText().fontSize = value),
+                    ...styles.normalText,
+                    fontSize: (styles.normalText.fontSize = value),
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -102,26 +102,28 @@ export const TypographyStyling = () => {
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
-                className="text-sm text-customBlack-600"
+                className={`text-sm text-customBlack-600 ${
+                  styles.title.Bold && "bg-geekblue-300"
+                }`}
                 onClick={() =>
                   setTitle({
-                    ...getTitleText(),
-                    Bold: title.Bold =! title.Bold,
+                    ...styles.title,
+                    Bold: (title.Bold = !title.Bold),
                   })
                 }
               >
                 B
               </Button>
               <Select
-                value={getTitleText().fontSize}
+                value={styles.subTitle.fontSize}
                 onChange={(value) =>
                   setTitle({
-                    ...getTitleText(),
-                    fontSize: (getTitleText().fontSize = value),
+                    ...styles.title,
+                    fontSize: (styles.title.fontSize = value),
                   })
                 }
-                options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                options={titleFontSizes}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -131,26 +133,28 @@ export const TypographyStyling = () => {
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
-                className="text-sm text-customBlack-600"
+                className={`text-sm text-customBlack-600 ${
+                  styles.subTitle.Bold && "bg-geekblue-300"
+                }`}
                 onClick={() =>
                   setSubTitle({
-                    ...getSubTitle(),
-                    Bold: subTitle.Bold=! subTitle.Bold,
+                    ...styles.subTitle,
+                    Bold: (subTitle.Bold = !subTitle.Bold),
                   })
                 }
               >
                 B
               </Button>
               <Select
-                value={getSubTitle().fontSize}
+                value={styles.links.fontSize}
                 onChange={(value) =>
                   setSubTitle({
-                    ...getSubTitle(),
-                    fontSize: (getSubTitle().fontSize = value),
+                    ...styles.subTitle,
+                    fontSize: (styles.subTitle.fontSize = value),
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
@@ -162,44 +166,46 @@ export const TypographyStyling = () => {
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
-                className="text-sm text-customBlack-600"
+                className={`text-sm text-customBlack-600 ${
+                  styles.links.Bold && "bg-geekblue-300"
+                }`}
                 onClick={() =>
                   setLinks({
-                    ...getLinkText(),
-                    Bold: links.Bold =! links.Bold,
+                    ...styles.links,
+                    Bold: (links.Bold = !links.Bold),
                   })
                 }
               >
                 B
               </Button>
               <Select
-                value={getLinkText().fontSize}
+                value={styles.links.fontSize}
                 onChange={(value) =>
                   setLinks({
-                    ...getLinkText(),
-                    fontSize: (getLinkText().fontSize = value),
+                    ...styles.links,
+                    fontSize: (styles.links.fontSize = value),
                   })
                 }
                 options={fontSizes}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>
           <div className="flex items-center">
             <span className="text-xs w-2/4 text-customBlack-400">
-              {"Links"}
+              {"Links Style"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Select
-                value={getLinkText().style}
+                value={styles.links.style}
                 onChange={(value) =>
                   setLinks({
-                    ...getLinkText(),
-                    style: (getLinkText().style = value),
+                    ...styles.links,
+                    style: (styles.links.style = value),
                   })
                 }
                 options={linkStyle}
-                style={{ borderRadius: "2px",width:'100%' }}
+                style={{ borderRadius: "2px", width: "100%" }}
               />
             </div>
           </div>

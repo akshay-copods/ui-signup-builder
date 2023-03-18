@@ -8,11 +8,11 @@ import {
 export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   fontFamily: FontFamily.Roboto,
   title: {
-    fontSize: '16px',
+    fontSize: '30px',
     Bold: false,
   },
   subTitle: {
-    fontSize: '16px',
+    fontSize: '14px',
     Bold: false,
   },
   links: {
@@ -24,6 +24,15 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
     fontSize: '16px',
     Bold: false,
   },
+  getTypographyStyles(){
+  return {
+    fontFamily:get().fontFamily,
+    title:get().title,
+    subTitle:get().subTitle,
+    links:get().links,
+    normalText:get().normalText
+  }
+},
 getNormalText() {
   return get().normalText;
 },
