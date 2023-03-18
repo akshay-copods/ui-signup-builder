@@ -12,14 +12,13 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
       name: "Git",
     },
   ],
-  loginMethods: LoginMethods.MAGIC_LINK,
+  loginMethods: LoginMethods.PASSWORD,
   approvals: [
     {
-      isSelected:true,
       name: "Terms of Use",
       link: "https://www.google.com",
     },
-    {isSelected:true,
+    {
       name: "Privacy Policy",
       link: "https://www.google.com",
     },
@@ -38,9 +37,10 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
     }));
   },
   setApprovals(approval) {
+    const present = get().approvals.find(i=>i.name===approval.name)
     set((state) => ({
       ...state,
-      approvals: [...state.approvals, approval],
+      approvals: present?get().approvals.filter(i=>i.name!==present.name):[...state.approvals, {...approval}],
     }));
   },
   getSocialLoginTypes() {

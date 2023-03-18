@@ -195,34 +195,31 @@ export const emailPassData = [
 
 export const socialButtonOptions = [
   {
-    
     icon: "logos:google-icon",
     name: "Google",
   },
-  { 
+  {
     icon: "logos:apple",
     name: "Apple",
   },
-  {  
-    icon: "logos:github-icon", 
-    name: "Git" },
   {
-    
+    icon: "logos:github-icon",
+    name: "Git",
+  },
+  {
     name: "Linkedin",
     icon: "logos:linkedin-icon",
   },
 ];
 export const userApprovelOptions = [
   {
-    label: "Terms of Use",
-    value: "termsOfUse",
-    logo: "logos:google-icon",
-    checked: true,
+    name: "Terms of Use",
+    link: "https://www.google.com",
+    isSelected: true,
   },
   {
-    label: "Privacy Policy",
-    value: "privacyPolicy",
-    logo: "logos:google-icon",
-    checked: true,
+    name: "Privacy Policy",
+    link: "https://www.google.com",
+    isSelected: true,
   },
 ];

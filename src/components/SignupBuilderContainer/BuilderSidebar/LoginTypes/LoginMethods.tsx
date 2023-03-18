@@ -3,11 +3,11 @@ import { Icon } from "@iconify/react";
 import { emailPassData } from "../../../../stylingConfig";
 import { useLoginTypesStore } from "../../../../store/LoginTypesStore";
 export const LoginMethod = () => {
-  const {getLoginMethods,loginMethods,setLoginMethods} = useLoginTypesStore();
+  const {loginMethods,setLoginMethods} = useLoginTypesStore();
   
   return (
     <div className="flex gap-3 p-6  flex-col">
-      <h2 className="text-sm font-medium text-[#000000d9]">
+      <h2 className="text-sm font-medium text-customBlack-600">
         Work Email & Password-less Logins
       </h2>
       <div className="flex flex-col gap-3">

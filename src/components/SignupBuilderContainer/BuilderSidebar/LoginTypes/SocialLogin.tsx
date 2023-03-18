@@ -5,9 +5,8 @@ import { socialButtonOptions } from "../../../../stylingConfig";
 import { useLoginTypesStore } from "../../../../store/LoginTypesStore";
 export const SocialLogin = () => {
   // Add/Remove checked item from list
-  const { getSocialLoginTypes, setSocialLoginTypes, socialLoginTypes } =
+  const { getSocialLoginTypes, setSocialLoginTypes } =
     useLoginTypesStore();
-
   return (
     <div className="flex p-6  flex-col gap-3">
       <div>
