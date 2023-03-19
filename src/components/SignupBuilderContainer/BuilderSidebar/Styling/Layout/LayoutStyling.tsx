@@ -77,12 +77,13 @@ export const LayoutStyling = () => {
           />
           <span>{gridContentWidth}</span>
         </div>
+        <span className="text-customBlack-400 text-xs whitespace-normal">Adjust the width with the slider to customize the spacing to the respective sections</span>
       </div>
       <div className="flex gap-1 flex-col">
         <h4 className="text-customBlack-600 text-sm">
           Custom Layouts for Content
         </h4>
-        <span className="text-customBlack-400">
+        <span className="text-customBlack-400 text-xs">
           You can select up-to 2 layouts.
         </span>
       </div>

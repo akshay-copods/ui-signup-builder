@@ -14,7 +14,7 @@ export const Theme = () => {
         primaryColor: "#2f54eb",
         secondaryColor: "red",
         textColor: "black",
-        labelColor:'black'
+        labelColor:'#00000099'
       },
     },
     {
@@ -46,10 +46,11 @@ export const Theme = () => {
   const [themeState, setThemeState] = useState({
     value: "light",
     config: {
-      backgroundColor: "black",
+      backgroundColor: "#ffffff",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
-      textColor: "white",
+      textColor: "black",
+      labelColor:'#00000099'
     },
   });
   return (

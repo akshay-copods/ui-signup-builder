@@ -19,7 +19,7 @@ interface ThemeState {
 
 export const useThemeStore = create<ThemeState>()((set) => ({
   theme: {
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
     primaryColor: "#2f54eb",
     secondaryColor: "red",
     textColor: "black",

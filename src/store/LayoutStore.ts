@@ -15,10 +15,11 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
         {
           order: 1,
           imageUrl:
-            "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+            "",
         },
       ],
     },
+    
   ],
   setContentBackground(color) {
     set((state) => ({

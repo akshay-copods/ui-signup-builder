@@ -143,24 +143,12 @@ export const themeBox = [
   },
 ];
 export const customLayoutData = [
-  {
-    order: 1,
-    type: "TESTIMONALS",
-    name: "Testimonals",
-    checked:true,
-    content: [
-      {
-        order: 1,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-    ],
-  },
+
   {
     order: 1,
     type: "LOGO",
     name: "logo",
-    checked:true,
+    checked:false,
     content: [
       {
         order: 1,
@@ -195,15 +183,28 @@ export const customLayoutData = [
     ],
   },
   {
-    order: 1,
+    order: 2,
+    type: "TESTIMONALS",
+    name: "Testimonals",
+    checked:true,
+    content: [
+      {
+        order: 2,
+        imageUrl:
+          "",
+      },
+    ],
+  },
+  {
+    order: 3,
     type: "STATEMENTS",
     name: "Statements",
-    checked:false,
+    checked:true,
      content: [
       {
-        order: 1,
+        order: 3,
         imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+          "",
       },
     ],
   },
