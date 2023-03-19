@@ -30,7 +30,6 @@ export const SocialButtonStyling = () => {
     getSocialButtonStateTheme,
     setSocialButtonStateTheme,
   } = useButtonStore();
-  console.log(socialButton);
   // To store accordion state
   const [currentAccordion, setCurrentAccordion] = useState(false);
 
