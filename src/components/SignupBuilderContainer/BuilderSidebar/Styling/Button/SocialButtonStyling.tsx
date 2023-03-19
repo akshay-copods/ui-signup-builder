@@ -41,7 +41,7 @@ export const SocialButtonStyling = () => {
   const styles = getSocialButtonStateTheme(socialButtonState);
 
   return (
-    <div className='flex flex-col pb-5 gap-5'>
+    <div className={`flex flex-col pb-5 ${currentAccordion?'gap-5':'gap-0'}`}>
       <div
         className='flex gap-2 items-center'
         onKeyUp={(e) => {
@@ -62,7 +62,7 @@ export const SocialButtonStyling = () => {
       {/* {position} */}
       <div
         className={
-          "overflow-auto flex flex-col gap-5 text-gray-600 transition-all " +
+          `overflow-auto flex flex-col gap-5 text-gray-600  transition-all ` +
           (currentAccordion ? "h-full" : "max-h-0")
         }>
         <div className='flex justify-between w-full items-center'>

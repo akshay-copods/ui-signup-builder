@@ -21,10 +21,10 @@ export const useThemeStore = create<ThemeState>()((set) => ({
   theme: {
     backgroundColor: "#ffffff",
     primaryColor: "#2f54eb",
-    secondaryColor: "red",
+    secondaryColor: "#00000099",
     textColor: "black",
     errorColor: "red",
-    labelColor:'black'
+    labelColor:'#00000099'
   },
   setTheme(theme) {
     set((state) => ({

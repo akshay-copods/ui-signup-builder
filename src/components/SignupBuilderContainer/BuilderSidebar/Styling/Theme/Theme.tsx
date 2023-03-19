@@ -12,7 +12,7 @@ export const Theme = () => {
       config: {
         backgroundColor: "white",
         primaryColor: "#2f54eb",
-        secondaryColor: "red",
+        secondaryColor: "#00000099",
         textColor: "black",
         labelColor:'#00000099'
       },
@@ -24,7 +24,7 @@ export const Theme = () => {
       config: {
         backgroundColor: "black",
         primaryColor: "#2f54eb",
-        secondaryColor: "red",
+        secondaryColor: "white",
         textColor: "white",
         labelColor:'white'
       },
@@ -37,7 +37,7 @@ export const Theme = () => {
       config: {
         backgroundColor: "darkgrey",
         primaryColor: "#2f54eb",
-        secondaryColor: "red",
+        secondaryColor: "#00000099",
         textColor: "white",
         labelColor:'white'
       },

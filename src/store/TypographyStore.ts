@@ -9,7 +9,7 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   fontFamily: FontFamily.Roboto,
   titleText: "Start your journey with us.",
   title: {
-    fontSize: "30px",
+    fontSize: "20px",
     Bold: false,
   },
   subTitle: {
@@ -22,7 +22,7 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
     style: "none",
   },
   normalText: {
-    fontSize: "16px",
+    fontSize: "14px",
     Bold: false,
   },
   getTypographyStyles() {
