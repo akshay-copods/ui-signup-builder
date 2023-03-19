@@ -1,14 +1,17 @@
 import { Colorpicker } from "antd-colorpicker";
 import React, { useState } from "react";
-import { useLayoutStore } from "../../../../../store";
+import { useLayoutStore, useThemeStore } from "../../../../../store";
 import { Grid } from "../../../../../types/LayoutStoreTypes";
 import { Icon } from "@iconify/react";
 import { customLayoutData } from "../../../../../stylingConfig";
 
 export const LayoutStyling = () => {
   const [color, setColor] = useState("#000000");
-  const { gridLayout, setGrid, contentBackground, setContentBackground } =
-    useLayoutStore();
+  const { gridLayout, setGrid, contentBackground } = useLayoutStore();
+  const {
+    theme: { backgroundColor },
+    changeBackgroundColor,
+  } = useThemeStore();
   return (
     <div className="p-5 pt-0 flex flex-col gap-4 text-black">
       <div className="flex justify-between">
@@ -69,13 +72,13 @@ export const LayoutStyling = () => {
               width: "24px",
               height: "24px",
             }}
-            value={contentBackground}
+            value={backgroundColor}
             popup={true}
             onChange={(value) => {
-              setContentBackground(value.hex);
+              changeBackgroundColor(value.hex);
             }}
           />
-          <div>{contentBackground}</div>
+          <div>{backgroundColor}</div>
         </div>
       </div>
     </div>

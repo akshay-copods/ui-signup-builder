@@ -12,6 +12,7 @@ interface ThemeState {
   changePrimaryColor: (color: string) => void;
   changeErrorColor: (color: string) => void;
   changeSecondaryColor: (color: string) => void;
+  changeBackgroundColor: (color: string) => void;
 }
 
 export const useThemeStore = create<ThemeState>()((set) => ({
@@ -51,6 +52,14 @@ export const useThemeStore = create<ThemeState>()((set) => ({
       theme: {
         ...state.theme,
         secondaryColor: color,
+      },
+    }));
+  },
+  changeBackgroundColor(color) {
+    set((state) => ({
+      theme: {
+        ...state.theme,
+        backgroundColor: color,
       },
     }));
   },
