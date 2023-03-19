@@ -14,6 +14,7 @@ export type LayoutContentLogo = {
 export type LayoutContent = {
   order: number;
   type: string;
+  name:string;
   content: LayoutContentTestimonial[] | LayoutContentLogo[];
 };
 export enum Grid {

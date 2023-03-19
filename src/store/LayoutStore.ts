@@ -10,6 +10,7 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
     {
       order: 1,
       type: "LOGO",
+      name:'logo',
       content: [
         {
           order: 1,
