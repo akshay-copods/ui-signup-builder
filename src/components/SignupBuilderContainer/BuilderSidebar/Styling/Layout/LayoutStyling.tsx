@@ -35,7 +35,7 @@ export const LayoutStyling = () => {
       <div className="flex border-dashed border-b border-[#0000000f] pb-5 flex-wrap gap-3">
         {customLayoutData.map((data: any, index: number) => {
           return (
-            <div key={data.value} className="flex    flex-col gap-3">
+            <div key={data.value} className="flex flex-col gap-3 max-w-min">
               <div
                 // onClick={() => updateCheckStatus(index)}
                 className={`w-88 h-88 ${
