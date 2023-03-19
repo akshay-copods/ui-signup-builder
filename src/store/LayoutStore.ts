@@ -7,10 +7,12 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
   contentBackground: "#120338",
   viewPort: ViewPort.DESKTOP,
   content: [
+    
     {
       order: 1,
-      type: "LOGO",
-      name:'logo',
+      type: "TESTIMONALS",
+      name: "Testimonals",
+      checked:true,
       content: [
         {
           order: 1,
@@ -19,7 +21,19 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
         },
       ],
     },
-    
+    {
+      order:21,
+      type: "STATEMENTS",
+      name: "Statements",
+      checked:true,
+      content: [
+        {
+          order: 2,
+          imageUrl:
+            "",
+        },
+      ],
+    },
   ],
   setContentBackground(color) {
     set((state) => ({
