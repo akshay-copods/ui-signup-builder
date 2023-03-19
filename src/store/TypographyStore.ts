@@ -7,6 +7,7 @@ import {
 } from "../types/TypographyStoreTypes";
 export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   fontFamily: FontFamily.Roboto,
+  titleText: "Start your journey with us.",
   title: {
     fontSize: "30px",
     Bold: false,
@@ -29,6 +30,7 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
       fontFamily: get().fontFamily,
       title: get().title,
       subTitle: get().subTitle,
+      titleText: get().titleText,
       links: get().links,
       normalText: get().normalText,
     };
@@ -50,4 +52,5 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   setSubTitle: (subTitle: TextTypography) => set({ subTitle }),
   setLinks: (links: LinkTypography) => set({ links }),
   setNormalText: (normalText: TextTypography) => set({ normalText }),
+  setTitleText: (titleText: string) => set({ titleText }),
 }));

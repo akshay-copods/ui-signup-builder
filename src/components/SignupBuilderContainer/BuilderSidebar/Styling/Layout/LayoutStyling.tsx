@@ -7,13 +7,22 @@ import { customLayoutData } from "../../../../../stylingConfig";
 
 export const LayoutStyling = () => {
   const [color, setColor] = useState("#000000");
-  const { gridLayout, setGrid, contentBackground,setLayoutContent,getLayoutContent } = useLayoutStore();
+  const [sliderValue, setSldierValue] = useState(50);
+  const {
+    gridLayout,
+    gridContentWidth,
+    setGrid,
+    setGridContentWidth,
+    setLayoutContent,
+    getLayoutData
+  } = useLayoutStore();
   const {
     theme: { backgroundColor },
     changeBackgroundColor,
   } = useThemeStore();
 
   const [checked, setChecked] = useState(customLayoutData);
+  console.log({a: getLayoutData()});
   const updateCheckStatus = (index: number) => {
     setChecked(
       checked.map((checked: any, currentIndex: number) =>
@@ -26,9 +35,10 @@ export const LayoutStyling = () => {
   const filterData = checked.filter((data: any) => {
     return data.checked === true;
   });
-  useEffect(()=>{
-    setLayoutContent(filterData)
-  },[checked])
+  useEffect(() => {
+    setLayoutContent(filterData);
+  }, [checked]);
+
   return (
     <div className="p-5 pt-0 flex flex-col gap-4 text-black">
       <div className="flex justify-between">
@@ -49,9 +59,32 @@ export const LayoutStyling = () => {
           />
         </div>
       </div>
+      <div className="flex flex-col w-full border-dashed border-b border-[#0000000f] pb-5">
+        <div className="flex">
+          <input
+            type="range"
+            name="slider"
+            className="flex-1"
+            min={0}
+            max={100}
+            step={10}
+            value={gridContentWidth}
+            onChange={(e) =>
+              Number(e.target.value) <= 60 &&
+              Number(e.target.value) >= 30 &&
+              setGridContentWidth(e.target.value)
+            }
+          />
+          <span>{gridContentWidth}</span>
+        </div>
+      </div>
       <div className="flex gap-1 flex-col">
-        <h4 className="text-customBlack-600 text-sm">Custom Layouts for Content</h4>
-        <span className="text-customBlack-400">You can select up-to 2 layouts.</span>
+        <h4 className="text-customBlack-600 text-sm">
+          Custom Layouts for Content
+        </h4>
+        <span className="text-customBlack-400">
+          You can select up-to 2 layouts.
+        </span>
       </div>
       <div className="flex border-dashed border-b border-[#0000000f] pb-5 flex-wrap gap-3">
         {checked.map((data: any, index: number) => {
