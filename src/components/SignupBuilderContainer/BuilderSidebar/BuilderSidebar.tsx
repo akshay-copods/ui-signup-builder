@@ -8,6 +8,7 @@ import {
   TypographyStyling,
 } from "../..";
 import "./sidebar.css";
+import { LayoutStyling } from "./Styling/Layout/LayoutStyling";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -34,7 +35,7 @@ export const BuilderSidebar = () => {
 
   const items: MenuItem[] = [
     getItem("Theme", "sub1", "", [getItem(<Theme />, "1")]),
-    // getItem("Layout", "sub2", "", [getItem("layout", "2")]),
+    getItem("Layout", "sub2", "", [getItem(<LayoutStyling />, "2")]),
     getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
     // getItem("Logo Image", "sub4", "", [getItem("logoimage", "4")]),
     getItem("Colors", "sub5", "", [getItem(<ColorsStyling />, "5")]),

@@ -16,16 +16,18 @@ export type LayoutContent = {
   type: string;
   content: LayoutContentTestimonial[] | LayoutContentLogo[];
 };
-export enum GridLayout {
+export enum Grid {
   SINGLE = "SINGLE",
   SPLIT = "SPLIT",
 }
 export interface LayoutState {
-  gridLayout: GridLayout;
+  gridLayout: Grid;
   gridContentWidth: string;
   content: LayoutContent[];
-  setGridLayout: (layout: GridLayout) => void;
+  contentBackground: String;
+  setGrid: (layout: Grid) => void;
   setGridContentWidth: (width: string) => void;
   setLayoutContent: (content: LayoutContent[]) => void;
   getLayoutContent: () => LayoutContent[];
+  setContentBackground: (color: string) => void;
 }

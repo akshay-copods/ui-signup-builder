@@ -1,9 +1,10 @@
 import { create } from "zustand";
-import { GridLayout, LayoutState } from "../types/LayoutStoreTypes";
+import { Grid, LayoutState } from "../types/LayoutStoreTypes";
 
 export const useLayoutStore = create<LayoutState>()((set, get) => ({
-  gridLayout: GridLayout.SINGLE,
+  gridLayout: Grid.SINGLE,
   gridContentWidth: "100%",
+  contentBackground: "#120338",
   content: [
     {
       order: 1,
@@ -17,7 +18,12 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
       ],
     },
   ],
-  setGridLayout(layout) {
+  setContentBackground(color) {
+    set((state) => ({
+      contentBackground: color,
+    }));
+  },
+  setGrid(layout) {
     set((state) => ({
       gridLayout: layout,
     }));
