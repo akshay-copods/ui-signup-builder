@@ -54,9 +54,9 @@ export const SocialButtonStyling = () => {
           Social Button Styling
         </span>
         {currentAccordion ? (
-          <UpOutlined className='text-black' />
+          <UpOutlined  style={{fontSize: "10px" }} className='text-black' />
         ) : (
-          <DownOutlined className='text-black' />
+          <DownOutlined style={{fontSize: "10px" }} className='text-black' />
         )}
       </div>
       {/* {position} */}

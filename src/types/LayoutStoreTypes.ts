@@ -38,6 +38,6 @@ export interface LayoutState {
   setLayoutContent: (content: LayoutContent[]) => void;
   getLayoutContent: () => LayoutContent[];
   setContentBackground: (color: string) => void;
-  getLayoutData: () => { gridLayout: Grid; contentBackground: string,viewPort:ViewPort };
+  getLayoutData: () => { gridLayout: Grid; contentBackground: string,viewPort:ViewPort,content :LayoutContent[]};
   setViewPort: (viewPort: ViewPort) => void;
 }

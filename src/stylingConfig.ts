@@ -143,7 +143,8 @@ export const customLayoutData = [
   {
     order: 1,
     type: "TESTIMONALS",
-    name:'Testimonals',
+    name: "Testimonals",
+    checked:true,
     content: [
       {
         order: 1,
@@ -155,10 +156,36 @@ export const customLayoutData = [
   {
     order: 1,
     type: "LOGO",
-    name:'logo',
+    name: "logo",
+    checked:true,
     content: [
       {
         order: 1,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 2,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 3,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 4,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 5,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 6,
         imageUrl:
           "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
       },
@@ -167,8 +194,9 @@ export const customLayoutData = [
   {
     order: 1,
     type: "STATEMENTS",
-    name:'Statements',
-    content: [
+    name: "Statements",
+    checked:false,
+     content: [
       {
         order: 1,
         imageUrl:
@@ -176,7 +204,6 @@ export const customLayoutData = [
       },
     ],
   },
-  
 ];
 
 // login types data config
