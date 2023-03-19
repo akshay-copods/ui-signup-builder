@@ -1,18 +1,43 @@
 import { Colorpicker } from "antd-colorpicker";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLayoutStore, useThemeStore } from "../../../../../store";
 import { Grid } from "../../../../../types/LayoutStoreTypes";
 import { Icon } from "@iconify/react";
 import { customLayoutData } from "../../../../../stylingConfig";
 
 export const LayoutStyling = () => {
+  const [color, setColor] = useState("#000000");
   const [sliderValue, setSldierValue] = useState(50);
-  const { gridLayout, gridContentWidth, setGrid, setGridContentWidth } =
-    useLayoutStore();
+  const {
+    gridLayout,
+    gridContentWidth,
+    setGrid,
+    setGridContentWidth,
+    setLayoutContent,
+    getLayoutData
+  } = useLayoutStore();
   const {
     theme: { backgroundColor },
     changeBackgroundColor,
   } = useThemeStore();
+
+  const [checked, setChecked] = useState(customLayoutData);
+  console.log({a: getLayoutData()});
+  const updateCheckStatus = (index: number) => {
+    setChecked(
+      checked.map((checked: any, currentIndex: number) =>
+        currentIndex === index
+          ? { ...checked, checked: !checked.checked }
+          : checked
+      )
+    );
+  };
+  const filterData = checked.filter((data: any) => {
+    return data.checked === true;
+  });
+  useEffect(() => {
+    setLayoutContent(filterData);
+  }, [checked]);
 
   return (
     <div className="p-5 pt-0 flex flex-col gap-4 text-black">
@@ -52,45 +77,44 @@ export const LayoutStyling = () => {
           />
           <span>{gridContentWidth}</span>
         </div>
+        <span className="text-customBlack-400 text-xs whitespace-normal">Adjust the width with the slider to customize the spacing to the respective sections</span>
+      </div>
+      <div className="flex gap-1 flex-col">
+        <h4 className="text-customBlack-600 text-sm">
+          Custom Layouts for Content
+        </h4>
+        <span className="text-customBlack-400 text-xs">
+          You can select up-to 2 layouts.
+        </span>
       </div>
       <div className="flex border-dashed border-b border-[#0000000f] pb-5 flex-wrap gap-3">
-        {customLayoutData.map(
-          (
-            data: {
-              value: string;
-              checked: boolean;
-              label: string;
-              logo?: React.ReactNode;
-            },
-            index: number
-          ) => {
-            return (
-              <div key={data.value} className="flex flex-col gap-3 max-w-min">
-                <div
-                  // onClick={() => updateCheckStatus(index)}
-                  className={`w-88 h-88 ${
-                    data.checked ? "border-blue-600" : "border-gray-100"
-                  } border-gray-100 border shadow-md rounded relative`}
-                >
-                  <input
-                    className=" border-gray-300 absolute top-1.5 left-1.5 bg-gray-200"
-                    value={data.value}
-                    checked={data.checked}
-                    type="checkbox"
-                    name={data.value}
-                  />
-                </div>
-                <div className="gap-1 flex items-center">
-                  {" "}
-                  <span className="font-normal whitespace-normal text-xs text-customBlack-400">
-                    {data.label}
-                  </span>
-                  <span className="text-[#1890FF]">{data.logo}</span>
-                </div>
+        {checked.map((data: any, index: number) => {
+          return (
+            <div key={data.type} className="flex flex-col gap-3 max-w-min">
+              <div
+                onClick={() => updateCheckStatus(index)}
+                className={`w-88 h-88 ${
+                  data.checked ? "border-blue-600" : "border-gray-100"
+                } border-gray-100 border shadow-md rounded relative`}
+              >
+                <input
+                  className=" border-gray-300 absolute top-1.5 left-1.5 bg-gray-200"
+                  value={data.type}
+                  checked={data.checked}
+                  type="checkbox"
+                  name={data.type}
+                />
               </div>
-            );
-          }
-        )}
+              <div className="gap-1 flex items-center">
+                {" "}
+                <span className="font-normal whitespace-normal text-xs text-customBlack-400">
+                  {data.name}
+                </span>
+                <span className="text-[#1890FF]">{data.logo}</span>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div>
         <div className="flex justify-between">

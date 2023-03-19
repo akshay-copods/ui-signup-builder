@@ -7,18 +7,21 @@ export const themeConfig = [
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "black",
+      labelColor:'black'
     },
     dark: {
-      backgroundColor: "white",
+      backgroundColor: "black",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "black",
+      labelColor:'white'
     },
     texture: {
       backgroundColor: "white",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
-      textColor: "black",
+      textColor: "white",
+      labelColor:'white'
     },
   },
 ];
@@ -140,43 +143,71 @@ export const themeBox = [
   },
 ];
 export const customLayoutData = [
-  {
-    order: 1,
-    type: "TESTIMONALS",
-    name:'Testimonals',
-    content: [
-      {
-        order: 1,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-    ],
-  },
+
   {
     order: 1,
     type: "LOGO",
-    name:'logo',
+    name: "logo",
+    checked:false,
     content: [
       {
         order: 1,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 2,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 3,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 4,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 5,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+      {
+        order: 6,
         imageUrl:
           "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
       },
     ],
   },
   {
-    order: 1,
-    type: "STATEMENTS",
-    name:'Statements',
+    order: 2,
+    type: "TESTIMONALS",
+    name: "Testimonals",
+    checked:true,
     content: [
       {
-        order: 1,
+        order: 2,
         imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+          "",
       },
     ],
   },
-  
+  {
+    order: 3,
+    type: "STATEMENTS",
+    name: "Statements",
+    checked:true,
+     content: [
+      {
+        order: 3,
+        imageUrl:
+          "",
+      },
+    ],
+  },
 ];
 
 // login types data config

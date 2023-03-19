@@ -43,6 +43,7 @@ export interface LayoutState {
     contentBackground: string;
     gridContentWidth: string;
     viewPort: ViewPort;
+    content: LayoutContent[];
   };
   setViewPort: (viewPort: ViewPort) => void;
 }

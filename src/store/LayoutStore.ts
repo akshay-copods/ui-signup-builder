@@ -7,15 +7,30 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
   contentBackground: "#120338",
   viewPort: ViewPort.DESKTOP,
   content: [
+    
     {
       order: 1,
-      type: "LOGO",
-      name:'logo',
+      type: "TESTIMONALS",
+      name: "Testimonals",
+      checked:true,
       content: [
         {
           order: 1,
           imageUrl:
-            "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+            "",
+        },
+      ],
+    },
+    {
+      order:21,
+      type: "STATEMENTS",
+      name: "Statements",
+      checked:true,
+      content: [
+        {
+          order: 2,
+          imageUrl:
+            "",
         },
       ],
     },
@@ -48,6 +63,7 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
       gridLayout: get().gridLayout,
       contentBackground: get().contentBackground,
       viewPort:get().viewPort,
+      content:get().content,
       gridContentWidth: get().gridContentWidth,
     };
   },
