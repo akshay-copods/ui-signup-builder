@@ -17,9 +17,9 @@ export const SignupFormContainer = () => {
         <div className="bg-geekblue-100 py-7 flex px-5 flex-col gap-7">
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
-              <RedoOutlined />
+              <RedoOutlined className="cursor-pointer" />
               <hr className="h-5 w-px bg-geekblue-300" />
-              <UndoOutlined />
+              <UndoOutlined className="cursor-pointer"  />
             </div>
             <div className="flex gap-4 items-center">
               <MobileOutlined
