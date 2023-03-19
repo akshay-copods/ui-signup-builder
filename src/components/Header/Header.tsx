@@ -45,7 +45,7 @@ export const Header = () => {
         aria-label="Sign Up Builder"
         className="text-2xl text-customBlack-600 font-medium"
       >
-        &lt; Sign Up Builder
+        Sign Up Builder
       </h3>
       <button
         onClick={saveConfig}
