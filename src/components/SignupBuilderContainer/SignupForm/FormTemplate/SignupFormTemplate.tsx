@@ -19,7 +19,13 @@ export const SignupFormTemplate = () => {
   const { getLayoutData } = useLayoutStore();
 
   return (
-    <div>
+    <div
+      className={`${
+        (getLayoutData().viewPort === "MOBILE" ||
+          getLayoutData().viewPort === "TABLET") &&
+        "self-center"
+      }`}
+    >
       <SignupComponent
         data={{
           theme,

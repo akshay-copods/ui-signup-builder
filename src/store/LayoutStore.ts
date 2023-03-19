@@ -46,6 +46,7 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
     return {
       gridLayout: get().gridLayout,
       contentBackground: get().contentBackground,
+      viewPort:get().viewPort
     };
   },
   setViewPort(viewPort) {
