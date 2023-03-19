@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { Grid, LayoutState } from "../types/LayoutStoreTypes";
 
 export const useLayoutStore = create<LayoutState>()((set, get) => ({
-  gridLayout: Grid.SINGLE,
+  gridLayout: Grid.SPLIT,
   gridContentWidth: "100%",
   contentBackground: "#120338",
   content: [
@@ -41,4 +41,10 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
   getLayoutContent() {
     return get().content;
   },
+  getLayoutData() {
+    return {
+      gridLayout: get().gridLayout,
+      contentBackground: get().contentBackground,
+    };
+  }
 }));

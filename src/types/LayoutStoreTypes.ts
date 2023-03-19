@@ -24,10 +24,11 @@ export interface LayoutState {
   gridLayout: Grid;
   gridContentWidth: string;
   content: LayoutContent[];
-  contentBackground: String;
+  contentBackground: string;
   setGrid: (layout: Grid) => void;
   setGridContentWidth: (width: string) => void;
   setLayoutContent: (content: LayoutContent[]) => void;
   getLayoutContent: () => LayoutContent[];
   setContentBackground: (color: string) => void;
+  getLayoutData: () => { gridLayout: Grid; contentBackground: string };
 }
