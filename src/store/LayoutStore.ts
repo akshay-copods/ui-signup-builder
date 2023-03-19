@@ -1,10 +1,11 @@
 import { create } from "zustand";
-import { Grid, LayoutState } from "../types/LayoutStoreTypes";
+import { Grid, LayoutState, ViewPort } from "../types/LayoutStoreTypes";
 
 export const useLayoutStore = create<LayoutState>()((set, get) => ({
   gridLayout: Grid.SPLIT,
   gridContentWidth: "100%",
   contentBackground: "#120338",
+  viewPort: ViewPort.DESKTOP,
   content: [
     {
       order: 1,
@@ -46,5 +47,10 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
       gridLayout: get().gridLayout,
       contentBackground: get().contentBackground,
     };
-  }
+  },
+  setViewPort(viewPort) {
+    set((state) => ({
+      viewPort,
+    }));
+  },
 }));

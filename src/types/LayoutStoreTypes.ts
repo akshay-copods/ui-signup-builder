@@ -20,9 +20,16 @@ export enum Grid {
   SINGLE = "SINGLE",
   SPLIT = "SPLIT",
 }
+export enum ViewPort {
+  MOBILE = "MOBILE",
+  TABLET = "TABLET",
+  DESKTOP = "DESKTOP",
+  FULLSCREEN = "FULLSCREEN",
+}
 export interface LayoutState {
   gridLayout: Grid;
   gridContentWidth: string;
+  viewPort: ViewPort;
   content: LayoutContent[];
   contentBackground: string;
   setGrid: (layout: Grid) => void;
@@ -31,4 +38,5 @@ export interface LayoutState {
   getLayoutContent: () => LayoutContent[];
   setContentBackground: (color: string) => void;
   getLayoutData: () => { gridLayout: Grid; contentBackground: string };
+  setViewPort: (viewPort: ViewPort) => void;
 }
