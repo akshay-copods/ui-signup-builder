@@ -7,18 +7,21 @@ export const themeConfig = [
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "black",
+      labelColor:'black'
     },
     dark: {
-      backgroundColor: "white",
+      backgroundColor: "black",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "black",
+      labelColor:'white'
     },
     texture: {
       backgroundColor: "white",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
-      textColor: "black",
+      textColor: "white",
+      labelColor:'white'
     },
   },
 ];

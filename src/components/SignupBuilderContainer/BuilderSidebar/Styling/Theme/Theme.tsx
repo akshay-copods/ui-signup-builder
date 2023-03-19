@@ -14,6 +14,7 @@ export const Theme = () => {
         primaryColor: "#2f54eb",
         secondaryColor: "red",
         textColor: "black",
+        labelColor:'black'
       },
     },
     {
@@ -25,6 +26,7 @@ export const Theme = () => {
         primaryColor: "#2f54eb",
         secondaryColor: "red",
         textColor: "white",
+        labelColor:'white'
       },
     },
 
@@ -37,6 +39,7 @@ export const Theme = () => {
         primaryColor: "#2f54eb",
         secondaryColor: "red",
         textColor: "white",
+        labelColor:'white'
       },
     },
   ];

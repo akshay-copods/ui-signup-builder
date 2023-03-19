@@ -7,10 +7,12 @@ interface ThemeState {
     secondaryColor: string;
     textColor: string;
     errorColor: string;
+    labelColor: string;
   };
   setTheme: (theme: ThemeState["theme"]) => void;
   changePrimaryColor: (color: string) => void;
   changeErrorColor: (color: string) => void;
+  changeLabelColor: (color: string) => void;
   changeSecondaryColor: (color: string) => void;
   changeBackgroundColor: (color: string) => void;
 }
@@ -22,6 +24,7 @@ export const useThemeStore = create<ThemeState>()((set) => ({
     secondaryColor: "red",
     textColor: "black",
     errorColor: "red",
+    labelColor:'black'
   },
   setTheme(theme) {
     set((state) => ({
@@ -44,6 +47,14 @@ export const useThemeStore = create<ThemeState>()((set) => ({
       theme: {
         ...state.theme,
         errorColor: color,
+      },
+    }));
+  },
+  changeLabelColor(color) {
+    set((state) => ({
+      theme: {
+        ...state.theme,
+        labelColor: color,
       },
     }));
   },

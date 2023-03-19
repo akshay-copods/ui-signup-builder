@@ -8,6 +8,7 @@ import {
 } from "../../../../../stylingConfig";
 import { CurrentInputFieldState } from "../../../../../types/InputStoreTypes";
 import { useInputFieldStore } from "../../../../../store/InputFieldStore";
+import { useThemeStore } from "../../../../../store";
 export const InputFieldStyling = () => {
   const {
     getInputFieldStateTheme,
@@ -15,7 +16,7 @@ export const InputFieldStyling = () => {
     getLabelTheme,
     setLabelTheme,
   } = useInputFieldStore();
-
+ const{changeLabelColor,theme}= useThemeStore();
   // To store input state
   const [inputFieldState, setInputFieldState] =
     useState<CurrentInputFieldState>(CurrentInputFieldState.DEFAULT);
@@ -186,15 +187,12 @@ export const InputFieldStyling = () => {
       />
       <ColorPickerComponent
         label="Label Color"
-        value={getLabelTheme().fontColor}
+        value={theme.labelColor}
         popup={true}
-        onChange={(value) =>
-          setLabelTheme({
-            ...getLabelTheme(),
-            fontColor: (getLabelTheme().fontColor = value.hex),
-          })
-        }
-        fontColor={getLabelTheme().fontColor}
+        onChange={(value) => {
+          changeLabelColor(value.hex);
+        }}
+        fontColor={theme.labelColor}
       />
     </div>
   );
