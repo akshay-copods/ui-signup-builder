@@ -75,9 +75,9 @@ export const SocialButtonStyling = () => {
           Social Button Styling
         </span>
         {currentAccordian === 1 ? (
-          <UpOutlined style={{ fontSize: '10px'}} className="text-black" />
+          <UpOutlined style={{ fontSize: "10px" }} className="text-black" />
         ) : (
-          <DownOutlined style={{ fontSize: '10px'}} className="text-black" />
+          <DownOutlined style={{ fontSize: "10px" }} className="text-black" />
         )}
       </div>
       {/* {position} */}
@@ -199,11 +199,11 @@ export const SocialButtonStyling = () => {
                       setSocialButtonStateTheme(socialButtonState, {
                         ...getSocialButtonStateTheme(socialButtonState),
                         borderRadius:
-                        getSocialButtonStateTheme(socialButtonState).borderRadius
-                        > 0
-                        ? getSocialButtonStateTheme(socialButtonState).borderRadius
-                           - 1
-                        : 0,
+                          getSocialButtonStateTheme(socialButtonState)
+                            .borderRadius > 0
+                            ? getSocialButtonStateTheme(socialButtonState)
+                                .borderRadius - 1
+                            : 0,
                       })
                     }
                   />
