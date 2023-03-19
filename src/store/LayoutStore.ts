@@ -3,13 +3,14 @@ import { Grid, LayoutState, ViewPort } from "../types/LayoutStoreTypes";
 
 export const useLayoutStore = create<LayoutState>()((set, get) => ({
   gridLayout: Grid.SPLIT,
-  gridContentWidth: "100%",
+  gridContentWidth: "50",
   contentBackground: "#120338",
   viewPort: ViewPort.DESKTOP,
   content: [
     {
       order: 1,
       type: "LOGO",
+      name:'logo',
       content: [
         {
           order: 1,
@@ -46,7 +47,8 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
     return {
       gridLayout: get().gridLayout,
       contentBackground: get().contentBackground,
-      viewPort:get().viewPort
+      viewPort:get().viewPort,
+      gridContentWidth: get().gridContentWidth,
     };
   },
   setViewPort(viewPort) {

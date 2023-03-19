@@ -14,6 +14,7 @@ export type LayoutContentLogo = {
 export type LayoutContent = {
   order: number;
   type: string;
+  name: string;
   content: LayoutContentTestimonial[] | LayoutContentLogo[];
 };
 export enum Grid {
@@ -37,6 +38,11 @@ export interface LayoutState {
   setLayoutContent: (content: LayoutContent[]) => void;
   getLayoutContent: () => LayoutContent[];
   setContentBackground: (color: string) => void;
-  getLayoutData: () => { gridLayout: Grid; contentBackground: string,viewPort:ViewPort };
+  getLayoutData: () => {
+    gridLayout: Grid;
+    contentBackground: string;
+    gridContentWidth: string;
+    viewPort: ViewPort;
+  };
   setViewPort: (viewPort: ViewPort) => void;
 }

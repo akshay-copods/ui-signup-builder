@@ -141,40 +141,42 @@ export const themeBox = [
 ];
 export const customLayoutData = [
   {
-    label: "Testimonals",
-    value: "testimonals ",
-
-    // logo: <EditOutlined />,
-    checked: true,
+    order: 1,
+    type: "TESTIMONALS",
+    name:'Testimonals',
+    content: [
+      {
+        order: 1,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+    ],
   },
   {
-    label: "Logos",
-    value: "logos ",
-
-    // logo: <EditOutlined />,
-    checked: false,
+    order: 1,
+    type: "LOGO",
+    name:'logo',
+    content: [
+      {
+        order: 1,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+    ],
   },
   {
-    label: "Values",
-    value: "values ",
-
-    // logo: <EditOutlined />,
-    checked: false,
+    order: 1,
+    type: "STATEMENTS",
+    name:'Statements',
+    content: [
+      {
+        order: 1,
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+    ],
   },
-  {
-    label: "Marketing Banner",
-    value: "marketingBanner ",
-
-    // logo: <EditOutlined />,
-    checked: false,
-  },
-  {
-    label: "Statements",
-    value: "statements ",
-
-    // logo: <EditOutlined />,
-    checked: true,
-  },
+  
 ];
 
 // login types data config
