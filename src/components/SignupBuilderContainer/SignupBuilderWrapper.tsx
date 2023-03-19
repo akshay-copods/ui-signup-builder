@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs, TabsProps } from "antd";
-import { SignupBuilderContainer } from '../index'
+import { SignupBuilderContainer, TemplateContainer } from '../index'
 export const SignupBuilderWrapper = () => {
   const items: TabsProps["items"] = [
     {
@@ -11,7 +11,7 @@ export const SignupBuilderWrapper = () => {
     {
       key: "2",
       label: `Templates`,
-      //   children: <TemplateContainer />,
+        children: <TemplateContainer />,
     },
   ];
   return <Tabs defaultActiveKey="1" items={items} />;

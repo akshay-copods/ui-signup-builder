@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { SignupFormTemplate } from "../..";
 import { Navigate, Route, Routes } from "react-router-dom";
+import SecondForm from "./FormTemplate/SecondForm";
 export const SignupFormContainer = () => {
   return (
       <div className="w-full">
@@ -94,7 +95,7 @@ export const SignupFormContainer = () => {
           <Routes>
           <Route path="/" element={<Navigate to="/template1" />} />
           <Route path="template1" element={<SignupFormTemplate />} />
-          
+          <Route path="template2" element={<SecondForm />} />
         </Routes>
         </div>
       </div>

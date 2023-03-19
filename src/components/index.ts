@@ -19,3 +19,4 @@ export {SocialLogin} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/So
 export {LoginMethod} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/LoginMethods'
 export {UserApprovel} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/UserApprovel'
 export {LogoImageStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Logo/LogoImageStyling'
+export {TemplateContainer} from './SignupBuilderContainer/Template/TemplateContainer'
