@@ -1,7 +1,13 @@
 import { Tabs, TabsProps } from "antd";
 import React from "react";
-import { BuilderSidebar, LoginTypes } from "../..";
-export const BuilderSidebarWrapper = () => {
+import { BuilderSidebar, EditMenu, LoginTypes } from "../..";
+export const BuilderSidebarWrapper = ({
+  setEditMenuOpen,
+  editMenuOpen,
+}: {
+  setEditMenuOpen: (e: boolean) => void;
+  editMenuOpen: boolean;
+}) => {
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -11,14 +17,16 @@ export const BuilderSidebarWrapper = () => {
     {
       key: "2",
       label: `Styling`,
-      children: <BuilderSidebar />,
+      children: <BuilderSidebar setEditMenuOpen={setEditMenuOpen} />,
     },
   ];
   return (
-    <Tabs
-      id='sidebar-tabs-container'
-      defaultActiveKey='1'
-      items={items}
-    />
+    <div>
+      {editMenuOpen ? (
+        <EditMenu setEditMenuOpen={setEditMenuOpen} />
+      ) : (
+        <Tabs id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
+      )}
+    </div>
   );
 };

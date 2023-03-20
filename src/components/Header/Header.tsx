@@ -6,6 +6,7 @@ import {
   useInputFieldStore,
   useLayoutStore,
   useLoginTypesStore,
+  useLogoStore,
   useThemeStore,
   useTypographyStore,
 } from "../../store";
@@ -17,6 +18,7 @@ export const Header = () => {
   const { getTypographyStyles } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
+  const {getLogoData} =useLogoStore()
 
   const saveConfig = async (e) => {
     e.preventDefault();
@@ -31,6 +33,7 @@ export const Header = () => {
           typography: getTypographyStyles(),
           loginTypes: getAllLoginTypes(),
           layout: getLayoutData(),
+          logo:getLogoData()
         },
       });
       console.log("Document written with ID: ", docRef.id);

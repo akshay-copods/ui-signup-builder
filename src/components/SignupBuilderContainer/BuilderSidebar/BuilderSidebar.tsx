@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   ButtonStyling,
   ColorsStyling,
+  EditMenu,
   InputFieldStyling,
   LogoImageStyling,
   Theme,
@@ -31,14 +32,15 @@ function getItem(
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub3"];
 
-export const BuilderSidebar = () => {
+export const BuilderSidebar = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
-
   const items: MenuItem[] = [
     getItem("Theme", "sub1", "", [getItem(<Theme />, "1")]),
-    getItem("Layout", "sub2", "", [getItem(<LayoutStyling />, "2")]),
+    getItem("Layout", "sub2", "", [
+      getItem(<LayoutStyling setEditMenuOpen={setEditMenuOpen} />, "2"),
+    ]),
     getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
-    getItem("Logo Image", "sub4", "", [getItem(<LogoImageStyling/>, "4")]),
+    getItem("Logo Image", "sub4", "", [getItem(<LogoImageStyling />, "4")]),
     getItem("Colors", "sub5", "", [getItem(<ColorsStyling />, "5")]),
     getItem("Input Field", "sub6", "", [getItem(<InputFieldStyling />, "6")]),
     getItem("Typography", "sub7", "", [getItem(<TypographyStyling />, "7")]),
@@ -53,12 +55,16 @@ export const BuilderSidebar = () => {
     }
   };
   return (
-    <Menu
-      mode='inline'
-      openKeys={openKeys}
-      onOpenChange={onOpenChange}
-      style={{ width: "auto", fontSize: "14px" }}
-      items={items}
-    />
+    <div>
+     
+        <Menu
+          mode="inline"
+          openKeys={openKeys}
+          onOpenChange={onOpenChange}
+          style={{ width: "auto", fontSize: "14px" }}
+          items={items}
+        />
+      
+    </div>
   );
 };

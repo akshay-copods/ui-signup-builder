@@ -4,11 +4,12 @@ import { SignupBuilderContainer } from "../index";
 import { TemplateContainer } from "./Template/TemplateContainer";
 export const SignupBuilderWrapper = () => {
   const [activeKey, setActiveKey] = useState("1");
+
   const items: TabsProps["items"] = [
     {
       key: "1",
       label: `Builder`,
-      children: <SignupBuilderContainer />,
+      children: <SignupBuilderContainer  />,
     },
     {
       key: "2",
@@ -16,7 +17,6 @@ export const SignupBuilderWrapper = () => {
       children: <TemplateContainer setActiveKey={setActiveKey} />,
     },
   ];
-  console.log(activeKey, "kk");
   return (
     <Tabs
       activeKey={activeKey}

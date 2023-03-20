@@ -4,8 +4,8 @@ import { useLayoutStore, useThemeStore } from "../../../../../store";
 import { Grid } from "../../../../../types/LayoutStoreTypes";
 import { Icon } from "@iconify/react";
 import { customLayoutData } from "../../../../../stylingConfig";
-
-export const LayoutStyling = () => {
+import  { EditOutlined } from '@ant-design/icons';
+export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
   const [color, setColor] = useState("#000000");
   const [sliderValue, setSldierValue] = useState(50);
   const {
@@ -110,7 +110,7 @@ export const LayoutStyling = () => {
                 <span className="font-normal whitespace-normal text-xs text-customBlack-400">
                   {data.name}
                 </span>
-                <span className="text-[#1890FF]">{data.logo}</span>
+                <EditOutlined onClick={()=>setEditMenuOpen(true)} className="text-geekblue-600" />
               </div>
             </div>
           );
