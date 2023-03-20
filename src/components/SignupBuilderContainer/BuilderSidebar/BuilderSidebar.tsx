@@ -4,6 +4,7 @@ import {
   ButtonStyling,
   ColorsStyling,
   InputFieldStyling,
+  LogoImageStyling,
   Theme,
   TypographyStyling,
 } from "../..";
@@ -37,7 +38,7 @@ export const BuilderSidebar = () => {
     getItem("Theme", "sub1", "", [getItem(<Theme />, "1")]),
     getItem("Layout", "sub2", "", [getItem(<LayoutStyling />, "2")]),
     getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
-    // getItem("Logo Image", "sub4", "", [getItem("logoimage", "4")]),
+    getItem("Logo Image", "sub4", "", [getItem(<LogoImageStyling/>, "4")]),
     getItem("Colors", "sub5", "", [getItem(<ColorsStyling />, "5")]),
     getItem("Input Field", "sub6", "", [getItem(<InputFieldStyling />, "6")]),
     getItem("Typography", "sub7", "", [getItem(<TypographyStyling />, "7")]),

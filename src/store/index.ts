@@ -4,3 +4,4 @@ export { useLayoutStore } from "./LayoutStore";
 export { useLoginTypesStore } from "./LoginTypesStore";
 export { useThemeStore } from "./ThemeStore";
 export { useTypographyStore } from "./TypographyStore";
+export {useLogoStore} from './LogoStore'
