@@ -9,9 +9,11 @@ import {
 import { Modal } from "antd";
 import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { SecondTemplate } from "react-wrapper";
 import { SignupFormTemplate } from "../..";
 import { useLayoutStore } from "../../../store";
 import { ViewPort } from "../../../types/LayoutStoreTypes";
+
 export const SignupFormContainer = () => {
   const { setViewPort, viewPort } = useLayoutStore();
   const [open, setOpen] = useState(false);
@@ -97,6 +99,10 @@ export const SignupFormContainer = () => {
           <Route
             path='template1'
             element={<SignupFormTemplate />}
+          />
+          <Route
+            path='template2'
+            element={<SecondTemplate />}
           />
         </Routes>
       </div>
