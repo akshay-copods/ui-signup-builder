@@ -1,4 +1,5 @@
 import { SelectProps } from "antd";
+import { Alignment } from "./types/LogoStoreTypes";
 
 export const themeConfig = [
   {
@@ -59,18 +60,18 @@ export const fontsFamily = [
   { value: "'Roboto', sans-serif", label: "Roboto" },
   { value: "cursive", label: "Cursive" },
 ];
-export const logoAlignments: SelectProps["options"] = [
+export const logoAlignments = [
   {
     label: "Left",
-    value: "left",
+    value: Alignment.LEFT,
   },
   {
     label: "Center",
-    value: "center",
+    value: Alignment.CENTER,
   },
   {
     label: "Right",
-    value: "right",
+    value: Alignment.RIGHT,
   },
 ];
 export const layoutType = [

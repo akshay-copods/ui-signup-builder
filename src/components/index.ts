@@ -17,3 +17,4 @@ export {TypographyStyling} from './SignupBuilderContainer/BuilderSidebar/Styling
 export {LoginTypes} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/LoginTypes'
 export {SocialLogin} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/SocialLogin'
 export {LoginMethod} from './SignupBuilderContainer/BuilderSidebar/LoginTypes/LoginMethods'
+export {LogoImageStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/Logo/LogoImageStyling'

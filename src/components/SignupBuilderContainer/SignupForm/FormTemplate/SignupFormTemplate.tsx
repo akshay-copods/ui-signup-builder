@@ -6,6 +6,7 @@ import {
   useInputFieldStore,
   useLayoutStore,
   useLoginTypesStore,
+  useLogoStore,
   useThemeStore,
   useTypographyStore,
 } from "../../../../store";
@@ -17,6 +18,7 @@ export const SignupFormTemplate = () => {
   const { getTypographyStyles, setTitleText } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
+  const {getLogoData} =useLogoStore()
   const [title, setTitle] = React.useState(getTypographyStyles().titleText);
   console.log(getTypographyStyles());
   const getEmittedValue = (e: any) => {
@@ -44,6 +46,7 @@ export const SignupFormTemplate = () => {
           typography: getTypographyStyles(),
           loginTypes: getAllLoginTypes(),
           layout: getLayoutData(),
+          logo:getLogoData()
         }}
       />
     </div>
