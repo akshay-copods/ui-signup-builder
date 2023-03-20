@@ -116,7 +116,8 @@ export const SignupFormContainer = () => {
         onCancel={() => {
           setOpen(false), setViewPort(ViewPort.DESKTOP);
         }}
-        width={"100%"}>
+        width={"100%"}
+        >
         <SignupFormTemplate />
       </Modal>
     </div>

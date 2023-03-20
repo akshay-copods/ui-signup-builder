@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { SignupBuilderContainer } from "../index";
 import { TemplateContainer } from "./Template/TemplateContainer";
 export const SignupBuilderWrapper = () => {
-  const [activeKey, setActiveKey] = useState("" as TabsProps["activeKey"]);
+  const [activeKey, setActiveKey] = useState("1");
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -16,9 +16,12 @@ export const SignupBuilderWrapper = () => {
       children: <TemplateContainer setActiveKey={setActiveKey} />,
     },
   ];
+  console.log(activeKey, "kk");
   return (
     <Tabs
-      defaultActiveKey='1'
+      activeKey={activeKey}
+      onChange={(e) => setActiveKey(e)}
+      defaultActiveKey="1"
       items={items}
     />
   );
