@@ -8,6 +8,7 @@ import {
 export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   fontFamily: FontFamily.Roboto,
   titleText: "Start your journey with us.",
+  welcomeMessage: "Welcome to Company Name!",
   title: {
     fontSize: "20px",
     Bold: false,
@@ -33,6 +34,7 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
       titleText: get().titleText,
       links: get().links,
       normalText: get().normalText,
+      welcomeMessage: get().welcomeMessage,
     };
   },
   getNormalText() {

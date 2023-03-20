@@ -16,6 +16,7 @@ export interface LinkTypography {
 }
 export interface TypographyTypes {
   fontFamily: FontFamily;
+  welcomeMessage: string;
   title: TextTypography;
   titleText: string;
   subTitle: TextTypography;
@@ -28,6 +29,7 @@ export interface TypographyTypes {
     subTitle: TextTypography;
     links: LinkTypography;
     normalText: TextTypography;
+    welcomeMessage: string;
   };
   getNormalText: () => TextTypography;
   getSubTitle: () => TextTypography;

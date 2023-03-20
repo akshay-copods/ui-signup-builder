@@ -1,17 +1,18 @@
+import { Button, Input, Select } from "antd";
+import Search from "antd/es/input/Search";
 import React from "react";
 import { SelectComponent } from "../../../..";
+import { useTypographyStore } from "../../../../../store/TypographyStore";
 import {
   fontsFamily,
   fontSizes,
   linkStyle,
   titleFontSizes,
 } from "../../../../../stylingConfig";
-import { useTypographyStore } from "../../../../../store/TypographyStore";
-import Search from "antd/es/input/Search";
-import { Button, Select } from "antd";
 export const TypographyStyling = () => {
   const {
     fontFamily,
+    welcomeMessage,
     setFontFamily,
     title,
     normalText,
@@ -25,35 +26,43 @@ export const TypographyStyling = () => {
   } = useTypographyStore();
   const styles = getTypographyStyles();
   return (
-    <div className="p-5 pt-0 flex flex-col gap-3">
-      <span className="text-xs text-customBlack-600 font-medium">
+    <div className='p-5 pt-0 flex flex-col gap-3'>
+      <div className={`flex gap-2 items-center flex-col`}>
+        <label className='self-start'>Welcome message</label>
+        <Input
+          title='j'
+          placeholder='Basic usage'
+          value={welcomeMessage}
+        />
+      </div>
+      <span className='text-xs text-customBlack-600 font-medium'>
         Reference text Sizes
       </span>
-      <div className="flex flex-col gap-2">
-        <span className="text-xs text-customBlack-600">Font URL</span>
+      <div className='flex flex-col gap-2'>
+        <span className='text-xs text-customBlack-600'>Font URL</span>
         <Search
-          addonBefore="https://"
-          placeholder="input search text"
+          addonBefore='https://'
+          placeholder='input search text'
           allowClear
           onSearch={undefined}
           style={{ width: 304 }}
         />
-        <span className="text-customBlack-400 text-xs">
+        <span className='text-customBlack-400 text-xs'>
           This URL must be a woff or woff2 font file type
         </span>
-        <div className="flex justify-between items-center gap-2">
-          <hr className="h-px  w-full border-t border-dashed border-gray-300" />{" "}
+        <div className='flex justify-between items-center gap-2'>
+          <hr className='h-px  w-full border-t border-dashed border-gray-300' />{" "}
           <div className={`text-xs w-full text-gray-600 text-center  `}>OR</div>{" "}
-          <hr className="h-px  w-full border-t border-dashed border-gray-300" />
+          <hr className='h-px  w-full border-t border-dashed border-gray-300' />
         </div>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <div className="flex flex-col border-dashed border-b border-[#0000000f] gap-2 y-4">
-          <span className="text-xs text-customBlack-600 font-medium">
+      <div className='flex flex-col gap-3'>
+        <div className='flex flex-col border-dashed border-b border-[#0000000f] gap-2 y-4'>
+          <span className='text-xs text-customBlack-600 font-medium'>
             Select Font
           </span>
-          <div className="flex flex-col pb-4 gap-1">
+          <div className='flex flex-col pb-4 gap-1'>
             <SelectComponent
               value={styles.fontFamily}
               onChange={(value) => {
@@ -64,9 +73,9 @@ export const TypographyStyling = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center">
-            <span className="text-xs w-2/4 text-customBlack-400">
+        <div className='flex flex-col gap-4'>
+          <div className='flex items-center'>
+            <span className='text-xs w-2/4 text-customBlack-400'>
               {"Normal Text"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
@@ -79,8 +88,7 @@ export const TypographyStyling = () => {
                     ...styles.normalText,
                     Bold: (normalText.Bold = !normalText.Bold),
                   })
-                }
-              >
+                }>
                 B
               </Button>
               <Select
@@ -96,8 +104,8 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className="flex items-center">
-            <span className="text-xs w-2/4 text-customBlack-400">
+          <div className='flex items-center'>
+            <span className='text-xs w-2/4 text-customBlack-400'>
               {"Title"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
@@ -110,8 +118,7 @@ export const TypographyStyling = () => {
                     ...styles.title,
                     Bold: (title.Bold = !title.Bold),
                   })
-                }
-              >
+                }>
                 B
               </Button>
               <Select
@@ -127,8 +134,8 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className="flex items-center">
-            <span className="text-xs w-2/4 text-customBlack-400">
+          <div className='flex items-center'>
+            <span className='text-xs w-2/4 text-customBlack-400'>
               {"Sub-Title"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
@@ -141,8 +148,7 @@ export const TypographyStyling = () => {
                     ...styles.subTitle,
                     Bold: (subTitle.Bold = !subTitle.Bold),
                   })
-                }
-              >
+                }>
                 B
               </Button>
               <Select
@@ -159,9 +165,9 @@ export const TypographyStyling = () => {
             </div>
           </div>
 
-          <hr className="h-px w-full bg-[#0000000f]" />
-          <div className="flex items-center">
-            <span className="text-xs w-2/4 text-customBlack-400">
+          <hr className='h-px w-full bg-[#0000000f]' />
+          <div className='flex items-center'>
+            <span className='text-xs w-2/4 text-customBlack-400'>
               {"Links"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
@@ -174,8 +180,7 @@ export const TypographyStyling = () => {
                     ...styles.links,
                     Bold: (links.Bold = !links.Bold),
                   })
-                }
-              >
+                }>
                 B
               </Button>
               <Select
@@ -191,8 +196,8 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className="flex items-center">
-            <span className="text-xs w-2/4 text-customBlack-400">
+          <div className='flex items-center'>
+            <span className='text-xs w-2/4 text-customBlack-400'>
               {"Links Style"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
