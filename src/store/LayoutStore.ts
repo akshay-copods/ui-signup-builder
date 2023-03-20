@@ -26,7 +26,11 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
       content: [
         {
           order: 1,
-          imageUrl: "",
+          personName: "John Doe",
+          personImage: "xyz",
+          personDesignation: "Engineer",
+          personCompany: "Company Name",
+          personQuote: "This is wonderful",
         },
       ],
     },
