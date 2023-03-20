@@ -3,7 +3,7 @@ import { Grid, LayoutState, ViewPort } from "../types/LayoutStoreTypes";
 
 export const useLayoutStore = create<LayoutState>()((set, get) => ({
   gridLayout: Grid.SPLIT,
-  gridContentWidth: "50",
+  gridContentWidth: "40",
   contentBackground: "#120338",
   viewPort: ViewPort.DESKTOP,
   content: [
