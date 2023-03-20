@@ -6,7 +6,11 @@ export type LayoutContentTestimonial = {
   personCompany: string;
   personQuote: string;
 };
-
+export type LayoutStatement = {
+  order: number;
+  title: string;
+  subTitle: string;
+};
 export type LayoutContentLogo = {
   order: number;
   imageUrl: string;
@@ -15,7 +19,7 @@ export type LayoutContent = {
   order: number;
   type: string;
   name: string;
-  content: LayoutContentTestimonial[] | LayoutContentLogo[];
+  content: LayoutContentTestimonial[] | LayoutContentLogo[] | LayoutStatement;
 };
 export enum Grid {
   SINGLE = "SINGLE",

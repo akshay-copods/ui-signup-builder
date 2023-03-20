@@ -7,30 +7,26 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
   contentBackground: "#120338",
   viewPort: ViewPort.DESKTOP,
   content: [
-    
+    {
+      order: 2,
+      type: "STATEMENTS",
+      name: "Statements",
+      checked: true,
+      content: {
+        order: 1,
+        title: "Welcome to Company Name!",
+        subTitle: "Start your journey with us.",
+      },
+    },
     {
       order: 1,
       type: "TESTIMONALS",
       name: "Testimonals",
-      checked:true,
+      checked: true,
       content: [
         {
           order: 1,
-          imageUrl:
-            "",
-        },
-      ],
-    },
-    {
-      order:21,
-      type: "STATEMENTS",
-      name: "Statements",
-      checked:true,
-      content: [
-        {
-          order: 2,
-          imageUrl:
-            "",
+          imageUrl: "",
         },
       ],
     },
@@ -62,8 +58,8 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
     return {
       gridLayout: get().gridLayout,
       contentBackground: get().contentBackground,
-      viewPort:get().viewPort,
-      content:get().content,
+      viewPort: get().viewPort,
+      content: get().content,
       gridContentWidth: get().gridContentWidth,
     };
   },
