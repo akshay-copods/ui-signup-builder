@@ -6,6 +6,7 @@ import {
 
 export const useInputFieldStore = create<InputFieldState>()((set, get) => ({
   label: { fontColor: "black", fontSize: "14px", fontWeight: "500" },
+  addInputField: [],
   defaultState: {
     backgroundColor: "white",
     fontColor: "black",
@@ -117,6 +118,20 @@ export const useInputFieldStore = create<InputFieldState>()((set, get) => ({
   setLabelTheme(labelTheme) {
     set({ label: labelTheme });
   },
+  addNewInputField(newInput) {
+    const addNewInputField = get().addInputField.find(
+      (inputField) => inputField.name === newInput.name
+    );
+    set((state) => ({
+      ...state,
+      addInputField: addNewInputField
+        ? get().addInputField.filter((i) => i.name !== addNewInputField.name)
+        : [...state.addInputField, { ...newInput }],
+    }));
+  },
+  getAddedInputFields() {
+    return get().addInputField;
+  },
   getInputFieldData() {
     return {
       defaultState: get().defaultState,
@@ -126,6 +141,7 @@ export const useInputFieldStore = create<InputFieldState>()((set, get) => ({
       hoverState: get().hoverState,
       focusState: get().focusState,
       label: get().label,
+      addInputField:get().addInputField
     };
   },
 }));

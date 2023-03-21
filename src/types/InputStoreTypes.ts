@@ -16,7 +16,16 @@ export enum CurrentInputFieldState {
   DISABLED = "DISABLED",
   ERROR = "ERROR",
 }
-
+export enum AddInputFields {
+  NAME = "NAME",
+  COMPANY_NAME = "COMPANY_NAME",
+  PHONE_NUMBER = "PHONE_NUMBER",
+}
+export interface AddInputField {
+  label:string,
+  name: AddInputFields;
+  placeholder:string
+}
 export type InputStateTheme = {
   backgroundColor: string;
   fontColor: string;
@@ -25,6 +34,7 @@ export type InputStateTheme = {
   box: InputBoxTheme;
 };
 export interface InputFieldState {
+  addInputField:AddInputField[]
   label: InputLabelTheme;
   defaultState: InputStateTheme;
   activeState: InputStateTheme;
@@ -50,4 +60,6 @@ export interface InputFieldState {
     hoverState: InputStateTheme;
     focusState: InputStateTheme;
   };
+  addNewInputField: (AddInputField: AddInputField) => void;
+  getAddedInputFields: () => AddInputField[];
 }
