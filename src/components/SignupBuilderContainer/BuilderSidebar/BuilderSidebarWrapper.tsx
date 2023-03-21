@@ -1,6 +1,6 @@
 import { Tabs, TabsProps } from "antd";
 import React from "react";
-import { BuilderSidebar, EditMenu, LoginTypes } from "../..";
+import { BrandAssests, BuilderSidebar, EditMenu, LoginTypes } from "../..";
 export const BuilderSidebarWrapper = ({
   setEditMenuOpen,
   editMenuOpen,
@@ -18,6 +18,11 @@ export const BuilderSidebarWrapper = ({
       key: "2",
       label: `Styling`,
       children: <BuilderSidebar setEditMenuOpen={setEditMenuOpen} />,
+    },
+    {
+      key: "3",
+      label: `Brand assets`,
+      children: <BrandAssests setEditMenuOpen={setEditMenuOpen} />,
     },
   ];
   return (
