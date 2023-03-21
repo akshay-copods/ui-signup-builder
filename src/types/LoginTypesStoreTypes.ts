@@ -26,4 +26,5 @@ export interface LoginTypesStore {
     loginMethods: LoginMethods;
     approvals: Approval[];
   };
+  setUserApprovalLink: (link: string) => void;
 }

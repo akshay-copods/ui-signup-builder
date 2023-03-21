@@ -62,6 +62,26 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
   getLoginMethods() {
     return get().loginMethods;
   },
+  setUserApprovalLink(link) {
+    set((state) => ({
+      ...state,
+      approvals: state.approvals.map((approval) => {
+        if (approval.name === "Terms of Use") {
+          return {
+            ...approval,
+            link,
+          };
+        }
+        if (approval.name === "Privacy Policy") {
+          return {
+            ...approval,
+            link,
+          };
+        }
+        return approval;
+      }),
+    }));
+  },
   getAllLoginTypes() {
     return {
       socialLoginTypes: get().socialLoginTypes,

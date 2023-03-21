@@ -1,4 +1,3 @@
-import { SelectProps } from "antd";
 import { Alignment } from "./types/LogoStoreTypes";
 
 export const themeConfig = [
@@ -8,21 +7,21 @@ export const themeConfig = [
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "black",
-      labelColor:'black'
+      labelColor: "black",
     },
     dark: {
       backgroundColor: "black",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "black",
-      labelColor:'white'
+      labelColor: "white",
     },
     texture: {
       backgroundColor: "white",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
       textColor: "white",
-      labelColor:'white'
+      labelColor: "white",
     },
   },
 ];
@@ -176,7 +175,7 @@ export const customLayoutData = [
         personImage: "xyz",
         personDesignation: "Engineer",
         personCompany: "Copods",
-        personQuote: "GOAT" 
+        personQuote: "GOAT",
       },
     ],
   },
@@ -184,7 +183,7 @@ export const customLayoutData = [
     order: 3,
     type: "LOGO",
     name: "logo",
-    checked:false,
+    checked: false,
     content: [
       {
         order: 1,
@@ -218,7 +217,7 @@ export const customLayoutData = [
       },
     ],
   },
-]
+];
 
 // login types data config
 export const emailPassData = [
@@ -257,10 +256,10 @@ export const socialButtonOptions = [
 export const userApprovalOptions = [
   {
     name: "Terms of Use",
-    link: "termsOfUse",
+    link: "",
   },
   {
     name: "Privacy Policy",
-    link: "privacyPolicy",
+    link: "",
   },
 ];
