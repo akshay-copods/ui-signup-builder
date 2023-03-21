@@ -40,10 +40,9 @@ export const BuilderSidebar = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>v
       getItem(<LayoutStyling setEditMenuOpen={setEditMenuOpen} />, "2"),
     ]),
     getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
-    getItem("Logo Image", "sub4", "", [getItem(<LogoImageStyling />, "4")]),
-    getItem("Colors", "sub5", "", [getItem(<ColorsStyling />, "5")]),
-    getItem("Input Field", "sub6", "", [getItem(<InputFieldStyling />, "6")]),
-    getItem("Typography", "sub7", "", [getItem(<TypographyStyling />, "7")]),
+    getItem("Colors", "sub4", "", [getItem(<ColorsStyling />, "4")]),
+    getItem("Input Field", "sub5", "", [getItem(<InputFieldStyling />, "5")]),
+    getItem("Typography", "sub6", "", [getItem(<TypographyStyling />, "6")]),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {
