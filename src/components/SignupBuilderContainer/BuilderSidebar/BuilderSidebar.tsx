@@ -41,7 +41,7 @@ export const BuilderSidebar = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>v
     ]),
     getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
     getItem("Colors", "sub4", "", [getItem(<ColorsStyling />, "4")]),
-    getItem("Input Field", "sub5", "", [getItem(<InputFieldStyling />, "5")]),
+    getItem("Input Field", "sub5", "", [getItem(<InputFieldStyling setEditMenuOpen={setEditMenuOpen} />, "5")]),
     getItem("Typography", "sub6", "", [getItem(<TypographyStyling />, "6")]),
   ];
 

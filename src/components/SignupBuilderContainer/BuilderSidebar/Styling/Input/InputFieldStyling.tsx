@@ -9,7 +9,7 @@ import {
 import { CurrentInputFieldState } from "../../../../../types/InputStoreTypes";
 import { useInputFieldStore } from "../../../../../store/InputFieldStore";
 import { useThemeStore } from "../../../../../store";
-export const InputFieldStyling = () => {
+export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
   const {
     getInputFieldStateTheme,
     setInputFieldStateTheme,
@@ -26,6 +26,7 @@ export const InputFieldStyling = () => {
 
   return (
     <div className="flex flex-col px-5 gap-4">
+      <span className="text-xs text-geekblue-600">Add Input Feild</span>
       <SelectComponent
         label={"Field State"}
         value={inputFieldState}
