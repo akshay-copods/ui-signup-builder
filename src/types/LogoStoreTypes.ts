@@ -5,13 +5,12 @@ export enum Alignment {
 }
 
 export interface LogoState {
-    logoImage: string;
-    alignment: Alignment;
+  logoImage: string;
+  alignment: Alignment;
   setImage: (logoImage: string) => void;
   setAlignment: (alignment: Alignment) => void;
   getLogoData: () => {
     logoImage: string;
     alignment: Alignment;
-    
   };
 }
