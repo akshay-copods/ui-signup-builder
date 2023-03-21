@@ -30,8 +30,17 @@ export const useLayoutStore = create<LayoutState>()((set, get) => ({
           personImage: "xyz",
           personDesignation: "Engineer",
           personCompany: "Company Name",
-          personQuote: "This is wonderful",
+          personQuote: "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly." 
         },
+        {
+          order: 2,
+          personName: "ashu ",
+          personImage: "xyz",
+          personDesignation: "Engineer",
+          personCompany: "Copods",
+          personQuote: "GOAT" 
+        },
+        
       ],
     },
   ],

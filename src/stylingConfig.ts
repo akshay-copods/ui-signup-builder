@@ -143,10 +143,45 @@ export const themeBox = [
     text: "Texture",
   },
 ];
-export const customLayoutData = [
 
+export const customLayoutData = [
   {
     order: 1,
+    type: "STATEMENTS",
+    name: "Statements",
+    checked: true,
+    content: {
+      order: 1,
+      title: "Welcome to Company Name!",
+      subTitle: "Start your journey with us.",
+    },
+  },
+  {
+    order: 2,
+    type: "TESTIMONALS",
+    name: "Testimonals",
+    checked: true,
+    content: [
+      {
+        order: 1,
+        personName: "John Doe",
+        personImage: "xyz",
+        personDesignation: "Engineer",
+        personCompany: "Company Name",
+        personQuote: "This is wonderful",
+      },
+      {
+        order: 2,
+        personName: "ashu ",
+        personImage: "xyz",
+        personDesignation: "Engineer",
+        personCompany: "Copods",
+        personQuote: "GOAT" 
+      },
+    ],
+  },
+  {
+    order: 3,
     type: "LOGO",
     name: "logo",
     checked:false,
@@ -183,33 +218,7 @@ export const customLayoutData = [
       },
     ],
   },
-  {
-    order: 2,
-    type: "TESTIMONALS",
-    name: "Testimonals",
-    checked:true,
-    content: [
-      {
-        order: 2,
-        imageUrl:
-          "",
-      },
-    ],
-  },
-  {
-    order: 3,
-    type: "STATEMENTS",
-    name: "Statements",
-    checked:true,
-     content: [
-      {
-        order: 3,
-        imageUrl:
-          "",
-      },
-    ],
-  },
-];
+]
 
 // login types data config
 export const emailPassData = [
