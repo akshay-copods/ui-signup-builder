@@ -9,6 +9,7 @@ import {
   linkStyle,
   titleFontSizes,
 } from "../../../../../stylingConfig";
+import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 export const TypographyStyling = () => {
   const {
     fontFamily,
@@ -25,6 +26,7 @@ export const TypographyStyling = () => {
     getTypographyStyles,
   } = useTypographyStore();
   const styles = getTypographyStyles();
+  const {setWelcomeMessage,getWelcomeMessage}= useBrandAssetStore()
   return (
     <div className='p-5 pt-0 flex flex-col gap-3'>
       <div className={`flex gap-2 items-center flex-col`}>
@@ -32,7 +34,8 @@ export const TypographyStyling = () => {
         <Input
           title='j'
           placeholder='Basic usage'
-          value={welcomeMessage}
+          value={getWelcomeMessage()}
+          onChange={(e)=>setWelcomeMessage(e.target.value)}
         />
       </div>
       <span className='text-xs text-customBlack-600 font-medium'>

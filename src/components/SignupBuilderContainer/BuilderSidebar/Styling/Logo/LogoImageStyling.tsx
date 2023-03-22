@@ -54,8 +54,8 @@ export const LogoImageStyling = () => {
           onPreview={onPreview}
         >
           {fileList.length < 1 && (
-            <div className="flex flex-col items-center justify-center p-5 gap-4">
-              <InboxOutlined />
+            <div className="flex flex-col items-center justify-center gap-4">
+              <InboxOutlined style={{fontSize:26,color:'#1890FF'}} />
               <div className="flex flex-col w-56 gap-1">
                 <span className="text-customBlack-600 text-xs">
                   Click or drag file to this area to upload
