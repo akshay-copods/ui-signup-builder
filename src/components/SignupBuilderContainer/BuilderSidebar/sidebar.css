@@ -72,6 +72,7 @@
   .ant-upload-select{
     width: 314px !important;
     height: auto !important;
+    padding: 20px;
   }
   .ant-upload-list-item-container{
     width: 100% !important;
