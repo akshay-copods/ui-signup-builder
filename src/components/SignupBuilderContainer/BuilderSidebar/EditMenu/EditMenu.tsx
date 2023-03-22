@@ -2,15 +2,15 @@ import React from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { AddInputField } from "../../..";
 export const EditMenu = ({
-  setEditMenuOpen,
+  setEditMenuOpen
 }: {
-  setEditMenuOpen: (e: boolean) => void;
+  setEditMenuOpen?: any
 }) => {
   return (
     <div className="p-5">
-      <div className="flex justify-between items-center">
+      <div className="flex gap-3 items-center">
         <DownOutlined onClick={() => setEditMenuOpen(false)} rotate={90} />
-        <span>Add Input Fields</span>
+        <span>Add Input Field</span>
       </div>
       <AddInputField/>
     </div>

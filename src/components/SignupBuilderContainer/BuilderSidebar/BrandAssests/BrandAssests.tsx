@@ -26,7 +26,7 @@ const rootSubmenuKeys = ["sub1", "sub2", "sub3"];
 export const BrandAssests = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const items: MenuItem[] = [
-    getItem("Logo Image", "sub1", "", [getItem(<LogoImageStyling />, "1")]),
+    getItem("Company Logo", "sub1", "", [getItem(<LogoImageStyling />, "1")]),
    
   ];
 

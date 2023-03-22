@@ -1,3 +1,4 @@
+import { AddInputFields } from "./types/InputStoreTypes";
 import { Alignment } from "./types/LogoStoreTypes";
 
 export const themeConfig = [
@@ -263,3 +264,20 @@ export const userApprovalOptions = [
     link: "",
   },
 ];
+export const  addInputFieldsData= [
+  {
+    label:'Name',
+    name: AddInputFields.NAME,
+    placeholder:'Enter Name'
+  },
+  {
+    label:'Company Name',
+    name:AddInputFields.COMPANY_NAME,
+    placeholder:'Enter Company Name'
+  },
+  {
+    label:'Phone Number',
+    name: AddInputFields.PHONE_NUMBER,
+    placeholder:'Enter Phone Number'
+  },
+]
