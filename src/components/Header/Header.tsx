@@ -10,6 +10,7 @@ import {
   useThemeStore,
   useTypographyStore,
 } from "../../store";
+import { useBrandAssetStore } from "../../store/BrandAssetStore";
 
 export const Header = () => {
   const { theme } = useThemeStore();
@@ -18,7 +19,7 @@ export const Header = () => {
   const { getTypographyStyles } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
-  const {getLogoData} =useLogoStore()
+  const {getBrandAssets}=useBrandAssetStore()
 
   const saveConfig = async (e) => {
     e.preventDefault();
@@ -33,7 +34,7 @@ export const Header = () => {
           typography: getTypographyStyles(),
           loginTypes: getAllLoginTypes(),
           layout: getLayoutData(),
-          logo:getLogoData()
+          brandAssests:getBrandAssets()
         },
       });
       console.log("Document written with ID: ", docRef.id);
