@@ -28,7 +28,7 @@ export const BuilderSidebarWrapper = ({
   return (
     <div>
       {editMenuOpen ? (
-        <EditMenu setEditMenuOpen={setEditMenuOpen} />
+        <EditMenu setEditMenuOpen={setEditMenuOpen}  />
       ) : (
         <Tabs id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
       )}
