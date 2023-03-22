@@ -1,7 +1,7 @@
 .ant-menu-item {
     height:  auto !important;
     background-color: white;
-    padding-left: 0 !important;
+    padding: 0px !important;
   }
   .ant-menu{
     background: white !important;
@@ -69,4 +69,9 @@
     display: none !important;
   }
   
-  
+  .ant-upload-select{
+    width: 314px !important;
+  }
+  .ant-upload-list-item-container{
+    width: 100% !important;
+  }

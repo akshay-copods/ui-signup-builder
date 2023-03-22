@@ -4,9 +4,11 @@ import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import { logoAlignments } from "../../../../../stylingConfig";
 import { SelectComponent } from "../../../..";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
+import { InboxOutlined } from "@ant-design/icons";
+
 export const LogoImageStyling = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const {setLogoAlignment,setLogoImage,getLogoImage}=useBrandAssetStore()
+  const { setLogoAlignment, setLogoImage, getLogoImage } = useBrandAssetStore();
   const onChange: UploadProps["onChange"] = async ({
     fileList: newFileList,
     file,
@@ -24,7 +26,6 @@ export const LogoImageStyling = () => {
     image.src = src;
     setLogoImage(image.src);
   };
-console.log(getLogoImage().alignment,getLogoImage().imageUrl)
   const onPreview = async (file: UploadFile) => {
     let src = file.url as string;
     if (!src) {
@@ -42,7 +43,7 @@ console.log(getLogoImage().alignment,getLogoImage().imageUrl)
 
   return (
     <div className="flex px-5 flex-col gap-4 w-full">
-      <div className="flex items-center">
+      <div className="flex flex-col gap-3">
         <span className="text-xs w-2/4  text-[#00000073]">Upload Logo</span>
         <Upload
           className="w-2/4"
@@ -52,7 +53,19 @@ console.log(getLogoImage().alignment,getLogoImage().imageUrl)
           onChange={onChange}
           onPreview={onPreview}
         >
-          {fileList.length < 1 && "+ Upload"}
+          {fileList.length < 1 && (
+            <div className="flex flex-col items-center justify-center p-5 gap-4">
+              <InboxOutlined />
+              <div className="flex flex-col w-56 gap-1">
+                <span className="text-customBlack-600 text-xs">
+                  Click or drag file to this area to upload
+                </span>
+                <span className="text-customBlack-400 text-xs whitespace-normal">
+                  Support JPEG, PNG, SVG, ICO Max file size: 1.0 MB
+                </span>
+              </div>
+            </div>
+          )}
         </Upload>
       </div>
       <SelectComponent
