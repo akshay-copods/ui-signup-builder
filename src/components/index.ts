@@ -21,3 +21,4 @@ export {LogoImageStyling} from './SignupBuilderContainer/BuilderSidebar/Styling/
 export {EditMenu} from './SignupBuilderContainer/BuilderSidebar/EditMenu/EditMenu'
 export {BrandAssests} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/BrandAssests'
 export {AddInputField} from './SignupBuilderContainer/BuilderSidebar/EditMenu/AddInputField'
+export {LoginTitle} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/LoginTitle'

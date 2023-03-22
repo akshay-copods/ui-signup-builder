@@ -1,6 +1,6 @@
 import { Menu, MenuProps } from "antd";
 import React, { useState } from "react";
-import { LogoImageStyling } from "../../..";
+import { LoginTitle, LogoImageStyling } from "../../..";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -27,6 +27,7 @@ export const BrandAssests = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>voi
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const items: MenuItem[] = [
     getItem("Company Logo", "sub1", "", [getItem(<LogoImageStyling />, "1")]),
+    getItem("SignUp Box Title", "sub2", "", [getItem(<LoginTitle />, "2")]),
    
   ];
 

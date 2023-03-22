@@ -26,18 +26,10 @@ export const TypographyStyling = () => {
     getTypographyStyles,
   } = useTypographyStore();
   const styles = getTypographyStyles();
-  const {setWelcomeMessage,getWelcomeMessage}= useBrandAssetStore()
+
   return (
     <div className='p-5 pt-0 flex flex-col gap-3'>
-      <div className={`flex gap-2 items-center flex-col`}>
-        <label className='self-start'>Welcome message</label>
-        <Input
-          title='j'
-          placeholder='Basic usage'
-          value={getWelcomeMessage()}
-          onChange={(e)=>setWelcomeMessage(e.target.value)}
-        />
-      </div>
+     
       <span className='text-xs text-customBlack-600 font-medium'>
         Reference text Sizes
       </span>
