@@ -33,7 +33,8 @@ export type BrandAssetStoreState = {
   welcomeMessage: string;
 
   setWelcomeMessage: (message: string) => void;
-  setLogoImage: (logo: Logo) => void;
+  setLogoImage: (logo: string) => void;
+  setLogoAlignment: (alignment: Alignment) => void;
   getLogoImage: () => Logo;
   getWelcomeMessage: () => string;
   getBrandAssets: () => {

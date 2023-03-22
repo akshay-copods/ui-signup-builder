@@ -3,10 +3,10 @@ import { Upload } from "antd";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import { logoAlignments } from "../../../../../stylingConfig";
 import { SelectComponent } from "../../../..";
-import { useLogoStore } from "../../../../../store";
+import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 export const LogoImageStyling = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const { logoImage, setImage, alignment, setAlignment } = useLogoStore();
+  const {setLogoAlignment,setLogoImage,getLogoImage}=useBrandAssetStore()
   const onChange: UploadProps["onChange"] = async ({
     fileList: newFileList,
     file,
@@ -22,9 +22,9 @@ export const LogoImageStyling = () => {
     }
     const image = new Image();
     image.src = src;
-    setImage(image.src);
+    setLogoImage(image.src);
   };
-
+console.log(getLogoImage().alignment,getLogoImage().imageUrl)
   const onPreview = async (file: UploadFile) => {
     let src = file.url as string;
     if (!src) {
@@ -57,8 +57,8 @@ export const LogoImageStyling = () => {
       </div>
       <SelectComponent
         label={"Alignment"}
-        value={alignment}
-        onChange={(value) => setAlignment(value)}
+        value={getLogoImage().alignment}
+        onChange={(value) => setLogoAlignment(value)}
         options={logoAlignments}
       />
     </div>

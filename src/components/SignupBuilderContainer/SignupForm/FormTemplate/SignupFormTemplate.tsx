@@ -10,6 +10,7 @@ import {
   useThemeStore,
   useTypographyStore,
 } from "../../../../store";
+import { useBrandAssetStore } from "../../../../store/BrandAssetStore";
 
 export const SignupFormTemplate = () => {
   const { theme } = useThemeStore();
@@ -18,7 +19,7 @@ export const SignupFormTemplate = () => {
   const { getTypographyStyles, setTitleText } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
-  const {getLogoData} =useLogoStore()
+  const {getBrandAssets}=useBrandAssetStore()
   const [title, setTitle] = React.useState(getTypographyStyles().titleText);
   console.log(getTypographyStyles());
   const getEmittedValue = (e: any) => {
@@ -46,7 +47,8 @@ export const SignupFormTemplate = () => {
           typography: getTypographyStyles(),
           loginTypes: getAllLoginTypes(),
           layout: getLayoutData(),
-          logo:getLogoData()
+          brandAssests:getBrandAssets()
+
         }}
       />
     </div>

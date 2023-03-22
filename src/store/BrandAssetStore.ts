@@ -14,7 +14,16 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
     },
     setLogoImage(logo) {
       set((state) => ({
-        logoImage: logo,
+        logoImage: {
+          ...state.logoImage,imageUrl:logo
+        },
+      }));
+    },
+    setLogoAlignment(alignment) {
+      set((state) => ({
+        logoImage: {
+          ...state.logoImage,alignment:alignment
+        },
       }));
     },
     getLogoImage() {
