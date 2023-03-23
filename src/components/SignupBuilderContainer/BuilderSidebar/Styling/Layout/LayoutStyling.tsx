@@ -4,8 +4,12 @@ import { useLayoutStore, useThemeStore } from "../../../../../store";
 import { Grid } from "../../../../../types/LayoutStoreTypes";
 import { Icon } from "@iconify/react";
 import { customLayoutData } from "../../../../../stylingConfig";
-import  { EditOutlined } from '@ant-design/icons';
-export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
+import { EditOutlined } from "@ant-design/icons";
+export const LayoutStyling = ({
+  setEditMenuOpen,
+}: {
+  setEditMenuOpen: (e: boolean) => void;
+}) => {
   const [color, setColor] = useState("#000000");
   const [sliderValue, setSldierValue] = useState(50);
   const {
@@ -14,7 +18,7 @@ export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>vo
     setGrid,
     setGridContentWidth,
     setLayoutContent,
-    getLayoutData
+    getLayoutData,
   } = useLayoutStore();
   const {
     theme: { backgroundColor },
@@ -22,14 +26,16 @@ export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>vo
   } = useThemeStore();
 
   const [checked, setChecked] = useState(customLayoutData);
-  console.log({a: getLayoutData()});
+  console.log({ a: getLayoutData() });
   const updateCheckStatus = (index: number) => {
     setChecked(
-      checked.map((checked: any, currentIndex: number) =>
-        currentIndex === index
+      checked.map((checked: any, currentIndex: number) => {
+        console.log(checked, "checkde");
+
+        return currentIndex === index && index < 2
           ? { ...checked, checked: !checked.checked }
-          : checked
-      )
+          : checked;
+      })
     );
   };
   const filterData = checked.filter((data: any) => {
@@ -77,7 +83,10 @@ export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>vo
           />
           <span>{gridContentWidth}</span>
         </div>
-        <span className="text-customBlack-400 text-xs whitespace-normal">Adjust the width with the slider to customize the spacing to the respective sections</span>
+        <span className="text-customBlack-400 text-xs whitespace-normal">
+          Adjust the width with the slider to customize the spacing to the
+          respective sections
+        </span>
       </div>
       <div className="flex gap-1 flex-col">
         <h4 className="text-customBlack-600 text-sm">
@@ -95,10 +104,14 @@ export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>vo
                 onClick={() => updateCheckStatus(index)}
                 className={`w-88 h-88 ${
                   data.checked ? "border-blue-600" : "border-gray-100"
-                } border-gray-100 border shadow-md rounded relative`}
+                } border-gray-100 border ${
+                  index >= 2 ? "cursor-not-allowed" : "cursor-pointer"
+                } shadow-md rounded relative`}
               >
                 <input
-                  className=" border-gray-300 absolute top-1.5 left-1.5 bg-gray-200"
+                  className={` border-gray-300 ${
+                    index >= 2 ? "cursor-not-allowed" : "cursor-pointer"
+                  } absolute top-1.5 left-1.5 bg-gray-200`}
                   value={data.type}
                   checked={data.checked}
                   type="checkbox"
@@ -110,7 +123,10 @@ export const LayoutStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>vo
                 <span className="font-normal whitespace-normal text-xs text-customBlack-400">
                   {data.name}
                 </span>
-                <EditOutlined onClick={()=>setEditMenuOpen(true)} className="text-geekblue-600" />
+                <EditOutlined
+                  onClick={() => setEditMenuOpen(true)}
+                  className="text-geekblue-600"
+                />
               </div>
             </div>
           );

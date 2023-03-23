@@ -10,7 +10,7 @@ export const LoginTitle = () => {
         <label className="self-start">Sign Up Title</label>
         <Input
           title="j"
-          placeholder="Basic usage"
+          placeholder="type here to change the title"
           value={getWelcomeMessage()}
           onChange={(e) => setWelcomeMessage(e.target.value)}
         />
