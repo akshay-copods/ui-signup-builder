@@ -3,23 +3,26 @@ export enum Alignment {
   "CENTER" = "CENTER",
   "RIGHT" = "RIGHT",
 }
+export enum Position {
+  "TOP" = "TOP",
+  "BOTTOM" = "BOTTOM",
+}
 export enum Shape {
   "SQUARE" = "SQUARE",
   "CIRCLE" = "CIRCLE",
 }
-export type Testimonial = {
-  personImage: {
-    shape: Shape;
-    imageUrl: string;
-    size: number;
-  };
-  personDetails: {
-    personName: string;
-    personDesignation: string;
-    fontColor: string;
-  };
-  personCompany: string;
+export type User = {
+  personImage: string;
+  personDetails: string;
+  personDesignation: string;
   personQuote: string;
+};
+export type TestimonialStyling = {
+  postion: Position;
+  imageShape: Shape;
+  fontColor: string;
+  backgroundColor: string;
+  alignment: Alignment;
 };
 export type Logo = {
   imageUrl: string;
@@ -31,12 +34,25 @@ export type BrandAssetStoreState = {
     alignment: Alignment;
   };
   welcomeMessage: string;
+  testimonials: {
+    users: User[];
+    styling: TestimonialStyling;
+  };
+  statements: {
+    title: string;
+    subtitle: string;
+  };
 
   setWelcomeMessage: (message: string) => void;
   setLogoImage: (logo: string) => void;
   setLogoAlignment: (alignment: Alignment) => void;
   getLogoImage: () => Logo;
   getWelcomeMessage: () => string;
+  setTestimonial: (testimonial: User) => void;
+  setTestiMonialStyling: (styling: TestimonialStyling) => void;
+  getTestimonial: () => User[];
+  getTestimonialStyling: () => TestimonialStyling;
+  setStatements: (statements: { title: string; subtitle: string }) => void;
   getBrandAssets: () => {
     logoImage: {
       imageUrl: string;
