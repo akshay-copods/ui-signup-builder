@@ -30,9 +30,9 @@ export type Logo = {
   alignment: Alignment;
 };
 export interface Content {
-  type:string,
+  type: string;
   name: string;
-  checked:boolean
+  checked: boolean;
 }
 export type BrandAssetStoreState = {
   logoImage: {
@@ -40,6 +40,10 @@ export type BrandAssetStoreState = {
     alignment: Alignment;
   };
   welcomeMessage: string;
+  logos: {
+    id: string;
+    imageUrl: string;
+  }[];
   testimonials: {
     users: User[];
     styling: TestimonialStyling;
@@ -48,7 +52,7 @@ export type BrandAssetStoreState = {
     title: string;
     subtitle: string;
   };
-  content:Content[]
+  content: Content[];
   setContent: (content: Content) => void;
   getContent: () => Content[];
   setWelcomeMessage: (message: string) => void;
@@ -60,9 +64,9 @@ export type BrandAssetStoreState = {
   setTestiMonialStyling: (styling: TestimonialStyling) => void;
   getTestimonial: () => User[];
   getTestimonialStyling: () => TestimonialStyling;
-  setStatementsTitle: (title:string) => void;
-  setStatementsSubtitle: (title:string) => void;
-  getStatements:()=>{title:string,subtitle:string}
+  setStatementsTitle: (title: string) => void;
+  setStatementsSubtitle: (title: string) => void;
+  getStatements: () => { title: string; subtitle: string };
   getBrandAssets: () => {
     logoImage: {
       imageUrl: string;
@@ -77,6 +81,11 @@ export type BrandAssetStoreState = {
       title: string;
       subtitle: string;
     };
-    content:Content[]
+    content: Content[];
   };
+  getLogos: () => {
+    id: string;
+    imageUrl: string;
+  }[];
+  setLogos: (logo: { id: string; imageUrl: string }) => void;
 };
