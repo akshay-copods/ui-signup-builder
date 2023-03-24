@@ -20,6 +20,7 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
     testimonials: {
       users: [
         {
+          id: "1",
           personImage: "xyz",
           personDetails: "John Doe",
           personDesignation: "Engineer",
