@@ -30,7 +30,7 @@ export const TestimonalWrapper = ({
 }) => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const items: MenuItem[] = [
-    getItem("Testimonal Styling", "sub1", "", [getItem(<TestimonalStyling/>, "1")]),
+    getItem("Testimonal Styling", "sub1", "", [getItem(<TestimonalStyling setActiveContent={setActiveContent}/>, "1")]),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {
@@ -42,8 +42,8 @@ export const TestimonalWrapper = ({
     }
   };
   return (
-    <div className="p-5">
-      <span>Testimonal</span>
+    <div className="pt-5">
+      <span className="pl-5 ">Testimonal</span>
       <Menu
         mode="inline"
         openKeys={openKeys}
