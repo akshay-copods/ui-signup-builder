@@ -30,7 +30,7 @@ function getItem(
 }
 
 // submenu keys of first level
-const rootSubmenuKeys = ["sub1", "sub2", "sub3"];
+const rootSubmenuKeys = ["sub1", "sub2", "sub3","sub4","sub5",'sub6'];
 
 export const BuilderSidebar = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
