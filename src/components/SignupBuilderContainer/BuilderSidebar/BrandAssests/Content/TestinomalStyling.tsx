@@ -5,24 +5,19 @@ import {
   AlignCenterOutlined,
   AlignLeftOutlined,
   AlignRightOutlined,
-  DownOutlined
 } from "@ant-design/icons";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { Alignment, Position } from "../../../../../types/BrandAssetStoreTypes";
 import { ColorPickerComponent, SelectComponent } from "../../../../index";
 import { imageShape } from "../../../../../stylingConfig";
-export const TestimonalStyling = ({setActiveContent}:{setActiveContent:(e:string)=>void}) => {
+export const TestimonalStyling = () => {
   const { getTestimonialStyling, setTestiMonialStyling, testimonials } =
     useBrandAssetStore();
   console.log(getTestimonialStyling().fontColor);
   return (
-    <div className="px-5 ">
+    <div className="px-5">
       <div className="flex flex-col gap-4">
-      <div className="flex gap-3 items-center">
-        <DownOutlined onClick={() => setActiveContent("")} rotate={90} />
         <span>Styling</span>
-      </div>
-       
         <div className="flex-col flex gap-5">
           <div className="flex justify-between w-full ">
             <span className="text-xs w-2/4 text-customBlack-400">Position</span>
@@ -133,7 +128,7 @@ export const TestimonalStyling = ({setActiveContent}:{setActiveContent:(e:string
               setTestiMonialStyling({
                 ...testimonials,
                 ...testimonials.styling,
-                fontColor:value.hex,
+                fontColor: value.hex,
               });
             }}
             fontColor={testimonials.styling.fontColor}
