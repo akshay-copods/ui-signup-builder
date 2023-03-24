@@ -12,6 +12,7 @@ export enum Shape {
   "CIRCLE" = "CIRCLE",
 }
 export type User = {
+  id: string;
   personImage: string;
   personDetails: string;
   personDesignation: string;
