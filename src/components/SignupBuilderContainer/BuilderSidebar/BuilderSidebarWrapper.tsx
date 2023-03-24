@@ -1,12 +1,17 @@
 import { Tabs, TabsProps } from "antd";
 import React from "react";
-import { BrandAssests, BuilderSidebar, EditMenu, LoginTypes } from "../..";
+import { BrandAssests, BuilderSidebar, EditMenu, LoginTypes, Statements, TestimonalWrapper } from "../..";
+import { EditTestimonals } from "./EditMenu/EditTestimonals";
 export const BuilderSidebarWrapper = ({
   setEditMenuOpen,
   editMenuOpen,
+  setActiveContent,
+  content
 }: {
   setEditMenuOpen: (e: boolean) => void;
   editMenuOpen: boolean;
+  setActiveContent:(e:string)=>void
+  content:string
 }) => {
   const items: TabsProps["items"] = [
     {
@@ -22,16 +27,19 @@ export const BuilderSidebarWrapper = ({
     {
       key: "3",
       label: `Brand assets`,
-      children: <BrandAssests setEditMenuOpen={setEditMenuOpen} />,
+      children: <BrandAssests setEditMenuOpen={setEditMenuOpen} setActiveContent={setActiveContent} />,
     },
   ];
   return (
     <div>
       {editMenuOpen ? (
         <EditMenu setEditMenuOpen={setEditMenuOpen}  />
-      ) : (
-        <Tabs id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
-      )}
+      ):content==='STATEMENTS'?(
+        <Statements setActiveContent={setActiveContent} />
+      ):content==='TESTIMONALS'?(
+        <TestimonalWrapper setActiveContent={setActiveContent} />
+      ):<Tabs id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
+      }
     </div>
   );
 };

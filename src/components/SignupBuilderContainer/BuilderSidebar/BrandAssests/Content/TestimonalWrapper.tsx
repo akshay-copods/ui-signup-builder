@@ -1,11 +1,6 @@
 import { Menu, MenuProps } from "antd";
 import React, { useState } from "react";
-import {
-  ContentMainContainer,
-  TestimonalWrapper,
-  LoginTitle,
-  LogoImageStyling,
-} from "../../..";
+import { Statements, TestimonalStyling } from "../../../..";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -28,27 +23,14 @@ function getItem(
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub3"];
 
-export const BrandAssests = ({
-  setEditMenuOpen,
-  setActiveContent,
+export const TestimonalWrapper = ({
+  setActiveContent
 }: {
-  setEditMenuOpen: (e: boolean) => void;
-  setActiveContent: (e: string) => void;
+  setActiveContent:(e:string)=>void
 }) => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
-
   const items: MenuItem[] = [
-    getItem("Company Logo", "sub1", "", [getItem(<LogoImageStyling />, "1")]),
-    getItem("SignUp Box Title", "sub2", "", [getItem(<LoginTitle />, "2")]),
-    getItem("Content", "sub3", "", [
-      getItem(
-        <ContentMainContainer
-          setActiveContent={setActiveContent}
-          setEditMenuOpen={setEditMenuOpen}
-        />,
-        "3"
-      ),
-    ]),
+    getItem("Testimonal Styling", "sub1", "", [getItem(<TestimonalStyling/>, "1")]),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {
@@ -60,7 +42,8 @@ export const BrandAssests = ({
     }
   };
   return (
-    <div>
+    <div className="p-5">
+      <span>Testimonal</span>
       <Menu
         mode="inline"
         openKeys={openKeys}

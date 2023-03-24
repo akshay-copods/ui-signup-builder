@@ -11,24 +11,27 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       imageUrl: "",
       alignment: Alignment.LEFT,
     },
+    content: [{ type: "STATEMENTS", name: "Statements", checked: true },{ type: "TESTIMONALS", name: "Testimonals", checked: true }],
     statements: {
-      title: "Title",
-      subtitle: "Subtitle",
+      title: "Start your journey with us.",
+      subtitle:
+        "Discover the world’s best community of freelancers ad business owners.",
     },
     testimonials: {
       users: [
         {
-          personImage: "",
-          personDetails: "",
-          personDesignation: "",
-          personQuote: "",
+          personImage: "xyz",
+          personDetails: "John Doe",
+          personDesignation: "Engineer",
+          personQuote:
+            "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly.",
         },
       ],
       styling: {
-        postion: Position.BOTTOM,
+        position: Position.BOTTOM,
         imageShape: Shape.CIRCLE,
-        fontColor: "#000000",
-        backgroundColor: "#ffffff",
+        fontColor: "#ffffff",
+        backgroundColor: "#0B0E49",
         alignment: Alignment.LEFT,
       },
     },
@@ -64,6 +67,9 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       return {
         logoImage: get().logoImage,
         welcomeMessage: get().welcomeMessage,
+        testimonials: get().testimonials,
+        statements: get().statements,
+        content: get().content,
       };
     },
     setTestimonial(User) {
@@ -88,13 +94,39 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
     getTestimonialStyling() {
       return get().testimonials.styling;
     },
-    setStatements(statements) {
+
+    setStatementsTitle(title) {
       set((state) => ({
-        statements: statements,
+        statements: {
+          ...state.statements,
+          title: title,
+        },
+      }));
+    },
+    setStatementsSubtitle(subTitle) {
+      set((state) => ({
+        statements: {
+          ...state.statements,
+          subtitle: subTitle,
+        },
       }));
     },
     getStatements() {
       return get().statements;
+    },
+    setContent(content) {
+      const addNewContent = get().content.find(
+        (addedContent) => addedContent.type === content.type
+      );
+      set((state) => ({
+        ...state,
+        content: addNewContent
+          ? get().content.filter((i) => i.type !== addNewContent.type)
+          : [...state.content, { ...content }],
+      }));
+    },
+    getContent() {
+      return get().content;
     },
   })
 );

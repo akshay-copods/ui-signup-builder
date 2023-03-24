@@ -125,7 +125,10 @@ export const inputStates = [
     value: "ERROR",
   },
 ];
-
+export const imageShape =[
+  { value: "CIRCLE", label: "Circular" },
+  { value: "SQUARE", label: "Square" },
+]
 export const themeBox = [
   {
     bg: "bg-white",
@@ -146,77 +149,19 @@ export const themeBox = [
 
 export const customLayoutData = [
   {
-    order: 1,
     type: "STATEMENTS",
     name: "Statements",
     checked: true,
-    content: {
-      order: 1,
-      title: "Welcome to Company Name!",
-      subTitle: "Start your journey with us.",
-    },
   },
   {
-    order: 2,
     type: "TESTIMONALS",
     name: "Testimonals",
     checked: true,
-    content: [
-      {
-        order: 1,
-        personName: "John Doe",
-        personImage: "xyz",
-        personDesignation: "Engineer",
-        personCompany: "Company Name",
-        personQuote: "This is wonderful",
-      },
-      {
-        order: 2,
-        personName: "ashu ",
-        personImage: "xyz",
-        personDesignation: "Engineer",
-        personCompany: "Copods",
-        personQuote: "GOAT",
-      },
-    ],
   },
   {
-    order: 3,
     type: "LOGO",
     name: "logo",
     checked: false,
-    content: [
-      {
-        order: 1,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-      {
-        order: 2,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-      {
-        order: 3,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-      {
-        order: 4,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-      {
-        order: 5,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-      {
-        order: 6,
-        imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-      },
-    ],
   },
 ];
 
@@ -264,20 +209,20 @@ export const userApprovalOptions = [
     link: "",
   },
 ];
-export const  addInputFieldsData= [
+export const addInputFieldsData = [
   {
-    label:'Name',
+    label: "Name",
     name: AddInputFields.NAME,
-    placeholder:'Enter Name'
+    placeholder: "Enter Name",
   },
   {
-    label:'Company Name',
-    name:AddInputFields.COMPANY_NAME,
-    placeholder:'Enter Company Name'
+    label: "Company Name",
+    name: AddInputFields.COMPANY_NAME,
+    placeholder: "Enter Company Name",
   },
   {
-    label:'Phone Number',
+    label: "Phone Number",
     name: AddInputFields.PHONE_NUMBER,
-    placeholder:'Enter Phone Number'
+    placeholder: "Please Enter Phone Number",
   },
-]
+];

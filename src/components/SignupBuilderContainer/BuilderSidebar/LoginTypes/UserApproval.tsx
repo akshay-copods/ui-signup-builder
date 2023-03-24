@@ -6,7 +6,6 @@ import { userApprovalOptions } from "../../../../stylingConfig";
 export const UserApproval = () => {
   const { getApprovals, setApprovals, setUserApprovalLink } =
     useLoginTypesStore();
-  console.log(getApprovals(), "getApprovals");
   return (
     <div className='flex p-6  flex-col gap-3'>
       <div>

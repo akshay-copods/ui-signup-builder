@@ -18,7 +18,7 @@ export type User = {
   personQuote: string;
 };
 export type TestimonialStyling = {
-  postion: Position;
+  position: Position;
   imageShape: Shape;
   fontColor: string;
   backgroundColor: string;
@@ -28,6 +28,11 @@ export type Logo = {
   imageUrl: string;
   alignment: Alignment;
 };
+export interface Content {
+  type:string,
+  name: string;
+  checked:boolean
+}
 export type BrandAssetStoreState = {
   logoImage: {
     imageUrl: string;
@@ -42,7 +47,9 @@ export type BrandAssetStoreState = {
     title: string;
     subtitle: string;
   };
-
+  content:Content[]
+  setContent: (content: Content) => void;
+  getContent: () => Content[];
   setWelcomeMessage: (message: string) => void;
   setLogoImage: (logo: string) => void;
   setLogoAlignment: (alignment: Alignment) => void;
@@ -52,12 +59,23 @@ export type BrandAssetStoreState = {
   setTestiMonialStyling: (styling: TestimonialStyling) => void;
   getTestimonial: () => User[];
   getTestimonialStyling: () => TestimonialStyling;
-  setStatements: (statements: { title: string; subtitle: string }) => void;
+  setStatementsTitle: (title:string) => void;
+  setStatementsSubtitle: (title:string) => void;
+  getStatements:()=>{title:string,subtitle:string}
   getBrandAssets: () => {
     logoImage: {
       imageUrl: string;
       alignment: Alignment;
     };
     welcomeMessage: string;
+    testimonials: {
+      users: User[];
+      styling: TestimonialStyling;
+    };
+    statements: {
+      title: string;
+      subtitle: string;
+    };
+    content:Content[]
   };
 };

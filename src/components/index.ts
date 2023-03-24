@@ -22,3 +22,7 @@ export {EditMenu} from './SignupBuilderContainer/BuilderSidebar/EditMenu/EditMen
 export {BrandAssests} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/BrandAssests'
 export {AddInputField} from './SignupBuilderContainer/BuilderSidebar/EditMenu/AddInputField'
 export {LoginTitle} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/LoginTitle'
+export {TestimonalWrapper} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/TestimonalWrapper'
+export {Statements} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/Statements'
+export {ContentMainContainer} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/ContantMainContainer'
+export {TestimonalStyling} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/TestinomalStyling'

@@ -19,11 +19,10 @@ export const SignupFormTemplate = () => {
   const { getTypographyStyles, setTitleText } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
+  const {getLogoData} =useLogoStore()
   const {getBrandAssets}=useBrandAssetStore()
   const [title, setTitle] = React.useState(getTypographyStyles().titleText);
-  console.log(getTypographyStyles());
   const getEmittedValue = (e: any) => {
-    console.log(title);
     setTitle(e.detail);
     // setTitleText(e.detail);
   };
