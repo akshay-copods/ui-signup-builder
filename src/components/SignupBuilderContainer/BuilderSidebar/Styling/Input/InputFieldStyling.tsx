@@ -9,14 +9,20 @@ import {
 import { CurrentInputFieldState } from "../../../../../types/InputStoreTypes";
 import { useInputFieldStore } from "../../../../../store/InputFieldStore";
 import { useThemeStore } from "../../../../../store";
-export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
+import { Tooltip } from "antd";
+export const InputFieldStyling = ({
+  setEditMenuOpen,
+}: {
+  setEditMenuOpen: (e: boolean) => void;
+}) => {
   const {
     getInputFieldStateTheme,
     setInputFieldStateTheme,
     getLabelTheme,
     setLabelTheme,
   } = useInputFieldStore();
- const{changeLabelColor,theme}= useThemeStore();
+  const { changeLabelColor, theme } = useThemeStore();
   // To store input state
   const [inputFieldState, setInputFieldState] =
     useState<CurrentInputFieldState>(CurrentInputFieldState.DEFAULT);
@@ -26,16 +32,24 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
 
   return (
     <div className="flex flex-col px-5 gap-4">
-      <span className="text-xs text-geekblue-600" onClick={()=>setEditMenuOpen(true)}>Add Input Field</span>
+      <span
+        className="text-xs text-geekblue-600"
+        tabIndex={0}
+        aria-label={signup_builder_sidebar.ADD_INPUT_FIELD}
+        onClick={() => setEditMenuOpen(true)}
+        onKeyUp={(e) =>{ if (e.key === "Enter")setEditMenuOpen(true)}}
+      >
+        {signup_builder_sidebar.ADD_INPUT_FIELD}
+      </span>
       <SelectComponent
-        label={"Field State"}
+        label={signup_builder_sidebar.FIELD_STATE}
         value={inputFieldState}
         onChange={(value) => setInputFieldState(value)}
         options={inputStates}
       />
 
       <SelectComponent
-        label={"Font Size"}
+        label={signup_builder_sidebar.FONT_SIZE}
         value={styles.fontSize}
         onChange={(value) =>
           setInputFieldStateTheme(inputFieldState, {
@@ -46,7 +60,7 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
         options={fontSizes}
       />
       <SelectComponent
-        label={"Font Weight"}
+        label={signup_builder_sidebar.FONT_WEIGHT}
         value={styles.fontWeight}
         onChange={(value) =>
           setInputFieldStateTheme(inputFieldState, {
@@ -58,7 +72,7 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
       />
 
       <ColorPickerComponent
-        label="Font Color"
+        label={signup_builder_sidebar.FONT_COLOR}
         value={styles.fontColor}
         popup={true}
         onChange={(value) => {
@@ -70,7 +84,7 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
         fontColor={styles.fontColor}
       />
       <ColorPickerComponent
-        label="Backgroud Color"
+        label={signup_builder_sidebar.BACKGROUND_COLOR}
         value={styles.backgroundColor}
         popup={true}
         onChange={(value) => {
@@ -83,88 +97,164 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
       />
 
       <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-customBlack-400">Box Border</span>
+        <span className="text-xs w-2/4  text-customBlack-400">
+          {signup_builder_sidebar.BOX_BORDER}
+        </span>
         <div className="flex items-center w-2/4 gap-2">
           <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
-            <MinusOutlined
-              onClick={() =>
-                setInputFieldStateTheme(inputFieldState, {
-                  ...styles,
-                  box: {
-                    ...styles.box,
-                    borderSize:
-                      styles.box.borderSize > 0 ? styles.box.borderSize - 1 : 0,
-                  },
-                })
-              }
-              className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
-            />
+            <Tooltip
+              title={signup_builder_sidebar.MINUS_BUTTON}
+              color="geekblue"
+            >
+              <MinusOutlined
+                onClick={() =>
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderSize:
+                        styles.box.borderSize > 0
+                          ? styles.box.borderSize - 1
+                          : 0,
+                    },
+                  })
+                }
+                onKeyUp={(e) =>
+               {   if (e.key === "Enter")
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderSize:
+                        styles.box.borderSize > 0
+                          ? styles.box.borderSize - 1
+                          : 0,
+                    },
+                  })}
+                }
+                tabIndex={0}
+                aria-label={signup_builder_sidebar.MINUS_BUTTON}
+                className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
+              />
+            </Tooltip>
             <span className="flex items-center text-xs">
               {styles.box.borderSize > 0 && styles.box.borderSize < 10
                 ? `0${styles.box.borderSize}`
                 : styles.box.borderSize}
             </span>
-
-            <PlusOutlined
-              onClick={() =>
-                setInputFieldStateTheme(inputFieldState, {
-                  ...styles,
-                  box: {
-                    ...styles.box,
-                    borderSize: styles.box.borderSize + 1,
-                  },
-                })
-              }
-              className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
-            />
+            <Tooltip
+              title={signup_builder_sidebar.PLUS_BUTTON}
+              color="geekblue"
+            >
+              <PlusOutlined
+                onClick={() =>
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderSize: styles.box.borderSize + 1,
+                    },
+                  })
+                }
+                onKeyUp={(e) =>
+                 { if (e.key === "Enter")
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderSize: styles.box.borderSize + 1,
+                    },
+                  })}
+                }
+                tabIndex={0}
+                aria-label={signup_builder_sidebar.PLUS_BUTTON}
+                className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
+              />
+            </Tooltip>
           </div>
         </div>
       </div>
       <div className="flex  items-center">
         <span className="text-xs w-2/4  text-customBlack-400">
-          Border Radius
+          {signup_builder_sidebar.BORDER_RADIUS}
         </span>
         <div className="flex w-2/4 items-center gap-2">
           <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
-            <MinusOutlined
-              onClick={() =>
-                setInputFieldStateTheme(inputFieldState, {
-                  ...styles,
-                  box: {
-                    ...styles.box,
-                    borderRadius:
-                      styles.box.borderRadius > 0
-                        ? styles.box.borderRadius - 1
-                        : 0,
-                  },
-                })
-              }
-              className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
-            />
+            <Tooltip
+              title={signup_builder_sidebar.MINUS_BUTTON}
+              color="geekblue"
+            >
+              <MinusOutlined
+                onClick={() =>
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderRadius:
+                        styles.box.borderRadius > 0
+                          ? styles.box.borderRadius - 1
+                          : 0,
+                    },
+                  })
+                }
+                onKeyUp={(e) =>
+                 { if (e.key === "Enter")
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderRadius:
+                        styles.box.borderRadius > 0
+                          ? styles.box.borderRadius - 1
+                          : 0,
+                    },
+                  })}
+                }
+                tabIndex={0}
+                aria-label={signup_builder_sidebar.MINUS_BUTTON}
+                className="border flex justify-center items-center rounded-50 h-5 w-5 bg-geekblue-100"
+              />
+            </Tooltip>
 
-            <span className="flex items-center text-xs">
+            <span tabIndex={0} className="flex items-center text-xs">
               {styles.box.borderRadius > 0 && styles.box.borderRadius < 10
                 ? `0${styles.box.borderRadius}`
                 : styles.box.borderRadius}
             </span>
-
-            <PlusOutlined
-              onClick={() =>
-                setInputFieldStateTheme(inputFieldState, {
-                  ...styles,
-                  box: {
-                    ...styles.box,
-                    borderRadius: styles.box.borderRadius + 1,
-                  },
-                })
-              }
-              className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
-            />
+            <Tooltip
+              title={signup_builder_sidebar.PLUS_BUTTON}
+              color="geekblue"
+            >
+              <PlusOutlined
+                tabIndex={0}
+                aria-label={signup_builder_sidebar.MINUS_BUTTON}
+                onClick={() =>
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderRadius: styles.box.borderRadius + 1,
+                    },
+                  })
+                }
+                onKeyUp={(e) =>
+                  {if (e.key === "Enter")
+                  setInputFieldStateTheme(inputFieldState, {
+                    ...styles,
+                    box: {
+                      ...styles.box,
+                      borderRadius: styles.box.borderRadius + 1,
+                    },
+                  })}
+                }
+                className="border rounded-50 flex justify-center items-center h-5 w-5 bg-geekblue-100"
+              />
+            </Tooltip>
           </div>
         </div>
       </div>
       <SelectComponent
-        label={"Label Font State"}
+        label={signup_builder_sidebar.LABEL_FONT_STATE}
         value={getLabelTheme().fontSize}
         onChange={(value) =>
           setLabelTheme({
@@ -176,7 +266,7 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
       />
 
       <SelectComponent
-        label={"Label Font Weight"}
+        label={signup_builder_sidebar.LABEL_FONT_WEIGHT}
         value={getLabelTheme().fontWeight}
         onChange={(value) =>
           setLabelTheme({
@@ -187,7 +277,7 @@ export const InputFieldStyling = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)
         options={fontWeight}
       />
       <ColorPickerComponent
-        label="Label Color"
+        label={signup_builder_sidebar.LABEL_COLOR}
         value={theme.labelColor}
         popup={true}
         onChange={(value) => {

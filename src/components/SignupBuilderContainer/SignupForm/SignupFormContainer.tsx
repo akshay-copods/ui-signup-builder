@@ -6,13 +6,18 @@ import {
   TabletOutlined,
   UndoOutlined,
 } from "@ant-design/icons";
-import { Modal } from "antd";
+import { Modal, Tooltip } from "antd";
 import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { SecondTemplate } from "react-wrapper";
 import { SignupFormTemplate } from "../..";
 import { useLayoutStore } from "../../../store";
 import { ViewPort } from "../../../types/LayoutStoreTypes";
+import {
+  AriaLabel,
+  REDO_BUTTON,
+  UNDO_BUTTON,
+} from "../../../constants/signup_builder_constants";
 
 export const SignupFormContainer = () => {
   const { setViewPort, viewPort } = useLayoutStore();
@@ -23,50 +28,58 @@ export const SignupFormContainer = () => {
       <div className="bg-geekblue-100 py-7 flex px-5 flex-col gap-7">
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
-            <RedoOutlined className="cursor-pointer" title="redo button" />
+            <Tooltip title={REDO_BUTTON} color="geekblue">
+              <RedoOutlined className="cursor-pointer" />
+            </Tooltip>
             <hr className="h-5 w-px bg-geekblue-300" />
-            <UndoOutlined className="cursor-pointer" title="undo button" />
+            <Tooltip title={UNDO_BUTTON} color="geekblue">
+              <UndoOutlined className="cursor-pointer" />
+            </Tooltip>
           </div>
 
           <div className="flex gap-4 items-center">
-            <MobileOutlined
-              tabIndex={0}
-              title={ViewPort.MOBILE}
-              aria-label="mobile view button" // Use Constant and use tooltip
-              onClick={() => setViewPort(ViewPort.MOBILE)}
-              onKeyUp={(e) => {
-                if (e.key === "Enter") setViewPort(ViewPort.MOBILE);
-              }}
-              className={`${
-                viewPort === ViewPort.MOBILE && "text-blue-600"
-              } cursor-pointer`}
-            />
+            <Tooltip title={ViewPort.MOBILE} color="geekblue">
+              <MobileOutlined
+                tabIndex={0}
+                aria-label={AriaLabel.MOBILE_VIEW}
+                onClick={() => setViewPort(ViewPort.MOBILE)}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter") setViewPort(ViewPort.MOBILE);
+                }}
+                className={`${
+                  viewPort === ViewPort.MOBILE && "text-blue-600"
+                } cursor-pointer`}
+              />
+            </Tooltip>
+
             <hr className="h-5 w-px bg-geekblue-300" />
-            <TabletOutlined
-              tabIndex={0}
-              title={ViewPort.TABLET}
-              aria-label="tablet view button" // Use Constant and use tooltip
-              onClick={() => setViewPort(ViewPort.TABLET)}
-              onKeyUp={(e) => {
-                if (e.key === "Enter") setViewPort(ViewPort.TABLET);
-              }}
-              className={`${
-                viewPort === ViewPort.TABLET && "text-blue-600"
-              } cursor-pointer`}
-            />
+            <Tooltip title={ViewPort.TABLET} color="geekblue">
+              <TabletOutlined
+                tabIndex={0}
+                aria-label={AriaLabel.TABLET_VIEW}
+                onClick={() => setViewPort(ViewPort.TABLET)}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter") setViewPort(ViewPort.TABLET);
+                }}
+                className={`${
+                  viewPort === ViewPort.TABLET && "text-blue-600"
+                } cursor-pointer`}
+              />
+            </Tooltip>
             <hr className="h-5 w-px bg-geekblue-300" />
-            <DesktopOutlined
-              tabIndex={0}
-              title={ViewPort.DESKTOP}
-              aria-label="desktop view button" // Use Constant and use tooltip
-              onClick={() => setViewPort(ViewPort.DESKTOP)}
-              onKeyUp={(e) => {
-                if (e.key === "Enter") setViewPort(ViewPort.DESKTOP);
-              }}
-              className={`${
-                viewPort === ViewPort.DESKTOP && "text-blue-600"
-              } cursor-pointer`}
-            />
+            <Tooltip title={ViewPort.DESKTOP} color="geekblue">
+              <DesktopOutlined
+                tabIndex={0}
+                aria-label={AriaLabel.DESKTOP_VIEW_BUTTON}
+                onClick={() => setViewPort(ViewPort.DESKTOP)}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter") setViewPort(ViewPort.DESKTOP);
+                }}
+                className={`${
+                  viewPort === ViewPort.DESKTOP && "text-blue-600"
+                } cursor-pointer`}
+              />
+            </Tooltip>
             <hr className="h-5 w-px bg-geekblue-300" />
             <div className="flex gap-1.5 items-center">
               <span
@@ -77,19 +90,20 @@ export const SignupFormContainer = () => {
               </span>
 
               <div className="flex items-center" onClick={() => setOpen(true)}>
-                <FullscreenOutlined
-                  tabIndex={0}
-                  aria-label="fullscreen view"
-                  onClick={() => setViewPort(ViewPort.FULLSCREEN)}
-                  onKeyUp={(e) => {
-                    if (e.key === "Enter") setViewPort(ViewPort.FULLSCREEN);
-                  }}
-                  title={ViewPort.FULLSCREEN}
-                  className={`${
-                    viewPort === ViewPort.FULLSCREEN && "text-blue-600"
-                  }
+                <Tooltip title={ViewPort.FULLSCREEN} color="geekblue">
+                  <FullscreenOutlined
+                    tabIndex={0}
+                    aria-label={AriaLabel.FULL_SCREEN_VIEW}
+                    onClick={() => setViewPort(ViewPort.FULLSCREEN)}
+                    onKeyUp={(e) => {
+                      if (e.key === "Enter") setViewPort(ViewPort.FULLSCREEN);
+                    }}
+                    className={`${
+                      viewPort === ViewPort.FULLSCREEN && "text-blue-600"
+                    }
                    cursor-pointer`}
-                />
+                  />
+                </Tooltip>
               </div>
             </div>
           </div>
@@ -101,7 +115,7 @@ export const SignupFormContainer = () => {
         </Routes>
       </div>
       <Modal
-        title="Template Full Screen View" // Use Constant and use tooltip
+        title={AriaLabel.FULL_SCREEN_VIEW}
         centered
         open={open}
         onOk={() => {

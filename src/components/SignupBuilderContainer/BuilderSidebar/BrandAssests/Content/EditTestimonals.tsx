@@ -13,6 +13,7 @@ const imageSizes = [
 import { InboxOutlined } from "@ant-design/icons";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { RcFile } from "antd/es/upload";
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 const { TextArea } = Input;
 export const EditTestimonals = ({
   setCurrentAccordion,
@@ -69,19 +70,19 @@ export const EditTestimonals = ({
     <div className="flex flex-col p-5 bg-natural-3 ">
       <div className="flex justify-between items-center">
         <h1 className="text-sm font-semibold text-customBlack-600">
-          Edit Testimonial
+          {signup_builder_sidebar.EDIT_TESTIMONAL}
         </h1>
         <span
           tabIndex={0}
           className="text-primary-6 text-xs"
           onClick={() => setCurrentAccordion(false)}
         >
-          Close
+          {signup_builder_sidebar.CLOSE}
         </span>
       </div>
       <div>
         <div className="flex flex-col gap-4">
-          <span className="text-xs w-2/4  text-customBlack-400">Image</span>
+          <span className="text-xs w-2/4  text-customBlack-400">{signup_builder_sidebar.IMAGE}</span>
           <div>
             <Icon icon="" />
             <Icon icon="" />
@@ -100,10 +101,10 @@ export const EditTestimonals = ({
                 <InboxOutlined style={{ fontSize: 26, color: "#1890FF" }} />
                 <div className="flex flex-col w-56 gap-1">
                   <span className="text-customBlack-600 text-xs">
-                    Click or drag file to this area to upload
+                   {signup_builder_sidebar.CLICK_AND_DRAG_FILE}
                   </span>
                   <span className="text-customBlack-400 text-xs whitespace-normal">
-                    Support JPEG, PNG, SVG, ICO Max file size: 1.0 MB
+                    {signup_builder_sidebar.UPLOAD_IMAGE_SUPPORT_SIZE_INSTRUCTION}
                   </span>
                 </div>
               </div>
@@ -114,7 +115,7 @@ export const EditTestimonals = ({
       <hr className="mt-5 mb-5" />
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between gap-4">
-          <span className="text-xs text-customBlack-600">Name</span>
+          <span className="text-xs text-customBlack-600">{signup_builder_sidebar.NAME}</span>
           <Input
             onChange={(e) => {
               editTestimonial({
@@ -129,7 +130,7 @@ export const EditTestimonals = ({
           />
         </div>
         <div className="flex items-center justify-between gap-4">
-          <span className="text-xs text-customBlack-600">Designation</span>
+          <span className="text-xs text-customBlack-600">{signup_builder_sidebar.DESIGNATION}</span>
           <Input
             onChange={(e) => {
               editTestimonial({
@@ -148,7 +149,7 @@ export const EditTestimonals = ({
       <div className="flex flex-col gap-4">
         <div className="flex justify-between gap-4">
           <label htmlFor="" className="text-customBlack-600 text-xs">
-            Quote
+            {signup_builder_sidebar.QUOTE}
           </label>
           <TextArea
             value={data.personQuote}

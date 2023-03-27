@@ -14,7 +14,7 @@ export const SelectComponent = ({
 }) => {
   return (
     <div className="flex items-center">
-      {label && <span className="text-xs w-2/4 text-customBlack-400">{label}</span>}
+      {label && <span tabIndex={0} aria-label={label} className="text-xs w-2/4 text-customBlack-400">{label}</span>}
       <div className={`${label ? "w-2/4" : "w-full"} flex gap-2 items-center`}>
         <Select
           className="w-full"

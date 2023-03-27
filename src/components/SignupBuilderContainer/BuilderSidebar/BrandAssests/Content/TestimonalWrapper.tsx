@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { EditTestimonalWrapper, TestimonalStyling } from "../../../..";
 import { DownOutlined } from "@ant-design/icons";
 import "./../../sidebar.css";
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -59,7 +60,7 @@ export const TestimonalWrapper = ({
           }}
           rotate={90}
         />
-        <span>Testimonal</span>
+        <span>{signup_builder_sidebar.TESTIMONAL}</span>
       </div>
 
       <Menu

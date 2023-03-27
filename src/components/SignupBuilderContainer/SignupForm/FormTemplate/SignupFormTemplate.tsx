@@ -6,11 +6,11 @@ import {
   useInputFieldStore,
   useLayoutStore,
   useLoginTypesStore,
-  useLogoStore,
   useThemeStore,
   useTypographyStore,
 } from "../../../../store";
 import { useBrandAssetStore } from "../../../../store/BrandAssetStore";
+import { ViewPort } from "../../../../types/LayoutStoreTypes";
 
 export const SignupFormTemplate = () => {
   const { theme } = useThemeStore();
@@ -19,12 +19,10 @@ export const SignupFormTemplate = () => {
   const { getTypographyStyles, setTitleText } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
-  const {getLogoData} =useLogoStore()
   const {getBrandAssets}=useBrandAssetStore()
   const [title, setTitle] = React.useState(getTypographyStyles().titleText);
   const getEmittedValue = (e: any) => {
     setTitle(e.detail);
-    // setTitleText(e.detail);
   };
   useEffect(() => {
     setTitleText(title);
@@ -32,8 +30,8 @@ export const SignupFormTemplate = () => {
   return (
     <div
       className={`${
-        (getLayoutData().viewPort === "MOBILE" ||
-          getLayoutData().viewPort === "TABLET") &&
+        (getLayoutData().viewPort === ViewPort.MOBILE ||
+          getLayoutData().viewPort === ViewPort.TABLET) &&
         "self-center"
       }`}>
       <SignupComponent

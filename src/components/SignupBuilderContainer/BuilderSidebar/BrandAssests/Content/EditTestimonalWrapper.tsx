@@ -3,6 +3,7 @@ import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
 import { EditTestimonals } from "./EditTestimonals";
 import { AddTestimonal } from "./AddTestimonal";
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 export const EditTestimonalWrapper = () => {
   const { getTestimonial, deleteTestimonal, testimonials, setTestimonial } =
     useBrandAssetStore();
@@ -83,11 +84,11 @@ export const EditTestimonalWrapper = () => {
             });
         }}
         tabIndex={0}
-        aria-label="add testimonal"
+        aria-label={signup_builder_sidebar.ADD_TESTIMONAL}
         className="flex gap-1.5 items-center pl-5 text-xs text-geekblue-600"
       >
         <PlusOutlined style={{ fontSize: "12px" }} />
-        <span>Add Testimonal</span>
+        <span>{signup_builder_sidebar.ADD_TESTIMONAL}</span>
       </div>
       {openAddTestimonal && <AddTestimonal />}
     </div>

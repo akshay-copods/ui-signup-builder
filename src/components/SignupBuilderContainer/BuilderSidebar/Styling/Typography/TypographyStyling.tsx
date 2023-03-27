@@ -10,6 +10,7 @@ import {
   titleFontSizes,
 } from "../../../../../stylingConfig";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 export const TypographyStyling = () => {
   const {
     fontFamily,
@@ -28,36 +29,45 @@ export const TypographyStyling = () => {
   const styles = getTypographyStyles();
 
   return (
-    <div className='p-5 pt-0 flex flex-col gap-3'>
-     
-      <span className='text-xs text-customBlack-600 font-medium'>
-        Reference text Sizes
+    <div className="p-5 pt-0 flex flex-col gap-3">
+      <span className="text-xs text-customBlack-600 font-medium">
+        {signup_builder_sidebar.REF_TEXT_SIZES}
       </span>
-      <div className='flex flex-col gap-2'>
-        <span className='text-xs text-customBlack-600'>Font URL</span>
+      <div className="flex flex-col gap-2">
+        <span
+          className="text-xs text-customBlack-600"
+          tabIndex={0}
+          aria-label={signup_builder_sidebar.FONT_URL}
+        >
+          {signup_builder_sidebar.FONT_URL}
+        </span>
         <Search
-          addonBefore='https://'
-          placeholder='input search text'
+          addonBefore="https://"
+          placeholder="input search text"
           allowClear
           onSearch={undefined}
           style={{ width: 304 }}
         />
-        <span className='text-customBlack-400 text-xs'>
-          This URL must be a woff or woff2 font file type
+        <span className="text-customBlack-400 text-xs">
+          {signup_builder_sidebar.FONT_URL_INSTRUCTION}
         </span>
-        <div className='flex justify-between items-center gap-2'>
-          <hr className='h-px  w-full border-t border-dashed border-gray-300' />{" "}
+        <div className="flex justify-between items-center gap-2">
+          <hr className="h-px  w-full border-t border-dashed border-gray-300" />{" "}
           <div className={`text-xs w-full text-gray-600 text-center  `}>OR</div>{" "}
-          <hr className='h-px  w-full border-t border-dashed border-gray-300' />
+          <hr className="h-px  w-full border-t border-dashed border-gray-300" />
         </div>
       </div>
 
-      <div className='flex flex-col gap-3'>
-        <div className='flex flex-col border-dashed border-b border-[#0000000f] gap-2 y-4'>
-          <span className='text-xs text-customBlack-600 font-medium'>
-            Select Font
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col border-dashed border-b border-[#0000000f] gap-2 y-4">
+          <span
+            tabIndex={0}
+            aria-label={signup_builder_sidebar.SELECT_FONT}
+            className="text-xs text-customBlack-600 font-medium"
+          >
+            {signup_builder_sidebar.SELECT_FONT}
           </span>
-          <div className='flex flex-col pb-4 gap-1'>
+          <div className="flex flex-col pb-4 gap-1">
             <SelectComponent
               value={styles.fontFamily}
               onChange={(value) => {
@@ -68,9 +78,9 @@ export const TypographyStyling = () => {
           </div>
         </div>
 
-        <div className='flex flex-col gap-4'>
-          <div className='flex items-center'>
-            <span className='text-xs w-2/4 text-customBlack-400'>
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center">
+            <span className="text-xs w-2/4 text-customBlack-400">
               {"Normal Text"}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
@@ -83,7 +93,8 @@ export const TypographyStyling = () => {
                     ...styles.normalText,
                     Bold: (normalText.Bold = !normalText.Bold),
                   })
-                }>
+                }
+              >
                 B
               </Button>
               <Select
@@ -99,9 +110,13 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className='flex items-center'>
-            <span className='text-xs w-2/4 text-customBlack-400'>
-              {"Title"}
+          <div className="flex items-center">
+            <span
+              tabIndex={0}
+              aria-label={signup_builder_sidebar.TITLE}
+              className="text-xs w-2/4 text-customBlack-400"
+            >
+              {signup_builder_sidebar.TITLE}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
@@ -113,7 +128,8 @@ export const TypographyStyling = () => {
                     ...styles.title,
                     Bold: (title.Bold = !title.Bold),
                   })
-                }>
+                }
+              >
                 B
               </Button>
               <Select
@@ -129,9 +145,13 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className='flex items-center'>
-            <span className='text-xs w-2/4 text-customBlack-400'>
-              {"Sub-Title"}
+          <div className="flex items-center">
+            <span
+              tabIndex={0}
+              aria-label={signup_builder_sidebar.SUB_TITLE}
+              className="text-xs w-2/4 text-customBlack-400"
+            >
+              {signup_builder_sidebar.SUB_TITLE}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
@@ -143,7 +163,8 @@ export const TypographyStyling = () => {
                     ...styles.subTitle,
                     Bold: (subTitle.Bold = !subTitle.Bold),
                   })
-                }>
+                }
+              >
                 B
               </Button>
               <Select
@@ -160,10 +181,14 @@ export const TypographyStyling = () => {
             </div>
           </div>
 
-          <hr className='h-px w-full bg-[#0000000f]' />
-          <div className='flex items-center'>
-            <span className='text-xs w-2/4 text-customBlack-400'>
-              {"Links"}
+          <hr className="h-px w-full bg-[#0000000f]" />
+          <div className="flex items-center">
+            <span
+              tabIndex={0}
+              aria-label={signup_builder_sidebar.LINKS}
+              className="text-xs w-2/4 text-customBlack-400"
+            >
+              {signup_builder_sidebar.LINKS}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Button
@@ -175,7 +200,8 @@ export const TypographyStyling = () => {
                     ...styles.links,
                     Bold: (links.Bold = !links.Bold),
                   })
-                }>
+                }
+              >
                 B
               </Button>
               <Select
@@ -191,9 +217,13 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className='flex items-center'>
-            <span className='text-xs w-2/4 text-customBlack-400'>
-              {"Links Style"}
+          <div className="flex items-center">
+            <span
+              tabIndex={0}
+              aria-label={signup_builder_sidebar.LINKS_STYLE}
+              className="text-xs w-2/4 text-customBlack-400"
+            >
+              {signup_builder_sidebar.LINKS_STYLE}
             </span>
             <div className={` w-2/4 flex gap-2 items-center`}>
               <Select

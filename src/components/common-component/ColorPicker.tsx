@@ -17,7 +17,7 @@ export const ColorPickerComponent = ({
   return (
     <div className='flex  items-center'>
       {label && (
-        <span className='text-xs w-2/4  text-customBlack-400'>{label}</span>
+        <span tabIndex={0} aria-label={label} className='text-xs w-2/4  text-customBlack-400'>{label}</span>
       )}
       <div className='flex w-2/4 items-center gap-2'>
         <Colorpicker
@@ -28,9 +28,11 @@ export const ColorPickerComponent = ({
           value={value}
           popup={true}
           onChange={onChange}
+        
         />
-        <span className='text-black'>{fontColor}</span>
+        <span tabIndex={0} aria-label={fontColor} className='text-black'>{fontColor}</span>
       </div>
     </div>
   );
 };
+

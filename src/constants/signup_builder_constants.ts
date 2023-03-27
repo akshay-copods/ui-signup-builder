@@ -1,5 +1,9 @@
 export const SIGN_UP_BUILDER = "Sign Up Builder";
 export const VIEW_FULL_SCREEN = "View Full Screen";
+export const BUILDER='Builder';
+export const TEMPLATES='Templates';
+export const REDO_BUTTON='redo button';
+export const UNDO_BUTTON='undo button'
 
 export const signup_builder_sidebar = {
   LOGIN_TYPES: "Login Types",
@@ -53,6 +57,28 @@ export const signup_builder_sidebar = {
   SIGN_UP_BOX_TITLE: "SignUp Box Title",
   CUSTOM_LAYOUT_FOR_CONTENT: "Custom Layouts for Content",
   LAYOUT_SELECT_INSTRUCTOIN: "You can select up-to 2 layouts.",
+  SIGN_UP_TITLE:'Sign Up Title',
+  CONTENT:'Content',
+  TESTIMONAL:'Testimonal',
+  EDIT_STATEMENT:'Edit Statement',
+  STATEMENT_TITLE:'Statement Title',
+  STATEMENT_SUB_TITLE:'statement Sub-Title',
+  IMAGE_SHAPE:'Image Shape',
+  ADD_TESTIMONAL:'Add Testimonal',
+  EDIT_TESTIMONAL:'Edit Testimonial',
+  CLOSE:'Close',
+  IMAGE:'ImageName',
+  NAME:'Name',
+  DESIGNATION:'Designation',
+  QUOTE:'Quote',
+  MINUS_BUTTON:'Minus',
+  PLUS_BUTTON:'Plus',
+  ADD_INPUT_FIELD:'Add Input Field',
+TOP_ALIGN:'top align',
+BOTTOM_ALIGN:'bottom align',
+EDIT_BUTTON:'Edit Button',
+BACK_BUTTON:'Back Button'
+
 };
 
 export const AriaLabel = {

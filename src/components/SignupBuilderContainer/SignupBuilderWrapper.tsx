@@ -2,18 +2,19 @@ import { Tabs, TabsProps } from "antd";
 import React, { useState } from "react";
 import { SignupBuilderContainer } from "../index";
 import { TemplateContainer } from "./Template/TemplateContainer";
+import { BUILDER, TEMPLATES } from "../../constants/signup_builder_constants";
 export const SignupBuilderWrapper = () => {
   const [activeKey, setActiveKey] = useState("1");
 
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: `Builder`, // Use Constant
+      label: BUILDER, 
       children: <SignupBuilderContainer  />,
     },
     {
       key: "2",
-      label: `Templates`, // Use Constant
+      label: TEMPLATES, 
       children: <TemplateContainer setActiveKey={setActiveKey} />,
     },
   ];

@@ -6,6 +6,7 @@ import {
   LoginTitle,
   LogoImageStyling,
 } from "../../..";
+import { signup_builder_sidebar } from "../../../../constants/signup_builder_constants";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -26,7 +27,7 @@ function getItem(
 }
 
 // submenu keys of first level
-const rootSubmenuKeys = ["sub1", "sub2", "sub3"];
+const rootSubmenuKeys = [signup_builder_sidebar.COMPANY_LOGO, signup_builder_sidebar.SIGN_UP_BOX_TITLE, signup_builder_sidebar.CONTENT];
 
 export const BrandAssests = ({
   setEditMenuOpen,
@@ -35,12 +36,12 @@ export const BrandAssests = ({
   setEditMenuOpen: (e: boolean) => void;
   setActiveContent: (e: string) => void;
 }) => {
-  const [openKeys, setOpenKeys] = useState(["sub1"]);
+  const [openKeys, setOpenKeys] = useState([signup_builder_sidebar.COMPANY_LOGO]);
 
   const items: MenuItem[] = [
-    getItem("Company Logo", "sub1", "", [getItem(<LogoImageStyling />, "1")]),
-    getItem("SignUp Box Title", "sub2", "", [getItem(<LoginTitle />, "2")]),
-    getItem("Content", "sub3", "", [
+    getItem(signup_builder_sidebar.COMPANY_LOGO, signup_builder_sidebar.COMPANY_LOGO, "", [getItem(<LogoImageStyling />, "1")]),
+    getItem(signup_builder_sidebar.SIGN_UP_BOX_TITLE, signup_builder_sidebar.SIGN_UP_BOX_TITLE, "", [getItem(<LoginTitle />, "2")]),
+    getItem(signup_builder_sidebar.CONTENT, signup_builder_sidebar.CONTENT, "", [
       getItem(
         <ContentMainContainer
           setActiveContent={setActiveContent}

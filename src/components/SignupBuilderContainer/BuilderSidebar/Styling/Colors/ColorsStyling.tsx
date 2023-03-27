@@ -1,7 +1,7 @@
 import React from "react";
 import { ColorPickerComponent } from "../../../../common-component/ColorPicker";
 import { useThemeStore } from "../../../../../store/ThemeStore";
-
+import {signup_builder_sidebar} from '../../../../../constants/signup_builder_constants'
 export const ColorsStyling = () => {
   const { changePrimaryColor, changeErrorColor, changeSecondaryColor, theme } =
     useThemeStore();
@@ -9,7 +9,7 @@ export const ColorsStyling = () => {
   return (
     <div className="px-5">
       <ColorPickerComponent
-        label="Primary Color"
+        label={signup_builder_sidebar.PRIMARY_COLOR}
         value={theme.primaryColor}
         popup={true}
         onChange={(value) => {
@@ -17,7 +17,7 @@ export const ColorsStyling = () => {
         }}
         fontColor={theme.primaryColor}
       />
-      <ColorPickerComponent
+      {/* <ColorPickerComponent
         label="Secondry Color"
         value={theme.secondaryColor}
         popup={true}
@@ -25,9 +25,9 @@ export const ColorsStyling = () => {
           changeSecondaryColor(value.hex);
         }}
         fontColor={theme.secondaryColor}
-      />
+      /> */}
       <ColorPickerComponent
-        label="Error Color"
+        label={signup_builder_sidebar.ERROR_COLOR}
         value={theme.errorColor}
         popup={true}
         onChange={(value) => {

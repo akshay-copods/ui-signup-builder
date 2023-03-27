@@ -11,6 +11,7 @@ import {
 } from "../..";
 import "./sidebar.css";
 import { LayoutStyling } from "./Styling/Layout/LayoutStyling";
+import { signup_builder_sidebar } from "../../../constants/signup_builder_constants";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -30,19 +31,49 @@ function getItem(
 }
 
 // submenu keys of first level
-const rootSubmenuKeys = ["sub1", "sub2", "sub3","sub4","sub5",'sub6'];
+const rootSubmenuKeys = [
+  signup_builder_sidebar.THEME,
+  signup_builder_sidebar.LAYOUT,
+  signup_builder_sidebar.BUTTONS,
+  signup_builder_sidebar.COLORS,
+  signup_builder_sidebar.INPUT_FIELD,
+  signup_builder_sidebar.TYPOGRAPHY,
+];
 
-export const BuilderSidebar = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>void}) => {
-  const [openKeys, setOpenKeys] = useState(["sub1"]);
+export const BuilderSidebar = ({
+  setEditMenuOpen,
+}: {
+  setEditMenuOpen: (e: boolean) => void;
+}) => {
+  const [openKeys, setOpenKeys] = useState([signup_builder_sidebar.THEME]);
   const items: MenuItem[] = [
-    getItem("Theme", "sub1", "", [getItem(<Theme />, "1")]),
-    getItem("Layout", "sub2", "", [
+    getItem(signup_builder_sidebar.THEME, signup_builder_sidebar.THEME, "", [
+      getItem(<Theme />, "1"),
+    ]),
+    getItem(signup_builder_sidebar.LAYOUT, signup_builder_sidebar.LAYOUT, "", [
       getItem(<LayoutStyling setEditMenuOpen={setEditMenuOpen} />, "2"),
     ]),
-    getItem("Buttons", "sub3", "", [getItem(<ButtonStyling />, "3")]),
-    getItem("Colors", "sub4", "", [getItem(<ColorsStyling />, "4")]),
-    getItem("Input Field", "sub5", "", [getItem(<InputFieldStyling setEditMenuOpen={setEditMenuOpen} />, "5")]),
-    getItem("Typography", "sub6", "", [getItem(<TypographyStyling />, "6")]),
+    getItem(
+      signup_builder_sidebar.BUTTONS,
+      signup_builder_sidebar.BUTTONS,
+      "",
+      [getItem(<ButtonStyling />, "3")]
+    ),
+    getItem(signup_builder_sidebar.COLORS, signup_builder_sidebar.COLORS, "", [
+      getItem(<ColorsStyling />, "4"),
+    ]),
+    getItem(
+      signup_builder_sidebar.INPUT_FIELD,
+      signup_builder_sidebar.INPUT_FIELD,
+      "",
+      [getItem(<InputFieldStyling setEditMenuOpen={setEditMenuOpen} />, "5")]
+    ),
+    getItem(
+      signup_builder_sidebar.TYPOGRAPHY,
+      signup_builder_sidebar.TYPOGRAPHY,
+      "",
+      [getItem(<TypographyStyling />, "6")]
+    ),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {
@@ -55,15 +86,13 @@ export const BuilderSidebar = ({setEditMenuOpen}:{setEditMenuOpen:(e:boolean)=>v
   };
   return (
     <div>
-     
-        <Menu
-          mode="inline"
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
-          style={{ width: "auto", fontSize: "14px" }}
-          items={items}
-        />
-      
+      <Menu
+        mode="inline"
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+        style={{ width: "auto", fontSize: "14px" }}
+        items={items}
+      />
     </div>
   );
 };

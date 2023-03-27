@@ -5,6 +5,7 @@ import { logoAlignments } from "../../../../../stylingConfig";
 import { SelectComponent } from "../../../..";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { InboxOutlined } from "@ant-design/icons";
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 
 export const LogoImageStyling = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -44,7 +45,7 @@ export const LogoImageStyling = () => {
   return (
     <div className="flex px-5 flex-col gap-4 w-full">
       <div className="flex flex-col gap-3">
-        <span className="text-xs w-2/4  text-[#00000073]">Upload Logo</span>
+        <span className="text-xs w-2/4  text-[#00000073]" tabIndex={0} aria-label={signup_builder_sidebar.UPLOAD_LOGO}>{signup_builder_sidebar.UPLOAD_LOGO}</span>
         <Upload
           className="w-2/4"
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -58,10 +59,10 @@ export const LogoImageStyling = () => {
               <InboxOutlined style={{fontSize:26,color:'#1890FF'}} />
               <div className="flex flex-col w-56 gap-1">
                 <span className="text-customBlack-600 text-xs">
-                  Click or drag file to this area to upload
+                  {signup_builder_sidebar.CLICK_AND_DRAG_FILE}
                 </span>
                 <span className="text-customBlack-400 text-xs whitespace-normal">
-                  Support JPEG, PNG, SVG, ICO Max file size: 1.0 MB
+                  {signup_builder_sidebar.UPLOAD_IMAGE_SUPPORT_SIZE_INSTRUCTION}
                 </span>
               </div>
             </div>
@@ -69,7 +70,7 @@ export const LogoImageStyling = () => {
         </Upload>
       </div>
       <SelectComponent
-        label={"Alignment"}
+        label={signup_builder_sidebar.ALIGNMANT}
         value={getLogoImage().alignment}
         onChange={(value) => setLogoAlignment(value)}
         options={logoAlignments}

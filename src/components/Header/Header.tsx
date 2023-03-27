@@ -10,6 +10,7 @@ import {
   useTypographyStore,
 } from "../../store";
 import { useBrandAssetStore } from "../../store/BrandAssetStore";
+import { SIGN_UP_BUILDER } from "../../constants/signup_builder_constants";
 
 export const Header = () => {
   const { theme } = useThemeStore();
@@ -58,7 +59,7 @@ export const Header = () => {
         tabIndex={0}
         aria-label='Sign Up Builder'
         className='text-2xl text-customBlack-600 font-medium'>
-        Sign Up Builder
+        {SIGN_UP_BUILDER}
       </h3>
       <button
         onClick={saveConfig}

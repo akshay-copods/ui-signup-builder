@@ -4,6 +4,7 @@ import { useLayoutStore, useThemeStore } from "../../../../../store";
 import { Grid } from "../../../../../types/LayoutStoreTypes";
 import { Icon } from "@iconify/react";
 import { customLayoutData } from "../../../../../stylingConfig";
+import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 export const LayoutStyling = ({
   setEditMenuOpen,
 }: {
@@ -29,17 +30,21 @@ export const LayoutStyling = ({
   return (
     <div className="p-5 pt-0 flex flex-col gap-4 text-black">
       <div className="flex justify-between">
-        <span>Grid</span>
+        <span tabIndex={0} aria-label={signup_builder_sidebar.GRID}>{signup_builder_sidebar.GRID}</span>
         <div className="flex gap-2 items-center">
           <Icon
             className="w-7 h-7"
             onClick={() => setGrid(Grid.SPLIT)}
+            onKeyUp={(e) =>{if (e.key === "Enter") setGrid(Grid.SPLIT)}}
+            tabIndex={0}
             icon="material-symbols:splitscreen-outline"
             rotate={1}
             color={gridLayout === Grid.SPLIT ? "#597ef7" : "#d9d9d9"}
           />
           <Icon
             className="w-7 h-7"
+            tabIndex={0}
+            onKeyUp={(e) =>{if (e.key === "Enter") setGrid(Grid.SINGLE)}}
             onClick={() => setGrid(Grid.SINGLE)}
             icon="material-symbols:rectangle-rounded"
             color={gridLayout === Grid.SINGLE ? "#597ef7" : "#d9d9d9"}
@@ -65,14 +70,13 @@ export const LayoutStyling = ({
           <span>{gridContentWidth}</span>
         </div>
         <span className="text-customBlack-400 text-xs whitespace-normal">
-          Adjust the width with the slider to customize the spacing to the
-          respective sections
+          {signup_builder_sidebar.SLIDER_WIDTH_INSTRUCTION}
         </span>
       </div>
      
       <div>
         <div className="flex justify-between">
-          <span className="text-black">Background</span>
+          <span tabIndex={0} aria-label={signup_builder_sidebar.BACKGROUND} className="text-black">{signup_builder_sidebar.BACKGROUND}</span>
           <div className="flex"></div>
         </div>
         <div className="flex items-center gap-1.5">

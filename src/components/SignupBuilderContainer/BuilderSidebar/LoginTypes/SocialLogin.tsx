@@ -3,6 +3,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { useLoginTypesStore } from "../../../../store/LoginTypesStore";
 import { socialButtonOptions } from "../../../../stylingConfig";
+import { signup_builder_sidebar } from "../../../../constants/signup_builder_constants";
 export const SocialLogin = () => {
   // Add/Remove checked item from list
   const { getSocialLoginTypes, setSocialLoginTypes, socialLoginTypes } =
@@ -11,10 +12,11 @@ export const SocialLogin = () => {
     <div className="flex p-6  flex-col gap-3">
       <div>
         <h2 className="text-sm font-medium text-[#000000d9]">
-          Social Logins ({getSocialLoginTypes().length}/4)
+          {signup_builder_sidebar.SOCIAL_LOGINS} ({getSocialLoginTypes().length}
+          /4)
         </h2>
         <span className="text-xs font-normal text=[#00000073]">
-          You can select only 4 social logins.
+          {signup_builder_sidebar.LOGINS_LIMIT}
         </span>
       </div>
       <div className="flex flex-col gap-5">
