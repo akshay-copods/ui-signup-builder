@@ -1,5 +1,5 @@
 import { Tabs, TabsProps } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { BrandAssests, BuilderSidebar, EditMenu, LoginTypes, Statements, TestimonalWrapper } from "../..";
 import { EditTestimonals } from "./BrandAssests/Content/EditTestimonals";
 export const BuilderSidebarWrapper = ({
@@ -30,6 +30,7 @@ export const BuilderSidebarWrapper = ({
       children: <BrandAssests setEditMenuOpen={setEditMenuOpen} setActiveContent={setActiveContent} />,
     },
   ];
+  const [activeState,setActiveState]=useState('1')
   return (
     <div>
       {editMenuOpen ? (
@@ -37,8 +38,8 @@ export const BuilderSidebarWrapper = ({
       ):content==='STATEMENTS'?(
         <Statements setActiveContent={setActiveContent} />
       ):content==='TESTIMONALS'?(
-        <TestimonalWrapper setActiveContent={setActiveContent} />
-      ):<Tabs id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
+        <TestimonalWrapper setActiveState={setActiveState} setActiveContent={setActiveContent} />
+      ):<Tabs activeKey={activeState} onChange={(e) => setActiveState(e)}  id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
       }
     </div>
   );

@@ -27,3 +27,4 @@ export {Statements} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/C
 export {ContentMainContainer} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/ContantMainContainer'
 export {TestimonalStyling} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/TestinomalStyling'
 export {EditTestimonalWrapper} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/EditTestimonalWrapper'
+export {AddTestimonal} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/AddTestimonal'

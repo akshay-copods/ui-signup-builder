@@ -8,12 +8,12 @@ export const SignupBuilderWrapper = () => {
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: `Builder`,
+      label: `Builder`, // Use Constant
       children: <SignupBuilderContainer  />,
     },
     {
       key: "2",
-      label: `Templates`,
+      label: `Templates`, // Use Constant
       children: <TemplateContainer setActiveKey={setActiveKey} />,
     },
   ];

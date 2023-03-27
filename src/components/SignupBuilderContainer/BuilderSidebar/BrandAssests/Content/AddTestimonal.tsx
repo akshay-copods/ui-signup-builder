@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
-import { Input, Select, Upload, UploadFile, UploadProps } from "antd";
-import { Colorpicker } from "antd-colorpicker";
-import React, { useEffect, useState } from "react";
+import { Input, Upload, UploadFile, UploadProps } from "antd";
+import React, { useState } from "react";
 const imageShapeData = [
   { label: "Circular", value: "circle" },
   { label: "Square", value: "square" },
@@ -13,14 +12,9 @@ const imageSizes = [
 import { InboxOutlined } from "@ant-design/icons";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { RcFile } from "antd/es/upload";
+import { User } from "../../../../../types/BrandAssetStoreTypes";
 const { TextArea } = Input;
-export const EditTestimonals = ({
-  setCurrentAccordion,
-  data,
-}: {
-  setCurrentAccordion: (e: boolean) => void;
-  data: any;
-}) => {
+export const AddTestimonal = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const {
     setTestimonial,
@@ -42,12 +36,7 @@ export const EditTestimonals = ({
         reader.onload = () => resolve(reader.result as string);
       });
     }
-    
     const image = new Image();
-    editTestimonial({
-      ...data,
-      personImage: image.src,
-    });
     image.src = src;
   };
   const onPreview = async (file: UploadFile) => {
@@ -65,17 +54,14 @@ export const EditTestimonals = ({
     const imgWindow = window.open(src);
     imgWindow?.document.write(image.outerHTML);
   };
+  const newArray=testimonials.users.slice(-1).pop() as User
   return (
     <div className="flex flex-col p-5 bg-natural-3 ">
       <div className="flex justify-between items-center">
         <h1 className="text-sm font-semibold text-customBlack-600">
-          Edit Testimonial
+          Add Testimonial
         </h1>
-        <span
-          tabIndex={0}
-          className="text-primary-6 text-xs"
-          onClick={() => setCurrentAccordion(false)}
-        >
+        <span tabIndex={0} className="text-primary-6 text-xs">
           Close
         </span>
       </div>
@@ -115,33 +101,16 @@ export const EditTestimonals = ({
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs text-customBlack-600">Name</span>
-          <Input
-            onChange={(e) => {
+          <Input className="w-48" type="text" maxLength={80}  onChange={(e) => {
               editTestimonial({
-                ...data,
-                personDetails: e.target.value,
+                ...newArray,
+                personDetails:e.target.value
               });
-            }}
-            value={data.personDetails}
-            className="w-48"
-            type="text"
-            maxLength={80}
-          />
+            }} value={testimonials.users?.slice(-1)?.pop()?.personDetails} />
         </div>
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs text-customBlack-600">Designation</span>
-          <Input
-            onChange={(e) => {
-              editTestimonial({
-                ...data,
-                personDesignation: e.target.value,
-              });
-            }}
-            value={data.personDesignation}
-            className="w-48"
-            type="text"
-            maxLength={50}
-          />
+          <Input value={testimonials.users?.slice(-1)?.pop()?.personDesignation} className="w-48" type="text" maxLength={50} />
         </div>
       </div>
       <hr className="mt-5 mb-5" />
@@ -150,17 +119,7 @@ export const EditTestimonals = ({
           <label htmlFor="" className="text-customBlack-600 text-xs">
             Quote
           </label>
-          <TextArea
-            value={data.personQuote}
-            onChange={(e) => {
-              editTestimonial({
-                ...data,
-                personQuote: e.target.value,
-              });
-            }}
-            maxLength={150}
-            className="w-48 h-28"
-          />
+          <TextArea value={testimonials.users?.slice(-1)?.pop()?.personQuote} maxLength={150} className="w-48 h-28" />
         </div>
       </div>
     </div>
