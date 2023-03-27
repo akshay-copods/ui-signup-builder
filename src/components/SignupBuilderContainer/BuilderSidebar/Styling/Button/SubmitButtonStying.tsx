@@ -39,13 +39,13 @@ export const SubmitButtonStying = () => {
           setCurrentAccordion(!currentAccordion);
         }}
       >
-        <span className="text-xs text-customBlack-600 font-medium">
+        <span tabIndex={0} aria-label={signup_builder_sidebar.SUBMIT_BUTTON_STYLING} className="text-xs text-customBlack-600 font-medium">
           {signup_builder_sidebar.SUBMIT_BUTTON_STYLING}
         </span>
         {currentAccordion ? (
-          <UpOutlined style={{ fontSize: "10px" }} className="text-black" />
+          <UpOutlined tabIndex={0} aria-label={signup_builder_sidebar.TOP_ALIGN} style={{ fontSize: "10px" }} className="text-black" />
         ) : (
-          <DownOutlined style={{ fontSize: "10px" }} className="text-black" />
+          <DownOutlined tabIndex={0} aria-label={signup_builder_sidebar.BOTTOM_ALIGN} style={{ fontSize: "10px" }} className="text-black" />
         )}
       </div>
       {/* {position} */}

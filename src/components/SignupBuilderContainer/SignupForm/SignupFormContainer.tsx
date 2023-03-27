@@ -89,7 +89,7 @@ export const SignupFormContainer = () => {
                 View Full Screen
               </span>
 
-              <div className="flex items-center" onClick={() => setOpen(true)}>
+              <div className="flex items-center" onClick={() => setOpen(true)} onKeyUp={(e)=> {if(e.key==='Enter') setOpen(true)}}>
                 <Tooltip title={ViewPort.FULLSCREEN} color="geekblue">
                   <FullscreenOutlined
                     tabIndex={0}
