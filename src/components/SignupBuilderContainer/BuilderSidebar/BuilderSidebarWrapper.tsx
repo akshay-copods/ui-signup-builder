@@ -1,7 +1,7 @@
 import { Tabs, TabsProps } from "antd";
 import React from "react";
 import { BrandAssests, BuilderSidebar, EditMenu, LoginTypes, Statements, TestimonalWrapper } from "../..";
-import { EditTestimonals } from "./EditMenu/EditTestimonals";
+import { EditTestimonals } from "./BrandAssests/Content/EditTestimonals";
 export const BuilderSidebarWrapper = ({
   setEditMenuOpen,
   editMenuOpen,

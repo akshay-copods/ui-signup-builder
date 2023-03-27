@@ -21,7 +21,8 @@ module.exports = {
         },
         'natural':{
           4:'#F0F0F0',
-          5:'#D9D9D9'
+          5:'#D9D9D9',
+          3:'#FAFAFA'
         },
         'customBlack': {
           400: '#00000073',

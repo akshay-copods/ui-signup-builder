@@ -1,7 +1,8 @@
 import { Menu, MenuProps } from "antd";
 import React, { useState } from "react";
-import {  TestimonalStyling } from "../../../..";
+import {  EditTestimonalWrapper, TestimonalStyling } from "../../../..";
 import { DownOutlined } from "@ant-design/icons";
+import './../../sidebar.css'
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -31,6 +32,7 @@ export const TestimonalWrapper = ({
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const items: MenuItem[] = [
     getItem("Testimonal Styling", "sub1", "", [getItem(<TestimonalStyling/>, "1")]),
+    getItem("Edit Testimonal", "sub2", "", [getItem(<EditTestimonalWrapper/>, "2")]),
   ];
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys: any) => {
@@ -42,9 +44,9 @@ export const TestimonalWrapper = ({
     }
   };
   return (
-    <div className="pt-5">
+    <div className="pt-5" id="edit-testimonal">
       <div className="flex gap-3 items-center pl-5">
-        <DownOutlined onClick={() => setActiveContent("")} rotate={90} />
+        <DownOutlined tabIndex={0} onClick={() => setActiveContent("")} rotate={90} />
         <span >Testimonal</span>
       </div>
      

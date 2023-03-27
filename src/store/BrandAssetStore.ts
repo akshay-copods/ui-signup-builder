@@ -21,8 +21,16 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       users: [
         {
           id: "1",
-          personImage: "xyz",
+          personImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
           personDetails: "John Doe",
+          personDesignation: "Engineer",
+          personQuote:
+            "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly.",
+        },
+        {
+          id: "2",
+          personImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
+          personDetails: "john Dow",
           personDesignation: "Engineer",
           personQuote:
             "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly.",
@@ -74,6 +82,7 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       };
     },
     setTestimonial(User) {
+     
       set((state) => ({
         testimonials: {
           ...state.testimonials,
@@ -111,6 +120,20 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
           subtitle: subTitle,
         },
       }));
+    },
+    editTestimonial(testimonial) {
+      set((state) => ({
+        testimonials: {
+          ...state.testimonials,
+          users: state.testimonials.users.map((user) =>
+            user.id === testimonial.id ? testimonial : user
+          ),
+        },
+      }));
+    },
+    deleteTestimonal(id) {
+      const deleteId= get().testimonials.users.find( (deleteTestimonal) => deleteTestimonal.id === id)
+      get().testimonials.users.splice(deleteId as any,1)
     },
     getStatements() {
       return get().statements;

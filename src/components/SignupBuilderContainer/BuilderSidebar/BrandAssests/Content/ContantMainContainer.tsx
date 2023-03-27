@@ -30,6 +30,7 @@ export const ContentMainContainer = ({
                 onClick={() => {
                   setContent(data)
                 }}
+                tabIndex={0}
                 className={`w-88 h-88 ${
                   data.checked ? "border-blue-600" : "border-gray-100"
                 } border-gray-100 border ${
