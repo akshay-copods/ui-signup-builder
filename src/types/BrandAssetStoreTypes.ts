@@ -40,6 +40,10 @@ export type BrandAssetStoreState = {
     alignment: Alignment;
   };
   welcomeMessage: string;
+  logos: {
+    id: string;
+    imageUrl: string;
+  }[];
   testimonials: {
     users: User[];
     styling: TestimonialStyling;
@@ -81,4 +85,9 @@ export type BrandAssetStoreState = {
     };
     content: Content[];
   };
+  getLogos: () => {
+    id: string;
+    imageUrl: string;
+  }[];
+  setLogos: (logo: { id: string; imageUrl: string }) => void;
 };

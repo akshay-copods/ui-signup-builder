@@ -11,12 +11,22 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       imageUrl: "",
       alignment: Alignment.LEFT,
     },
-    content: [{ type: "STATEMENTS", name: "Statements", checked: true },{ type: "TESTIMONALS", name: "Testimonals", checked: true }],
+    content: [
+      { type: "STATEMENTS", name: "Statements", checked: true },
+      { type: "TESTIMONALS", name: "Testimonals", checked: true },
+    ],
     statements: {
       title: "Start your journey with us.",
       subtitle:
         "Discover the world’s best community of freelancers ad business owners.",
     },
+    logos: [
+      {
+        id: "1",
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
+    ],
     testimonials: {
       users: [
         {
@@ -151,6 +161,14 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
     },
     getContent() {
       return get().content;
+    },
+    getLogos() {
+      return get().logos;
+    },
+    setLogos(logo) {
+      set((state) => ({
+        logos: [...state.logos, logo],
+      }));
     },
   })
 );
