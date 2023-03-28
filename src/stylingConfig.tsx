@@ -1,3 +1,6 @@
+import React from "react";
+import EqualSplitLayout from "./assests/EqualSplitLayout";
+import PrimaryLayout from "./assests/PrimaryLayout";
 import { AddInputFields } from "./types/InputStoreTypes";
 import { Alignment } from "./types/LogoStoreTypes";
 
@@ -78,13 +81,12 @@ export const layoutType = [
   {
     layout: "EQUAL_SPLIT",
     text: "Equally Split",
-
-    // image: <EqualSplitLayout />,
+    image: <EqualSplitLayout /> 
   },
   {
     layout: "ONE_PRIMARY",
     text: "One Primary",
-    // image: <PrimaryLayout />,
+    image: <PrimaryLayout />,
   },
 ];
 export const buttonStates = [
