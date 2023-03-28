@@ -32,8 +32,8 @@ export const LogosWrapper = ({
           }}
           rotate={90}
         />
-        <span tabIndex={0} aria-label={signup_builder_sidebar.ADD_INPUT_FIELD}>
-          {signup_builder_sidebar.ADD_INPUT_FIELD}
+        <span tabIndex={0} aria-label={signup_builder_sidebar.ADD_LOGO}>
+          {signup_builder_sidebar.ADD_LOGO}
         </span>
       </div>
       <div className="flex flex-col gap-2">
@@ -66,9 +66,11 @@ export const LogosWrapper = ({
                     <EditOutlined
                       onKeyUp={(e) => {
                         if (e.key === "Enter")
+                        setAddLogo(false),
                           setCurrentAccordion(!currentAccordion);
                       }}
                       onClick={() => {
+                        setAddLogo(false),
                         setCurrentAccordion(!currentAccordion);
                         setId(data.id);
                       }}
@@ -78,13 +80,12 @@ export const LogosWrapper = ({
                 )}
               </div>
 
-              {(data.id === id && currentAccordion) ||
-                (openAddLogos && data.id === logos.slice(-1).pop()?.id && (
+              {(data.id === id && currentAccordion)  && (
                   <EditLogos
                     data={data}
                     setCurrentAccordion={setCurrentAccordion}
                   />
-                ))}
+                )}
             </div>
           );
         })}
@@ -100,7 +101,7 @@ export const LogosWrapper = ({
           }}
           tabIndex={0}
           aria-label={signup_builder_sidebar.ADD_LOGO}
-          className="flex gap-1.5 items-center pl-5 text-xs text-geekblue-600"
+          className="flex gap-1.5 cursor-pointer items-center pl-5 text-xs text-geekblue-600"
         >
           <PlusOutlined style={{ fontSize: "12px" }} />
           <span>{signup_builder_sidebar.ADD_LOGO}</span>
