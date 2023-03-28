@@ -14,13 +14,14 @@ import { InboxOutlined } from "@ant-design/icons";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { RcFile } from "antd/es/upload";
 import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
+import { User } from "../../../../../types/BrandAssetStoreTypes";
 const { TextArea } = Input;
 export const EditTestimonals = ({
   setCurrentAccordion,
   data,
 }: {
   setCurrentAccordion: (e: boolean) => void;
-  data: any;
+  data: User;
 }) => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const {

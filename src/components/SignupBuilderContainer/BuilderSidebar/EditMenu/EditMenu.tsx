@@ -2,7 +2,7 @@ import React from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { AddInputField } from "../../..";
 import { signup_builder_sidebar } from "../../../../constants/signup_builder_constants";
-export const EditMenu = ({ setEditMenuOpen }: { setEditMenuOpen?: any }) => {
+export const EditMenu = ({ setEditMenuOpen }: { setEditMenuOpen: (e:boolean)=>void }) => {
   return (
     <div className="p-5">
       <div className="flex gap-3 items-center">
