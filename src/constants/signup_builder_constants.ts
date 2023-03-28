@@ -8,7 +8,7 @@ export const UNDO_BUTTON='undo button'
 export const signup_builder_sidebar = {
   LOGIN_TYPES: "Login Types",
   STYLING: "Styling",
-  BRAND_ASSESSTS: "Styling",
+  BRAND_ASSESSTS: "Brand Assessts",
   SOCIAL_LOGINS: "Social Logins",
   LOGINS_LIMIT: "You can select only 4 social logins.",
   WORK_EMAIL_PASS_LESS_LOGIN: "Work Email & Password-less Logins",
