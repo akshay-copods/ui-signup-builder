@@ -53,7 +53,23 @@ export const EditLogos = ({
   };
   return (
     <div className="flex flex-col gap-2 p-5">
-      <span>{signup_builder_sidebar.ADD_LOGO}</span>
+     <div className="flex justify-between items-center">
+        <h1
+          tabIndex={0}
+          aria-label={signup_builder_sidebar.ADD_LOGO}
+          className="text-sm font-semibold text-customBlack-600"
+        >
+          {signup_builder_sidebar.ADD_LOGO}
+        </h1>
+        <span
+          onClick={() => setCurrentAccordion(false)}
+          tabIndex={0}
+          aria-label={signup_builder_sidebar.CLOSE}
+          className="text-primary-6 text-xs"
+        >
+          {signup_builder_sidebar.CLOSE}
+        </span>
+      </div>
       <Upload
         className="w-2/4"
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"

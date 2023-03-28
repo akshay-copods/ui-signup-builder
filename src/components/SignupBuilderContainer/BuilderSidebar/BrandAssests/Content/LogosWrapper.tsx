@@ -107,10 +107,10 @@ export const LogosWrapper = ({
             }}
             tabIndex={0}
             aria-label={signup_builder_sidebar.ADD_LOGO}
-            className="flex gap-1.5 border-borderColor-1 border-t cursor-pointer items-center pl-5 text-xs text-geekblue-600"
+            className="flex gap-1.5 border-borderColor-1 border-t cursor-pointer items-center pt-5 pl-5 text-xs text-geekblue-600"
           >
             <PlusOutlined style={{ fontSize: "12px" }} />
-            <span className="pt-5">{signup_builder_sidebar.ADD_LOGO}</span>
+            <span>{signup_builder_sidebar.ADD_LOGO}</span>
           </div>
         )}
         {openAddLogos && <AddLogos setAddLogo={setAddLogo} />}
