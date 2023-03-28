@@ -24,12 +24,32 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       {
         id: "1",
         imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+          "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
       },
       {
         id: "2",
         imageUrl:
-          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+          "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+      },
+      {
+        id: "3",
+        imageUrl:
+          "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+      },
+      {
+        id: "4",
+        imageUrl:
+          "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+      },
+      {
+        id: "5",
+        imageUrl:
+          "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+      },
+      {
+        id: "6",
+        imageUrl:
+          "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
       },
     ],
     testimonials: {

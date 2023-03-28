@@ -8,6 +8,7 @@ import {
 import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { AddLogos, EditLogos } from "../../../..";
+import "../../sidebar.css";
 
 export const LogosWrapper = ({
   setActiveContent,
@@ -19,9 +20,9 @@ export const LogosWrapper = ({
   const [openAction, setOpenAction] = useState(false);
   const [openAddLogos, setAddLogo] = useState(false);
   const [id, setId] = useState("");
-
+  console.log(getLogos(),'getlogos')
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 " id="edit-logos">
       <div className="flex px-5 pt-5 gap-3 items-center">
         <DownOutlined
           tabIndex={0}
@@ -41,11 +42,16 @@ export const LogosWrapper = ({
           return (
             <div
               key={data.id}
-              className="flex flex-col min-h-20 gap-1 border-b border-borderColor-1"
+              className={`flex flex-col min-h-20 gap-1  ${
+                data.id !== logos.slice(-1).pop()?.id &&
+                "border-borderColor-1 border-b"
+              } `}
             >
               <div
                 className={`flex  px-11 justify-between items-center hover:bg-gray-100 py-3`}
-                onMouseEnter={() => setOpenAction(true)}
+                onMouseEnter={() => {
+                  setOpenAction(true);
+                }}
                 onMouseLeave={() => setOpenAction(false)}
               >
                 <div className="flex gap-3 items-center">
@@ -66,12 +72,12 @@ export const LogosWrapper = ({
                     <EditOutlined
                       onKeyUp={(e) => {
                         if (e.key === "Enter")
-                        setAddLogo(false),
-                          setCurrentAccordion(!currentAccordion);
+                          setAddLogo(false),
+                            setCurrentAccordion(!currentAccordion);
                       }}
                       onClick={() => {
                         setAddLogo(false),
-                        setCurrentAccordion(!currentAccordion);
+                          setCurrentAccordion(!currentAccordion);
                         setId(data.id);
                       }}
                       className="text-customBlack-400"
@@ -80,32 +86,37 @@ export const LogosWrapper = ({
                 )}
               </div>
 
-              {(data.id === id && currentAccordion)  && (
-                  <EditLogos
-                    data={data}
-                    setCurrentAccordion={setCurrentAccordion}
-                  />
-                )}
+              {data.id === id && currentAccordion && (
+                <EditLogos
+                  data={data}
+                  setCurrentAccordion={setCurrentAccordion}
+                />
+              )}
             </div>
           );
         })}
-        <div
-          onClick={() => {
-            logos.length < 6&&  setAddLogo(true),
-              logos.length < 6 &&
+        {logos.length < 6 && !openAddLogos && (
+          <div
+            onClick={() => {
+              setAddLogo(true),
                 setLogos({
-                  id: (logos.length + 1).toString(),
+                  id: Date.now().toString(),
                   imageUrl:
                     "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
                 });
-          }}
-          tabIndex={0}
-          aria-label={signup_builder_sidebar.ADD_LOGO}
-          className="flex gap-1.5 cursor-pointer items-center pl-5 text-xs text-geekblue-600"
-        >
-          <PlusOutlined style={{ fontSize: "12px" }} />
-          <span>{signup_builder_sidebar.ADD_LOGO}</span>
-        </div>
+            }}
+            tabIndex={0}
+            aria-label={signup_builder_sidebar.ADD_LOGO}
+            className="flex gap-1.5 border-borderColor-1 border-t cursor-pointer items-center pl-5 text-xs text-geekblue-600"
+          >
+            <PlusOutlined style={{ fontSize: "12px" }} />
+            <span className="pt-5">{signup_builder_sidebar.ADD_LOGO}</span>
+          </div>
+        )}
+        {openAddLogos && <AddLogos setAddLogo={setAddLogo} />}
+        {logos.length >= 6 && (
+          <span className="px-5 text-xs">you can add maximum 6 logo</span>
+        )}
       </div>
     </div>
   );

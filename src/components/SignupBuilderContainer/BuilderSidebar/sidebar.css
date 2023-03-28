@@ -47,6 +47,10 @@
     max-height: calc(100vh - 110px);
     overflow: auto;
   }
+  #edit-logos{
+    max-height: calc(100vh - 110px);
+    overflow: auto;
+  }
   #builder-container::-webkit-scrollbar {
     display: none;
   }

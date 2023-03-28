@@ -4,13 +4,19 @@ import React, { useState } from "react";
 import { InboxOutlined } from "@ant-design/icons";
 import { useBrandAssetStore } from "../../../../../store/BrandAssetStore";
 import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
-export const AddLogos = () => {
+import { Logos } from "../../../../../types/BrandAssetStoreTypes";
+export const AddLogos = ({
+  setAddLogo,
+}: {
+  setAddLogo: (e: boolean) => void;
+}) => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const { getLogos, editContentLogos } = useBrandAssetStore();
+  const { editContentLogos, logos } = useBrandAssetStore();
   const onChange: UploadProps["onChange"] = async ({
     fileList: newFileList,
     file,
   }) => {
+    const newArray = logos.slice(-1).pop() as Logos;
     setFileList(newFileList);
     let src = file.url as string;
     if (!src) {
@@ -24,6 +30,10 @@ export const AddLogos = () => {
     const image = new Image();
 
     image.src = src;
+    editContentLogos({
+      ...newArray,
+      imageUrl: image.src,
+    });
   };
   const onPreview = async (file: UploadFile) => {
     let src = file.url as string;
@@ -36,12 +46,12 @@ export const AddLogos = () => {
     }
     const image = new Image();
     image.src = src;
-   
+
     const imgWindow = window.open(src);
     imgWindow?.document.write(image.outerHTML);
   };
   return (
-    <div>
+    <div className="flex items-center justify-center">
       <Upload
         className="w-2/4"
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"

@@ -15,7 +15,11 @@ import { RcFile } from "antd/es/upload";
 import { User } from "../../../../../types/BrandAssetStoreTypes";
 import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
 const { TextArea } = Input;
-export const AddTestimonal = () => {
+export const AddTestimonal = ({
+  setAddTestimonal,
+}: {
+  setAddTestimonal: (e: boolean) => void;
+}) => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const {
     setTestimonial,
@@ -24,6 +28,7 @@ export const AddTestimonal = () => {
     deleteTestimonal,
     editTestimonial,
   } = useBrandAssetStore();
+  const newArray = testimonials.users.slice(-1).pop() as User;
   const onChange: UploadProps["onChange"] = async ({
     fileList: newFileList,
     file,
@@ -39,6 +44,10 @@ export const AddTestimonal = () => {
     }
     const image = new Image();
     image.src = src;
+    editTestimonial({
+      ...newArray,
+      personImage: image.src,
+    });
   };
   const onPreview = async (file: UploadFile) => {
     let src = file.url as string;
@@ -55,7 +64,7 @@ export const AddTestimonal = () => {
     const imgWindow = window.open(src);
     imgWindow?.document.write(image.outerHTML);
   };
-  const newArray = testimonials.users.slice(-1).pop() as User;
+
   return (
     <div className="flex flex-col p-5 bg-natural-3 ">
       <div className="flex justify-between items-center">
@@ -67,6 +76,7 @@ export const AddTestimonal = () => {
           {signup_builder_sidebar.ADD_TESTIMONAL}
         </h1>
         <span
+          onClick={() => setAddTestimonal(false)}
           tabIndex={0}
           aria-label={signup_builder_sidebar.CLOSE}
           className="text-primary-6 text-xs"

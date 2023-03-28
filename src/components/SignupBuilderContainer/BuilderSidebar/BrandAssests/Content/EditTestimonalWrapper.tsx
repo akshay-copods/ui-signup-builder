@@ -69,28 +69,33 @@ export const EditTestimonalWrapper = () => {
           </div>
         );
       })}
-      <div
-        onClick={() => {
-          setAddTestimonal(!openAddTestimonal),
-            setTestimonial({
-              ...testimonials,
-              ...testimonials.users,
-              id: (testimonials.users.length + 1).toString(),
-              personImage:
-                "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
-              personDetails: "your name",
-              personDesignation: "designation",
-              personQuote: "enter quote",
-            });
-        }}
-        tabIndex={0}
-        aria-label={signup_builder_sidebar.ADD_TESTIMONAL}
-        className="flex gap-1.5 items-center pl-5 text-xs text-geekblue-600"
-      >
-        <PlusOutlined style={{ fontSize: "12px" }} />
-        <span>{signup_builder_sidebar.ADD_TESTIMONAL}</span>
-      </div>
-      {openAddTestimonal && <AddTestimonal />}
+      {!openAddTestimonal && (
+        <div
+          onClick={() => {
+            setAddTestimonal(!openAddTestimonal),
+              setTestimonial({
+                ...testimonials,
+                ...testimonials.users,
+                id: (testimonials.users.length + 1).toString(),
+                personImage:
+                  "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+                personDetails: "your name",
+                personDesignation: "designation",
+                personQuote: "enter quote",
+              });
+          }}
+          tabIndex={0}
+          aria-label={signup_builder_sidebar.ADD_TESTIMONAL}
+          className="flex gap-1.5 items-center pl-5 text-xs text-geekblue-600"
+        >
+          <PlusOutlined style={{ fontSize: "12px" }} />
+          <span>{signup_builder_sidebar.ADD_TESTIMONAL}</span>
+        </div>
+      )}
+
+      {openAddTestimonal && (
+        <AddTestimonal setAddTestimonal={setAddTestimonal} />
+      )}
     </div>
   );
 };
