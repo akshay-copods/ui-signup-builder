@@ -169,7 +169,6 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       }));
     },
     editContentLogos(editLogo) {
-      console.log(editLogo,'editlogo')
       set((state) => ({
         ...state,
         logos: state.logos.map((logo) =>
@@ -178,13 +177,15 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       }));
     },
     deleteTestimonal(id) {
-      const deleteId = get().testimonials.users.find(
+   
+      const deleteId = get().testimonials.users.findIndex(
         (deleteTestimonal) => deleteTestimonal.id === id
       );
       get().testimonials.users.splice(deleteId as any, 1);
     },
     deleteLogos(id) {
-      const deleteId = get().logos.find((deleteLogos) => deleteLogos.id === id);
+      console.log(id,'deleteid')
+      const deleteId = get().logos.findIndex((deleteLogos) => deleteLogos.id === id);
       get().logos.splice(deleteId as any, 1);
     },
     getStatements() {

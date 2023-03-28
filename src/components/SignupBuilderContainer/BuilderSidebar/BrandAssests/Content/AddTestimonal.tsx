@@ -64,7 +64,7 @@ export const AddTestimonal = ({
     const imgWindow = window.open(src);
     imgWindow?.document.write(image.outerHTML);
   };
-
+console.log(testimonials.users)
   return (
     <div className="flex flex-col p-5 bg-natural-3 ">
       <div className="flex justify-between items-center">
@@ -79,7 +79,7 @@ export const AddTestimonal = ({
           onClick={() => setAddTestimonal(false)}
           tabIndex={0}
           aria-label={signup_builder_sidebar.CLOSE}
-          className="text-primary-6 text-xs"
+          className="text-primary-6 text-xs cursor-pointer"
         >
           {signup_builder_sidebar.CLOSE}
         </span>

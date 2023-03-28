@@ -50,6 +50,7 @@ export const AddLogos = ({
     const imgWindow = window.open(src);
     imgWindow?.document.write(image.outerHTML);
   };
+  console.log(logos,'logos')
   return (
     <div className="flex flex-col px-5 gap-2">
        <div className="flex justify-between items-center">
@@ -64,7 +65,7 @@ export const AddLogos = ({
           onClick={() => setAddLogo(false)}
           tabIndex={0}
           aria-label={signup_builder_sidebar.CLOSE}
-          className="text-primary-6 text-xs"
+          className="text-primary-6 cursor-pointer text-xs"
         >
           {signup_builder_sidebar.CLOSE}
         </span>

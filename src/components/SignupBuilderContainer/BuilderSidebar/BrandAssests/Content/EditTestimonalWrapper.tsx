@@ -14,11 +14,9 @@ export const EditTestimonalWrapper = () => {
   useEffect(() => {
     testimonials.users;
   }, [testimonials.users]);
-  console.log(testimonials.users);
   return (
     <div className="flex flex-col gap-3 ">
       {getTestimonial().map((data) => {
-        console.log(data.personImage, "data.personImage");
         return (
           <div
             key={data.id}

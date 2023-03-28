@@ -20,7 +20,6 @@ export const LogosWrapper = ({
   const [openAction, setOpenAction] = useState(false);
   const [openAddLogos, setAddLogo] = useState(false);
   const [id, setId] = useState("");
-  console.log(getLogos(),'getlogos')
   return (
     <div className="flex flex-col gap-5 " id="edit-logos">
       <div className="flex px-5 pt-5 gap-3 items-center">

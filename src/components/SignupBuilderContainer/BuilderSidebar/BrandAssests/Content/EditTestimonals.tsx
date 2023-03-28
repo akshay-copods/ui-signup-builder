@@ -74,7 +74,7 @@ export const EditTestimonals = ({
         </h1>
         <span
           tabIndex={0}
-          className="text-primary-6 text-xs"
+          className="text-primary-6 text-xs cursor-pointer"
           onClick={() => setCurrentAccordion(false)}
         >
           {signup_builder_sidebar.CLOSE}
