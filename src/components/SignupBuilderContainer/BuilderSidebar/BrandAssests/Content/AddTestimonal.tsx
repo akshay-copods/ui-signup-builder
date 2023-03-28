@@ -158,6 +158,12 @@ export const AddTestimonal = ({
           <Input
             value={testimonials.users?.slice(-1)?.pop()?.personDesignation}
             className="w-48"
+            onChange={(e) => {
+              editTestimonial({
+                ...newArray,
+                personDesignation: e.target.value,
+              });
+            }}
             type="text"
             maxLength={50}
           />
@@ -175,6 +181,12 @@ export const AddTestimonal = ({
             {signup_builder_sidebar.QUOTE}
           </label>
           <TextArea
+           onChange={(e) => {
+            editTestimonial({
+              ...newArray,
+              personQuote: e.target.value,
+            });
+          }}
             value={testimonials.users?.slice(-1)?.pop()?.personQuote}
             maxLength={150}
             className="w-48 h-28"
