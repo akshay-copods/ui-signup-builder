@@ -28,3 +28,6 @@ export {ContentMainContainer} from './SignupBuilderContainer/BuilderSidebar/Bran
 export {TestimonalStyling} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/TestinomalStyling'
 export {EditTestimonalWrapper} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/EditTestimonalWrapper'
 export {AddTestimonal} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/AddTestimonal'
+export {LogosWrapper} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/LogosWrapper'
+export {EditLogos} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/EditLogos'
+export {AddLogos} from './SignupBuilderContainer/BuilderSidebar/BrandAssests/Content/AddLogos'

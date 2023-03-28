@@ -26,12 +26,18 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
         imageUrl:
           "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
       },
+      {
+        id: "2",
+        imageUrl:
+          "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      },
     ],
     testimonials: {
       users: [
         {
           id: "1",
-          personImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
+          personImage:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
           personDetails: "John Doe",
           personDesignation: "Engineer",
           personQuote:
@@ -39,7 +45,8 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
         },
         {
           id: "2",
-          personImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
+          personImage:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
           personDetails: "john Dow",
           personDesignation: "Engineer",
           personQuote:
@@ -89,6 +96,7 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
         testimonials: get().testimonials,
         statements: get().statements,
         content: get().content,
+        logos: get().logos,
       };
     },
     setTestimonial(User) {
@@ -140,9 +148,24 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
         },
       }));
     },
+    editContentLogos(editLogo) {
+      console.log(editLogo,'editlogo')
+      set((state) => ({
+        ...state,
+        logos: state.logos.map((logo) =>
+          logo.id === editLogo.id ? editLogo : logo
+        ),
+      }));
+    },
     deleteTestimonal(id) {
-      const deleteId= get().testimonials.users.find( (deleteTestimonal) => deleteTestimonal.id === id)
-      get().testimonials.users.splice(deleteId as any,1)
+      const deleteId = get().testimonials.users.find(
+        (deleteTestimonal) => deleteTestimonal.id === id
+      );
+      get().testimonials.users.splice(deleteId as any, 1);
+    },
+    deleteLogos(id) {
+      const deleteId = get().logos.find((deleteLogos) => deleteLogos.id === id);
+      get().logos.splice(deleteId as any, 1);
     },
     getStatements() {
       return get().statements;

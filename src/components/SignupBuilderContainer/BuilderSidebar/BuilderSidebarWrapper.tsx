@@ -5,6 +5,7 @@ import {
   BuilderSidebar,
   EditMenu,
   LoginTypes,
+  LogosWrapper,
   Statements,
   TestimonalWrapper,
 } from "../..";
@@ -54,6 +55,8 @@ export const BuilderSidebarWrapper = ({
           setActiveState={setActiveState}
           setActiveContent={setActiveContent}
         />
+      ): content === "LOGO" ? (
+        <LogosWrapper setActiveContent={setActiveContent} />
       ) : (
         <Tabs
           activeKey={activeState}

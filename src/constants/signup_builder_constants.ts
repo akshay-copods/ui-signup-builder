@@ -77,8 +77,8 @@ export const signup_builder_sidebar = {
 TOP_ALIGN:'top align',
 BOTTOM_ALIGN:'bottom align',
 EDIT_BUTTON:'Edit Button',
-BACK_BUTTON:'Back Button'
-
+BACK_BUTTON:'Back Button',
+ADD_LOGO:'Add Logo'
 };
 
 export const AriaLabel = {

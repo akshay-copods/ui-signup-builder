@@ -18,6 +18,10 @@ export type User = {
   personDesignation: string;
   personQuote: string;
 };
+export type Logos= {
+  id: string;
+  imageUrl: string;
+}
 export type TestimonialStyling = {
   position: Position;
   imageShape: Shape;
@@ -67,8 +71,10 @@ export type BrandAssetStoreState = {
   setStatementsTitle: (title: string) => void;
   setStatementsSubtitle: (title: string) => void;
   deleteTestimonal: (id: string) => void;
+  deleteLogos: (id: string) => void;
   getStatements: () => { title: string; subtitle: string };
   editTestimonial: (testimonial: User) => void;
+  editContentLogos: (testimonial:Logos) => void;
   getBrandAssets: () => {
     logoImage: {
       imageUrl: string;
@@ -79,6 +85,10 @@ export type BrandAssetStoreState = {
       users: User[];
       styling: TestimonialStyling;
     };
+    logos: {
+      id: string;
+      imageUrl: string;
+    }[];
     statements: {
       title: string;
       subtitle: string;

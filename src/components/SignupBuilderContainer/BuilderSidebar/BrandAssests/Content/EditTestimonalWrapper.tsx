@@ -22,7 +22,7 @@ export const EditTestimonalWrapper = () => {
         return (
           <div
             key={data.id}
-            className="flex flex-col gap-1 border-b-[#0000000f]"
+            className="flex flex-col gap-1 border-borderColor-1"
           >
             <div
               className={`flex  px-11 justify-between items-center hover:bg-gray-100 py-3`}

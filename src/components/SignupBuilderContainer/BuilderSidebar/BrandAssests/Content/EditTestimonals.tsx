@@ -45,11 +45,11 @@ export const EditTestimonals = ({
     }
     
     const image = new Image();
+    image.src = src;
     editTestimonial({
       ...data,
       personImage: image.src,
     });
-    image.src = src;
   };
   const onPreview = async (file: UploadFile) => {
     let src = file.url as string;
