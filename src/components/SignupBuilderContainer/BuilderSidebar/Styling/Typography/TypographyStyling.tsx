@@ -79,37 +79,7 @@ export const TypographyStyling = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="flex items-center">
-            <span className="text-xs w-2/4 text-customBlack-400">
-              {"Normal Text"}
-            </span>
-            <div className={` w-2/4 flex gap-2 items-center`}>
-              <Button
-                className={`text-sm text-customBlack-600 ${
-                  styles.normalText.Bold && "bg-geekblue-300"
-                }`}
-                onClick={() =>
-                  setNormalText({
-                    ...styles.normalText,
-                    Bold: (normalText.Bold = !normalText.Bold),
-                  })
-                }
-              >
-                B
-              </Button>
-              <Select
-                value={styles.normalText.fontSize}
-                onChange={(value) =>
-                  setNormalText({
-                    ...styles.normalText,
-                    fontSize: (styles.normalText.fontSize = value),
-                  })
-                }
-                options={fontSizes}
-                style={{ borderRadius: "2px", width: "100%" }}
-              />
-            </div>
-          </div>
+         
           <div className="flex items-center">
             <span
               tabIndex={0}
