@@ -184,7 +184,6 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       get().testimonials.users.splice(deleteId as any, 1);
     },
     deleteLogos(id) {
-      console.log(id,'deleteid')
       const deleteId = get().logos.findIndex((deleteLogos) => deleteLogos.id === id);
       get().logos.splice(deleteId as any, 1);
     },

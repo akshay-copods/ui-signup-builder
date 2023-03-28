@@ -19,8 +19,9 @@ export const SignupFormTemplate = () => {
   const { getTypographyStyles, setTitleText } = useTypographyStore();
   const { getAllLoginTypes } = useLoginTypesStore();
   const { getLayoutData } = useLayoutStore();
-  const {getBrandAssets}=useBrandAssetStore()
+  const { getBrandAssets } = useBrandAssetStore();
   const [title, setTitle] = React.useState(getTypographyStyles().titleText);
+
   const getEmittedValue = (e: any) => {
     setTitle(e.detail);
   };
@@ -33,7 +34,8 @@ export const SignupFormTemplate = () => {
         (getLayoutData().viewPort === ViewPort.MOBILE ||
           getLayoutData().viewPort === ViewPort.TABLET) &&
         "self-center"
-      }`}>
+      }`}
+    >
       <SignupComponent
         onMyChange={getEmittedValue}
         data={{
@@ -44,8 +46,7 @@ export const SignupFormTemplate = () => {
           typography: getTypographyStyles(),
           loginTypes: getAllLoginTypes(),
           layout: getLayoutData(),
-          brandAssests:getBrandAssets()
-
+          brandAssests: getBrandAssets(),
         }}
       />
     </div>

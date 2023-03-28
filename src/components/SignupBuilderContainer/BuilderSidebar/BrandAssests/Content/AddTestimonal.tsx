@@ -25,7 +25,6 @@ export const AddTestimonal = ({
     setTestimonial,
     testimonials,
     getTestimonial,
-    deleteTestimonal,
     editTestimonial,
   } = useBrandAssetStore();
   const newArray = testimonials.users.slice(-1).pop() as User;
@@ -64,7 +63,6 @@ export const AddTestimonal = ({
     const imgWindow = window.open(src);
     imgWindow?.document.write(image.outerHTML);
   };
-console.log(testimonials.users)
   return (
     <div className="flex flex-col p-5 bg-natural-3 ">
       <div className="flex justify-between items-center">

@@ -28,7 +28,6 @@ export const EditTestimonals = ({
     setTestimonial,
     testimonials,
     getTestimonial,
-    deleteTestimonal,
     editTestimonial,
   } = useBrandAssetStore();
   const onChange: UploadProps["onChange"] = async ({
