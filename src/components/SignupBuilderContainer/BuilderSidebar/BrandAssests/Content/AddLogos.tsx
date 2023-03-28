@@ -51,7 +51,7 @@ export const AddLogos = ({
     imgWindow?.document.write(image.outerHTML);
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col px-5 gap-2">
        <div className="flex justify-between items-center">
         <h1
           tabIndex={0}
