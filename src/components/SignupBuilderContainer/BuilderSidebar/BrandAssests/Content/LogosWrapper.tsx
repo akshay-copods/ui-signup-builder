@@ -48,11 +48,12 @@ export const LogosWrapper = ({
               } `}
             >
               <div
-                className={`flex  px-11 justify-between items-center hover:bg-gray-100 py-3`}
+                className={`flex  px-11 cursor-pointer justify-between items-center hover:bg-gray-100 py-3`}
                 onMouseEnter={() => {
-                  setOpenAction(true);
+                  setId(data.id)
+              setOpenAction(true);
                 }}
-                onMouseLeave={() => setOpenAction(false)}
+                onMouseLeave={() =>{  setOpenAction(false)}}
               >
                 <div className="flex gap-3 items-center">
                   <img
@@ -62,7 +63,7 @@ export const LogosWrapper = ({
                     alt=""
                   />
                 </div>
-                {openAction && (
+                {openAction&&data.id===id && (
                   <div className={`flex gap-2.5 items-center`}>
                     <DeleteOutlined
                       onClick={() => deleteLogos(data.id)}
