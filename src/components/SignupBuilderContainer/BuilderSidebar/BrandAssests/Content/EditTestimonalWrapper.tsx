@@ -14,7 +14,7 @@ export const EditTestimonalWrapper = () => {
   useEffect(() => {
     testimonials.users;
   }, [testimonials.users]);
-  console.log(testimonials.users)
+  console.log(testimonials.users);
   return (
     <div className="flex flex-col gap-3 ">
       {getTestimonial().map((data) => {
@@ -24,8 +24,10 @@ export const EditTestimonalWrapper = () => {
             className="flex flex-col gap-1 border-borderColor-1"
           >
             <div
-              className={`flex  px-11 justify-between items-center hover:bg-gray-100 py-3`}
-              onMouseEnter={() => setOpenAction(true)}
+              className={`flex  px-11 justify-between cursor-pointer items-center hover:bg-gray-100 py-3`}
+              onMouseEnter={() => {
+                setId(data.id), setOpenAction(true);
+              }}
               onMouseLeave={() => setOpenAction(false)}
             >
               <div className="flex gap-3 items-center">
@@ -37,7 +39,7 @@ export const EditTestimonalWrapper = () => {
                 />
                 <span>{data.personDetails}</span>
               </div>
-              {openAction && (
+              {openAction && data.id === id && (
                 <div className={`flex gap-2.5 items-center`}>
                   <DeleteOutlined
                     onClick={() => deleteTestimonal(data.id)}

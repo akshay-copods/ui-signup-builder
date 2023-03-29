@@ -20,7 +20,7 @@ export const LogosWrapper = ({
   const [openAction, setOpenAction] = useState(false);
   const [openAddLogos, setAddLogo] = useState(false);
   const [id, setId] = useState("");
-  console.log(logos,'logos')
+  console.log(logos, "logos");
   return (
     <div className="flex flex-col gap-5 " id="edit-logos">
       <div className="flex px-5 pt-5 gap-3 items-center">
@@ -50,10 +50,12 @@ export const LogosWrapper = ({
               <div
                 className={`flex  px-11 cursor-pointer justify-between items-center hover:bg-gray-100 py-3`}
                 onMouseEnter={() => {
-                  setId(data.id)
-              setOpenAction(true);
+                  setId(data.id);
+                  setOpenAction(true);
                 }}
-                onMouseLeave={() =>{  setOpenAction(false)}}
+                onMouseLeave={() => {
+                  setOpenAction(false);
+                }}
               >
                 <div className="flex gap-3 items-center">
                   <img
@@ -63,7 +65,7 @@ export const LogosWrapper = ({
                     alt=""
                   />
                 </div>
-                {openAction&&data.id===id && (
+                {openAction && data.id === id && (
                   <div className={`flex gap-2.5 items-center`}>
                     <DeleteOutlined
                       onClick={() => deleteLogos(data.id)}
