@@ -35,12 +35,12 @@ export const ContentMainContainer = ({
                 className={`w-88 h-88 ${
                   data.checked ? "border-blue-600" : "border-gray-100"
                 } border-gray-100 border ${
-                  index >= 2 ? "cursor-not-allowed" : "cursor-pointer"
+                  "cursor-pointer"
                 } shadow-md rounded relative`}
               >
                 <input
                   className={` border-gray-300 ${
-                    index >= 2 ? "cursor-not-allowed" : "cursor-pointer"
+                     "cursor-pointer"
                   } absolute top-1.5 left-1.5 bg-gray-200`}
                   value={data.type}
                   onChange={() => setContent(data)}
