@@ -137,7 +137,7 @@ export const SignupBuilder = () => {
       //
     }
     setIsLoading(false);
-  }, [Object.keys(firebseConfig).length]);
+  }, [Object?.keys(firebseConfig)?.length]);
   console.log(firebseConfig,'firrebase')
   const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
 
