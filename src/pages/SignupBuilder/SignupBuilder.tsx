@@ -44,6 +44,7 @@ export const SignupBuilder = () => {
     setStatementsSubtitle,
     setWelcomeMessage,
     setTestimonial,
+    setLogos,
     setTestiMonialStyling,
   } = useBrandAssetStore();
 
@@ -56,15 +57,11 @@ export const SignupBuilder = () => {
     }));
     //@ts-ignore
     setConfig(newData?.themeConfig);
-  
-
   };
   useEffect(() => {
     fetchConfig();
-    
-    if(Object.keys(firebseConfig).length>0){
 
-    
+    if (Object.keys(firebseConfig).length > 0) {
       //@ts-ignore
       setTheme(firebseConfig?.theme);
       //@ts-ignore
@@ -107,27 +104,41 @@ export const SignupBuilder = () => {
       setLogoAlignment(firebseConfig?.brandAssests?.logoImage?.alignment);
       //@ts-ignore
       setStatementsTitle(firebseConfig?.brandAssests?.statements?.title);
-  
+
       setStatementsSubtitle(
         //@ts-ignore
         firebseConfig?.brandAssests?.statements?.subtitle
       );
       //@ts-ignore
       setWelcomeMessage(firebseConfig?.brandAssests?.welcomeMessage);
-  
+
       setTestiMonialStyling(
         //@ts-ignore
         firebseConfig?.brandAssests?.testimonials?.styling
       );
+      const userArr = firebseConfig?.brandAssests?.testimonials?.users.filter(
+        (value, index, self) =>
+          index ===
+          self.findIndex((t) => t.id === value.id )
+      );
+      console.log(userArr,'userArr')
       //@ts-ignore
-      // firebseConfig?.brandAssests?.testimonials?.users.map((data) => {
-      //   return setTestimonial(data);
-      // });
-      // setLogos(newData.themeConfig.brandAssests?.logos);
-  
+      userArr.map((data) => {
+        setTestimonial(data);
+      });
+      const logoArr = firebseConfig?.brandAssests?.logos.filter(
+        (value, index, self) =>
+          index ===
+          self.findIndex((t) => t.id === value.id )
+      );
+      logoArr.map((data) => {
+        setLogos(data);
+      });
+      //
     }
     setIsLoading(false);
   }, [Object.keys(firebseConfig).length]);
+  console.log(firebseConfig,'firrebase')
   const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
 
   return (

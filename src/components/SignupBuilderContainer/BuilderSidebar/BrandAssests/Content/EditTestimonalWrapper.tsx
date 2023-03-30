@@ -14,6 +14,7 @@ export const EditTestimonalWrapper = () => {
   useEffect(() => {
     testimonials.users;
   }, [testimonials.users]);
+  console.log(testimonials)
   return (
     <div className="flex flex-col gap-3 ">
       {getTestimonial().map((data) => {
