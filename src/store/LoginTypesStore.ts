@@ -3,25 +3,11 @@ import { LoginMethods, LoginTypesStore } from "../types/LoginTypesStoreTypes";
 1;
 export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
   socialLoginTypes: [
-    {
-      icon: "logos:google-icon",
-      name: "Google",
-    },
-    {
-      icon: "logos:github-icon",
-      name: "Git",
-    },
+    
   ],
   loginMethods: LoginMethods.PASSWORD,
   approvals: [
-    {
-      name: "Terms of Use",
-      link: "https://www.google.com",
-    },
-    {
-      name: "Privacy Policy",
-      link: "https://www.google.com",
-    },
+   
   ],
   setSocialLoginTypes: (socialLoginType) => {
     

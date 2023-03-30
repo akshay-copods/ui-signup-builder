@@ -8,6 +8,7 @@ export const SocialLogin = () => {
   // Add/Remove checked item from list
   const { getSocialLoginTypes, setSocialLoginTypes, socialLoginTypes } =
     useLoginTypesStore();
+    console.log(getSocialLoginTypes(),'socialLoginTypes')
   return (
     <div className="flex p-6  flex-col gap-3">
       <div>

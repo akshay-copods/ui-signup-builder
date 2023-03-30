@@ -15,7 +15,6 @@ import {
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { useBrandAssetStore } from "../../store/BrandAssetStore";
-import { socialLogin } from "../../stylingConfig";
 export const SignupBuilder = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { firebseConfig, setConfig }: any = useFirebaseConfigStore();
