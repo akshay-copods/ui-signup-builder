@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useThemeStore } from "../../../../../store/ThemeStore";
 
 export const Theme = () => {
-  const { setTheme } = useThemeStore();
+  const { setTheme,theme } = useThemeStore();
 
   const themeBox = [
     {
@@ -13,7 +13,7 @@ export const Theme = () => {
         backgroundColor: "white",
         primaryColor: "#2f54eb",
         secondaryColor: "#00000099",
-        textColor: "black",
+        textColor: "#000000",
         labelColor:'#00000099'
       },
     },
@@ -24,9 +24,9 @@ export const Theme = () => {
       config: {
         backgroundColor: "black",
         primaryColor: "#2f54eb",
-        secondaryColor: "white",
-        textColor: "white",
-        labelColor:'white'
+        secondaryColor: "#ffffff",
+        textColor: "#ffffff",
+        labelColor:'#ffffff'
       },
     },
 
@@ -38,20 +38,14 @@ export const Theme = () => {
         backgroundColor: "darkgrey",
         primaryColor: "#2f54eb",
         secondaryColor: "#00000099",
-        textColor: "white",
-        labelColor:'white'
+        textColor: "#ffffff",
+        labelColor:'#ffffff'
       },
     },
   ];
   const [themeState, setThemeState] = useState({
     value: "light",
-    config: {
-      backgroundColor: "#ffffff",
-      primaryColor: "#2f54eb",
-      secondaryColor: "red",
-      textColor: "black",
-      labelColor:'#00000099'
-    },
+    config: theme,
   });
   return (
     <div className='flex px-5 gap-2 items-center'>
@@ -70,7 +64,7 @@ export const Theme = () => {
                   setThemeState({ value: data.value, config: data.config });
                 }}
                 value={data.value}
-                checked={themeState.value === data.value}
+                checked={themeState.config.backgroundColor === data.config.backgroundColor}
               />
             </div>
             <span className='text-xs  text-customBlack-400'>{data.text}</span>

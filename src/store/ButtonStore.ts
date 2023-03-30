@@ -73,6 +73,25 @@ export const useButtonStore = create<ButtonTypes>()((set, get) => ({
       },
     },
   },
+  setSocialButtonStyles(styles){
+     set((state) => ({
+      ...state,
+      socialButton: {
+        ...state.socialButton,
+        styles,
+      },
+    }));
+  },
+  setSubmitButtonStyles(styles){
+    set((state) => ({
+     ...state,
+     submitButton: {
+       ...state.submitButton,
+       styles,
+     },
+   }));
+ }
+  ,
   changeSubmitButtonState: (currentState) => {
     set((state) => ({
       ...state,

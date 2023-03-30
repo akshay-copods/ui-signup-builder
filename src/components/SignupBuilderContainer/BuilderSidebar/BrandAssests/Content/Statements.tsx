@@ -26,7 +26,7 @@ export const Statements = ({
           />
         </div>
         <div className={`flex gap-2 items-center flex-col`}>
-          <label className="self-start text-xs text-customBlack-600 font-medium">{signup_builder_sidebar.STATEMENT_TITLE}</label>
+          <label className="self-start text-xs text-customBlack-600 font-medium">{signup_builder_sidebar.STATEMENT_SUB_TITLE}</label>
           <Input
             title={signup_builder_sidebar.STATEMENT_SUB_TITLE}
             placeholder="type here to change the Sub-Title"

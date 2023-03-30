@@ -1,5 +1,4 @@
 import { create } from "zustand";
-
 interface ThemeState {
   theme: {
     backgroundColor: string;
@@ -16,7 +15,6 @@ interface ThemeState {
   changeSecondaryColor: (color: string) => void;
   changeBackgroundColor: (color: string) => void;
 }
-
 export const useThemeStore = create<ThemeState>()((set) => ({
   theme: {
     backgroundColor: "#ffffff",

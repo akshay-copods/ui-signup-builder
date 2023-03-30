@@ -8,12 +8,12 @@ export const SocialLogin = () => {
   // Add/Remove checked item from list
   const { getSocialLoginTypes, setSocialLoginTypes, socialLoginTypes } =
     useLoginTypesStore();
+    console.log(getSocialLoginTypes(),'socialLoginTypes')
   return (
     <div className="flex p-6  flex-col gap-3">
       <div>
         <h2 className="text-sm font-medium text-[#000000d9]">
-          {signup_builder_sidebar.SOCIAL_LOGINS} ({getSocialLoginTypes().length}
-          /4)
+          {signup_builder_sidebar.SOCIAL_LOGINS} ({getSocialLoginTypes().length}/4)
         </h2>
         <span className="text-xs font-normal text=[#00000073]">
           {signup_builder_sidebar.LOGINS_LIMIT}
