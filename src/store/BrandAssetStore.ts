@@ -177,14 +177,15 @@ export const useBrandAssetStore = create<BrandAssetStoreState>()(
       }));
     },
     deleteTestimonal(id) {
-   
       const deleteId = get().testimonials.users.findIndex(
         (deleteTestimonal) => deleteTestimonal.id === id
       );
       get().testimonials.users.splice(deleteId as any, 1);
     },
     deleteLogos(id) {
-      const deleteId = get().logos.findIndex((deleteLogos) => deleteLogos.id === id);
+      const deleteId = get().logos.findIndex(
+        (deleteLogos) => deleteLogos.id === id
+      );
       get().logos.splice(deleteId as any, 1);
     },
     getStatements() {

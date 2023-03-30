@@ -24,6 +24,7 @@ export const useLoginTypesStore = create<LoginTypesStore>()((set, get) => ({
     },
   ],
   setSocialLoginTypes: (socialLoginType) => {
+    
     const socialLogin = get().socialLoginTypes.find(
       (loginType) => loginType.name === socialLoginType.name
     );

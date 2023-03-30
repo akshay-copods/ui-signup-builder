@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import React from "react";
 import { db } from "../../firebase";
 import {
@@ -23,7 +23,7 @@ export const Header = () => {
 
   const saveConfig = async (e) => {
     e.preventDefault();
-    const a = await updateDoc(doc(db, "themeConfig", "5TolYMNpw7jHjDhv3KqA"), {
+    const a = await updateDoc(doc(db, "themeConfig", "i1Xp4ipK279C5Q1UGrVN"), {
       themeConfig: {
         theme,
         socialButton,

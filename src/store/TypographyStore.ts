@@ -49,10 +49,12 @@ export const useTypographyStore = create<TypographyTypes>()((set, get) => ({
   getLinkText() {
     return get().links;
   },
+ 
   setFontFamily: (fontFamily: FontFamily) => set({ fontFamily }),
   setTitle: (title: TextTypography) => set({ title }),
   setSubTitle: (subTitle: TextTypography) => set({ subTitle }),
   setLinks: (links: LinkTypography) => set({ links }),
   setNormalText: (normalText: TextTypography) => set({ normalText }),
   setTitleText: (titleText: string) => set({ titleText }),
+  setWelcomeText: (welcomeMessage: string) => set({ welcomeMessage }),
 }));

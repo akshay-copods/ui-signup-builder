@@ -7,25 +7,25 @@ import { Alignment } from "./types/LogoStoreTypes";
 export const themeConfig = [
   {
     light: {
-      backgroundColor: "white",
+      backgroundColor: "#ffffff",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
-      textColor: "black",
-      labelColor: "black",
+      textColor: "#000000",
+      labelColor: "#000000",
     },
     dark: {
-      backgroundColor: "black",
+      backgroundColor: "#000000",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
-      textColor: "black",
-      labelColor: "white",
+      textColor: "#000000",
+      labelColor: "#ffffff",
     },
     texture: {
-      backgroundColor: "white",
+      backgroundColor: "#ffffff",
       primaryColor: "#2f54eb",
       secondaryColor: "red",
-      textColor: "white",
-      labelColor: "white",
+      textColor: "#ffffff",
+      labelColor: "#ffffff",
     },
   },
 ];
@@ -182,7 +182,16 @@ export const emailPassData = [
     value: "password",
   },
 ];
-
+export const socialLogin= [
+  {
+    icon: "logos:google-icon",
+    name: "Google",
+  },
+  {
+    icon: "logos:github-icon",
+    name: "Git",
+  },
+]
 export const socialButtonOptions = [
   {
     icon: "logos:google-icon",
