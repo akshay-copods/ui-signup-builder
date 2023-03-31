@@ -17,7 +17,7 @@ export const Statements = ({
       </div>
       <div className="flex flex-col py-5 gap-5">
         <div className={`flex gap-2 items-center flex-col`}>
-          <label className="self-start text-xs text-customBlack-600 font-medium">{signup_builder_sidebar.STATEMENT_TITLE}</label>
+          <label className="self-start text-xs w-2/4 text-customBlack-400">{signup_builder_sidebar.STATEMENT_TITLE}</label>
           <Input
             title={signup_builder_sidebar.STATEMENT_TITLE}
             placeholder="type here to change the title"
@@ -26,7 +26,7 @@ export const Statements = ({
           />
         </div>
         <div className={`flex gap-2 items-center flex-col`}>
-          <label className="self-start text-xs text-customBlack-600 font-medium">{signup_builder_sidebar.STATEMENT_SUB_TITLE}</label>
+          <label className="self-start text-xs w-2/4 text-customBlack-400">{signup_builder_sidebar.STATEMENT_SUB_TITLE}</label>
           <Input
             title={signup_builder_sidebar.STATEMENT_SUB_TITLE}
             placeholder="type here to change the Sub-Title"

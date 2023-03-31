@@ -134,7 +134,7 @@ export const SocialButtonStyling = () => {
                     onClick={() => setSocialButtonLayout(data.layout)}
                   >
                     <input
-                      className="absolute top-2 left-2"
+                      className={`${socialButton.layout === data.layout?'visible':'invisible'} absolute top-2 left-2`}
                       type="radio"
                       value={data.layout}
                       checked={socialButton.layout === data.layout}
@@ -222,7 +222,7 @@ export const SocialButtonStyling = () => {
                 {signup_builder_sidebar.BORDER_RADIUS}
               </span>
               <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
+                <div className="flex border border-natural-5 bg-white py-1.5 px-3 rounded-md	 gap-6 items-center">
                   <Tooltip
                     title={signup_builder_sidebar.MINUS_BUTTON}
                     color="black"

@@ -59,6 +59,7 @@ export const Theme = () => {
                 setTheme(data.config);
               }}>
               <input
+              className={`${themeState.config.backgroundColor === data.config.backgroundColor?'visible':'invisible'}`}
                 type='radio'
                 onChange={() => {
                   setThemeState({ value: data.value, config: data.config });

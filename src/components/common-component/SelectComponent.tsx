@@ -21,7 +21,7 @@ export const SelectComponent = ({
           value={value}
           onChange={onChange}
           options={options}
-          style={{ borderRadius: "2px" }}
+          style={{ borderRadius: "6px" }}
         />
       </div>
     </div>

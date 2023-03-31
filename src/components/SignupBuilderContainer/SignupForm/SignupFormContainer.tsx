@@ -125,6 +125,7 @@ export const SignupFormContainer = () => {
           setOpen(false), setViewPort(ViewPort.DESKTOP);
         }}
         width={"100%"}
+       
       >
         <SignupFormTemplate />
       </Modal>

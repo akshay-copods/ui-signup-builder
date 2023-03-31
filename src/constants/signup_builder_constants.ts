@@ -54,7 +54,7 @@ export const signup_builder_sidebar = {
   UPLOAD_IMAGE_SUPPORT_SIZE_INSTRUCTION:
     "Support JPEG, PNG, SVG, ICO Max file size: 1.0 MB",
   ALIGNMANT: "Alignment",
-  SIGN_UP_BOX_TITLE: "SignUp Box Title",
+  SIGN_UP_BOX_TITLE: "Sign up Box Title",
   CUSTOM_LAYOUT_FOR_CONTENT: "Custom Layouts for Content",
   LAYOUT_SELECT_INSTRUCTOIN: "You can select up-to 2 layouts.",
   SIGN_UP_TITLE:'Sign Up Title',

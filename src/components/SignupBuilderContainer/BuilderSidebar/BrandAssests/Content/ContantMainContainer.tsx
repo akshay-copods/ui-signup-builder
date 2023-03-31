@@ -41,7 +41,9 @@ export const ContentMainContainer = ({
                 <input
                   className={` border-gray-300 ${
                      "cursor-pointer"
-                  } absolute top-1.5 left-1.5 bg-gray-200`}
+                  } absolute top-1.5 ${getContent()
+                    .map((k) => k.type)
+                    .includes(data.type)?'visible':'invisible'} left-1.5 bg-gray-200`}
                   value={data.type}
                   onChange={() => setContent(data)}
                   checked={getContent()
