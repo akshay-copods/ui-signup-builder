@@ -40,7 +40,9 @@ export const ContentMainContainer = ({
                   getContent()
                     .map((k) => k.type)
                     .includes(data.type) ? "border-blue-600" : "border-gray-100"
-                } border-gray-100 border ${"cursor-pointer"} shadow-md rounded relative`}
+                } border-gray-100 border ${getContent().length==2&&!getContent()
+                  .map((k) => k.type)
+                  .includes(data.type)&&"cursor-not-allowed"} shadow-md rounded relative`}
               >
                 <input
                   className={` border-gray-300 ${
