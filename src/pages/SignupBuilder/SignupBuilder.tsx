@@ -61,7 +61,7 @@ export const SignupBuilder = () => {
   useEffect(() => {
     fetchConfig();
 
-    if (Object.keys(firebseConfig).length > 0) {
+    if (Object?.keys(firebseConfig)?.length > 0) {
       //@ts-ignore
       setTheme(firebseConfig?.theme);
       //@ts-ignore
