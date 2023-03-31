@@ -28,17 +28,17 @@ export const SignupFormContainer = () => {
       <div className="bg-geekblue-100 py-7 flex px-5 flex-col gap-7">
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
-            <Tooltip title={REDO_BUTTON} color="geekblue">
+            <Tooltip title={REDO_BUTTON} color="black">
               <RedoOutlined className="cursor-pointer" />
             </Tooltip>
             <hr className="h-5 w-px bg-geekblue-300" />
-            <Tooltip title={UNDO_BUTTON} color="geekblue">
+            <Tooltip title={UNDO_BUTTON} color="black">
               <UndoOutlined className="cursor-pointer" />
             </Tooltip>
           </div>
 
           <div className="flex gap-4 items-center">
-            <Tooltip title={ViewPort.MOBILE} color="geekblue">
+            <Tooltip title={ViewPort.MOBILE} color="black">
               <MobileOutlined
                 tabIndex={0}
                 aria-label={AriaLabel.MOBILE_VIEW}
@@ -53,7 +53,7 @@ export const SignupFormContainer = () => {
             </Tooltip>
 
             <hr className="h-5 w-px bg-geekblue-300" />
-            <Tooltip title={ViewPort.TABLET} color="geekblue">
+            <Tooltip title={ViewPort.TABLET} color="black">
               <TabletOutlined
                 tabIndex={0}
                 aria-label={AriaLabel.TABLET_VIEW}
@@ -67,7 +67,7 @@ export const SignupFormContainer = () => {
               />
             </Tooltip>
             <hr className="h-5 w-px bg-geekblue-300" />
-            <Tooltip title={ViewPort.DESKTOP} color="geekblue">
+            <Tooltip title={ViewPort.DESKTOP} color="black">
               <DesktopOutlined
                 tabIndex={0}
                 aria-label={AriaLabel.DESKTOP_VIEW_BUTTON}
@@ -90,7 +90,7 @@ export const SignupFormContainer = () => {
               </span>
 
               <div className="flex items-center" onClick={() => setOpen(true)} onKeyUp={(e)=> {if(e.key==='Enter') setOpen(true)}}>
-                <Tooltip title={ViewPort.FULLSCREEN} color="geekblue">
+                <Tooltip title={ViewPort.FULLSCREEN} color="black">
                   <FullscreenOutlined
                     tabIndex={0}
                     aria-label={AriaLabel.FULL_SCREEN_VIEW}

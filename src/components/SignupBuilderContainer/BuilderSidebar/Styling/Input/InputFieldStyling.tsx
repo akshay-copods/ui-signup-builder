@@ -104,7 +104,7 @@ export const InputFieldStyling = ({
           <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
             <Tooltip
               title={signup_builder_sidebar.MINUS_BUTTON}
-              color="geekblue"
+              color="black"
             >
               <MinusOutlined
                 onClick={() =>
@@ -144,7 +144,7 @@ export const InputFieldStyling = ({
             </span>
             <Tooltip
               title={signup_builder_sidebar.PLUS_BUTTON}
-              color="geekblue"
+              color="black"
             >
               <PlusOutlined
                 onClick={() =>
@@ -182,7 +182,7 @@ export const InputFieldStyling = ({
           <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
             <Tooltip
               title={signup_builder_sidebar.MINUS_BUTTON}
-              color="geekblue"
+              color="black"
             >
               <MinusOutlined
                 onClick={() =>
@@ -223,7 +223,7 @@ export const InputFieldStyling = ({
             </span>
             <Tooltip
               title={signup_builder_sidebar.PLUS_BUTTON}
-              color="geekblue"
+              color="black"
             >
               <PlusOutlined
                 tabIndex={0}
