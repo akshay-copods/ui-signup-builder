@@ -4,6 +4,7 @@ import { customLayoutData } from "../../../../../stylingConfig";
 import { EditOutlined } from "@ant-design/icons";
 import { Content } from "../../../../../types/BrandAssetStoreTypes";
 import { signup_builder_sidebar } from "../../../../../constants/signup_builder_constants";
+import { Tooltip } from "antd";
 
 export const ContentMainContainer = ({
   setEditMenuOpen,
@@ -34,14 +35,16 @@ export const ContentMainContainer = ({
                 tabIndex={0}
                 className={`w-88 h-88 ${
                   data.checked ? "border-blue-600" : "border-gray-100"
-                } border-gray-100 border ${
-                  "cursor-pointer"
-                } shadow-md rounded relative`}
+                } border-gray-100 border ${"cursor-pointer"} shadow-md rounded relative`}
               >
                 <input
-                  className={` border-gray-300 ${
-                     "cursor-pointer"
-                  } absolute top-1.5 left-1.5 bg-gray-200`}
+                  className={` border-gray-300 ${"cursor-pointer"} absolute top-1.5 ${
+                    getContent()
+                      .map((k) => k.type)
+                      .includes(data.type)
+                      ? "visible"
+                      : "invisible"
+                  } left-1.5 bg-gray-200`}
                   value={data.type}
                   onChange={() => setContent(data)}
                   checked={getContent()
@@ -56,15 +59,20 @@ export const ContentMainContainer = ({
                 <span className="font-normal whitespace-normal text-xs text-customBlack-400">
                   {data.name}
                 </span>
-                <EditOutlined
-                  tabIndex={0}
-                  aria-label={signup_builder_sidebar.EDIT_BUTTON}
-                  onClick={(e) => setActiveContent(data.type)}
-                  onKeyUp={(e) => {
-                    if (e.key === "Enter") setActiveContent(data.type);
-                  }}
-                  className="text-geekblue-600"
-                />
+                <Tooltip
+                  title={signup_builder_sidebar.EDIT_BUTTON}
+                  color="black"
+                >
+                  <EditOutlined
+                    tabIndex={0}
+                    aria-label={signup_builder_sidebar.EDIT_BUTTON}
+                    onClick={(e) => setActiveContent(data.type)}
+                    onKeyUp={(e) => {
+                      if (e.key === "Enter") setActiveContent(data.type);
+                    }}
+                    className="text-geekblue-600"
+                  />
+                </Tooltip>
               </div>
             </div>
           );
