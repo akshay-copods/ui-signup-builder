@@ -15,6 +15,7 @@ import {
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { useBrandAssetStore } from "../../store/BrandAssetStore";
+import { User, defaultLogos } from "../../stylingConfig";
 export const SignupBuilder = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { firebseConfig, setConfig }: any = useFirebaseConfigStore();
@@ -116,29 +117,43 @@ export const SignupBuilder = () => {
         //@ts-ignore
         firebseConfig?.brandAssests?.testimonials?.styling
       );
-      const userArr = firebseConfig?.brandAssests?.testimonials?.users.filter(
-        (value, index, self) =>
-          index ===
-          self.findIndex((t) => t.id === value.id )
-      );
-      console.log(userArr,'userArr')
-      //@ts-ignore
-      userArr.map((data) => {
-        setTestimonial(data);
-      });
-      const logoArr = firebseConfig?.brandAssests?.logos.filter(
-        (value, index, self) =>
-          index ===
-          self.findIndex((t) => t.id === value.id )
-      );
-      logoArr.map((data) => {
-        setLogos(data);
-      });
+      if (firebseConfig?.brandAssests?.testimonials?.users.length < 0) {
+        User.map((data) => {
+          setTestimonial(data);
+        });
+      } else {
+        const userArr = firebseConfig?.brandAssests?.testimonials?.users.filter(
+          (value, index, self) =>
+            index === self.findIndex((t) => t.id === value.id)
+        );
+        console.log(userArr, "userArr");
+        //@ts-ignore
+        console.log(
+          firebseConfig?.brandAssests?.testimonials?.users.length,
+          ""
+        );
+        userArr.map((data) => {
+          setTestimonial(data);
+        });
+      }
+      if (firebseConfig?.brandAssests?.logos.length < 0) {
+        defaultLogos.map((data) => {
+          setLogos(data);
+        });
+      } else {
+        const logoArr = firebseConfig?.brandAssests?.logos.filter(
+          (value, index, self) =>
+            index === self.findIndex((t) => t.id === value.id)
+        );
+        logoArr.map((data) => {
+          setLogos(data);
+        });
+      }
       //
     }
     setIsLoading(false);
   }, [Object?.keys(firebseConfig)?.length]);
-  console.log(firebseConfig,'firrebase')
+  console.log(firebseConfig, "firrebase");
   const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
 
   return (

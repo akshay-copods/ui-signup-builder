@@ -210,6 +210,56 @@ export const socialButtonOptions = [
     icon: "logos:linkedin-icon",
   },
 ];
+export const User= [
+  {
+    id: "1",
+    personImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
+    personDetails: "John Doe",
+    personDesignation: "Engineer",
+    personQuote:
+      "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly.",
+  },
+  {
+    id: "2",
+    personImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdsDXrAmRBMBpVvGrc6PBYYb9UBP5Q7ltfA&usqp=CAU",
+    personDetails: "john Dow",
+    personDesignation: "Engineer",
+    personQuote:
+      "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly.",
+  },
+]
+export const defaultLogos=[    {
+  id: "1",
+  imageUrl:
+    "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+},
+{
+  id: "2",
+  imageUrl:
+    "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+},
+{
+  id: "3",
+  imageUrl:
+    "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+},
+{
+  id: "4",
+  imageUrl:
+    "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+},
+{
+  id: "5",
+  imageUrl:
+    "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+},
+{
+  id: "6",
+  imageUrl:
+    "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png?f=webp&w=256",
+},]
 export const userApprovalOptions = [
   {
     name: "Terms of Use",
