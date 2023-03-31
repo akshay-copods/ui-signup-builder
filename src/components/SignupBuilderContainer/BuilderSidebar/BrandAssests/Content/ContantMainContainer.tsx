@@ -30,7 +30,10 @@ export const ContentMainContainer = ({
             <div key={data.type} className="flex flex-col gap-3 max-w-min">
               <div
                 onClick={() => {
-                  setContent(data);
+                  getContent().length==2&&getContent()
+                  .map((k) => k.type)
+                  .includes(data.type)?
+                  setContent(data):  getContent().length<2&&setContent(data)
                 }}
                 tabIndex={0}
                 className={`w-88 h-88 ${
