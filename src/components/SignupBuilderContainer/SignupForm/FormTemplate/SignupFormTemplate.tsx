@@ -37,6 +37,7 @@ export const SignupFormTemplate = () => {
       }`}
     >
       <SignupComponent
+      className="h-full"
         onMyChange={getEmittedValue}
         data={{
           theme,

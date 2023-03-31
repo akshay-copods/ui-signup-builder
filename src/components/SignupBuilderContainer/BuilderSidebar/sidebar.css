@@ -71,12 +71,28 @@
     display: none;
   }
   .ant-select-selector {
-    border-radius: 2px !important;
+    border-radius: 6px !important;
   }
   .ant-input-search-button {
     display: none !important;
   }
-  
+  .ant-modal-footer{
+    display: none !important;
+  }
+  .ant-modal-content{
+    padding: 0 !important;
+    height: 100% !important;
+  }
+  .ant-modal-body{
+    height: 100% !important;
+  }
+  .ant-modal-footer{
+    height: 100% !important;
+  }
+  .ant-modal {
+    height: 100% !important;
+    max-width: none !important;
+  }
   .ant-upload-select{
     width: 314px !important;
     height: auto !important;
@@ -85,3 +101,9 @@
   .ant-upload-list-item-container{
     width: 100% !important;
   }
+.ant-modal-body .false{
+  height: 100% !important;
+}
+.ant-modal-header{
+  display: none !important;
+}
