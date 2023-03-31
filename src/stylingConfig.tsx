@@ -91,35 +91,35 @@ export const layoutType = [
 ];
 export const buttonStates = [
   {
-    label: "default State",
+    label: "Default State",
     value: "DEFAULT",
   },
   {
-    label: "hover State",
+    label: "Hover State",
     value: "HOVER",
   },
   {
-    label: "active State",
+    label: "Active State",
     value: "ACTIVE",
   },
   {
-    label: "disabled State",
+    label: "Disabled State",
     value: "DISABLED",
   },
 ];
 
 export const inputStates = [
   {
-    label: "default State",
+    label: "Default State",
     value: "DEFAULT",
   },
 
   {
-    label: "active State",
+    label: "Active State",
     value: "ACTIVE",
   },
   {
-    label: "disabled State",
+    label: "Disabled State",
     value: "DISABLED",
   },
   {
