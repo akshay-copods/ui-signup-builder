@@ -8,7 +8,7 @@ export const LoginTitle = () => {
     <div className="px-5 pb-5">
       {" "}
       <div className={`flex gap-2 items-center flex-col`}>
-        <label className="self-start">{signup_builder_sidebar.SIGN_UP_TITLE}</label>
+        <label className="self-start text-xs w-2/4 text-customBlack-400">{signup_builder_sidebar.SIGN_UP_TITLE}</label>
         <Input
           title="j"
           placeholder="type here to change the title"

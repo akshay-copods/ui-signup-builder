@@ -117,7 +117,7 @@ export const SubmitButtonStying = () => {
                 {signup_builder_sidebar.BORDER_RADIUS}
               </span>
               <div className="flex items-center w-2/4 gap-2">
-                <div className="flex border border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
+                <div className="flex border border-natural-5 rounded-md	 bg-white py-1.5 px-3 gap-6 items-center">
                   <Tooltip
                     title={signup_builder_sidebar.MINUS_BUTTON}
                     color="black"
