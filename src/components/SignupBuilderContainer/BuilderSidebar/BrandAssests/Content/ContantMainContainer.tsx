@@ -37,7 +37,9 @@ export const ContentMainContainer = ({
                 }}
                 tabIndex={0}
                 className={`w-88 h-88 ${
-                  data.checked ? "border-blue-600" : "border-gray-100"
+                  getContent()
+                    .map((k) => k.type)
+                    .includes(data.type) ? "border-blue-600" : "border-gray-100"
                 } border-gray-100 border ${"cursor-pointer"} shadow-md rounded relative`}
               >
                 <input
