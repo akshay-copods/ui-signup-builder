@@ -15,7 +15,7 @@ export const TestimonalStyling = () => {
   const { getTestimonialStyling, setTestiMonialStyling, testimonials } =
     useBrandAssetStore();
   return (
-    <div className="px-5">
+    <div className="px-5 pb-5">
       <div className="flex-col flex gap-5">
         <div className="flex justify-between w-full ">
           <span className="text-xs w-2/4 text-customBlack-400">{signup_builder_sidebar.POSITION}</span>

@@ -15,11 +15,11 @@ export const ColorPickerComponent = ({
   fontColor: string;
 }) => {
   return (
-    <div className='flex  items-center'>
+    <div className='flex gap-2 flex-col'>
       {label && (
-        <span tabIndex={0} aria-label={label} className='text-xs w-2/4  text-customBlack-400'>{label}</span>
+        <span tabIndex={0} aria-label={label} className='text-xs   text-customBlack-400'>{label}</span>
       )}
-      <div className='flex w-2/4 items-center gap-2'>
+      <div className='flex w-full items-center gap-2'>
         <Colorpicker
           blockStyles={{
             width: "24px",
@@ -30,7 +30,7 @@ export const ColorPickerComponent = ({
           onChange={onChange}
         
         />
-        <span tabIndex={0} aria-label={fontColor} className='text-black'>{fontColor}</span>
+        <span tabIndex={0} aria-label={fontColor} className='text-black leading-normal'>{fontColor}</span>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ export const SocialButtonStyling = () => {
       className={`flex flex-col pb-5 ${currentAccordion ? "gap-5" : "gap-0"}`}
     >
       <div
-        className="flex gap-2 items-center"
+        className="flex gap-2 px-5 items-center"
         onKeyUp={(e) => {
           if (e.key === "Enter") setCurrentAccordion(!currentAccordion);
         }}
@@ -79,7 +79,7 @@ export const SocialButtonStyling = () => {
       {/* {position} */}
       <div
         className={
-          `overflow-auto flex flex-col gap-5 text-gray-600  transition-all ` +
+          `overflow-auto flex flex-col gap-5 text-gray-600 px-5 transition-all ` +
           (currentAccordion ? "h-full" : "max-h-0")
         }
       >
@@ -160,7 +160,7 @@ export const SocialButtonStyling = () => {
           >
             {signup_builder_sidebar.STYLING}
           </h4>
-          <div className="flex  flex-col gap-4">
+          <div className="flex  flex-col gap-5">
             <SelectComponent
               label={signup_builder_sidebar.SOCIAL_BUTTON_STATE}
               value={socialButtonState}
@@ -213,15 +213,15 @@ export const SocialButtonStyling = () => {
               }}
               fontColor={styles.backgroundColor}
             />
-            <div className="flex items-center">
+            <div className="flex flex-col gap-2">
               <span
                 tabIndex={0}
                 aria-label={signup_builder_sidebar.BORDER_RADIUS}
-                className="text-xs w-2/4 text-customBlack-400"
+                className="text-xs  text-customBlack-400"
               >
                 {signup_builder_sidebar.BORDER_RADIUS}
               </span>
-              <div className="flex items-center w-2/4 gap-2">
+              <div className="flex items-center  gap-2">
                 <div className="flex border border-natural-5 bg-white py-1.5 px-3 rounded-md	 gap-6 items-center">
                   <Tooltip
                     title={signup_builder_sidebar.MINUS_BUTTON}
@@ -252,7 +252,7 @@ export const SocialButtonStyling = () => {
                     />
                   </Tooltip>
                   <span tabIndex={0} className="flex items-center text-xs">
-                    {styles.borderRadius > 0 && styles.borderRadius < 10
+                    {styles.borderRadius >= 0 && styles.borderRadius < 10
                       ? `0${styles.borderRadius}`
                       : styles.borderRadius}
                   </span>

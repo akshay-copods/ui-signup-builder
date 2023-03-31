@@ -80,15 +80,15 @@ export const TypographyStyling = () => {
 
         <div className="flex flex-col gap-4">
          
-          <div className="flex items-center">
+          <div className="flex flex-col gap-2">
             <span
               tabIndex={0}
               aria-label={signup_builder_sidebar.TITLE}
-              className="text-xs w-2/4 text-customBlack-400"
+              className="text-xs text-customBlack-400"
             >
               {signup_builder_sidebar.TITLE}
             </span>
-            <div className={` w-2/4 flex gap-2 items-center`}>
+            <div className={` flex gap-2 items-center`}>
               <Button
                 className={`text-sm text-customBlack-600 ${
                   styles.title.Bold && "bg-geekblue-300"
@@ -115,15 +115,15 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex flex-col gap-2">
             <span
               tabIndex={0}
               aria-label={signup_builder_sidebar.SUB_TITLE}
-              className="text-xs w-2/4 text-customBlack-400"
+              className="text-xs text-customBlack-400"
             >
               {signup_builder_sidebar.SUB_TITLE}
             </span>
-            <div className={` w-2/4 flex gap-2 items-center`}>
+            <div className={`flex gap-2 items-center`}>
               <Button
                 className={`text-sm text-customBlack-600 ${
                   styles.subTitle.Bold && "bg-geekblue-300"
@@ -152,15 +152,15 @@ export const TypographyStyling = () => {
           </div>
 
           <hr className="h-px w-full bg-[#0000000f]" />
-          <div className="flex items-center">
+          <div className="flex flex-col gap-2">
             <span
               tabIndex={0}
               aria-label={signup_builder_sidebar.LINKS}
-              className="text-xs w-2/4 text-customBlack-400"
+              className="text-xs  text-customBlack-400"
             >
               {signup_builder_sidebar.LINKS}
             </span>
-            <div className={` w-2/4 flex gap-2 items-center`}>
+            <div className={` flex gap-2 items-center`}>
               <Button
                 className={`text-sm text-customBlack-600 ${
                   styles.links.Bold && "bg-geekblue-300"
@@ -187,15 +187,15 @@ export const TypographyStyling = () => {
               />
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex flex-col gap-2">
             <span
               tabIndex={0}
               aria-label={signup_builder_sidebar.LINKS_STYLE}
-              className="text-xs w-2/4 text-customBlack-400"
+              className="text-xs  text-customBlack-400"
             >
               {signup_builder_sidebar.LINKS_STYLE}
             </span>
-            <div className={` w-2/4 flex gap-2 items-center`}>
+            <div className={`flex gap-2 items-center`}>
               <Select
                 value={styles.links.style}
                 onChange={(value) =>

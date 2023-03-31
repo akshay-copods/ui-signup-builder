@@ -31,7 +31,7 @@ export const InputFieldStyling = ({
   const styles = getInputFieldStateTheme(inputFieldState);
 
   return (
-    <div className="flex flex-col px-5 gap-4">
+    <div className="flex flex-col px-5 gap-5 pb-5">
       <span
         className="text-xs text-geekblue-600"
         tabIndex={0}
@@ -96,11 +96,11 @@ export const InputFieldStyling = ({
         fontColor={styles.backgroundColor}
       />
 
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-customBlack-400">
+      <div className="flex  flex-col gap-2">
+        <span className="text-xs  text-customBlack-400">
           {signup_builder_sidebar.BOX_BORDER}
         </span>
-        <div className="flex items-center w-2/4 gap-2">
+        <div className="flex items-center  gap-2">
           <div className="flex border border-natural-5 rounded-md	 bg-white py-1.5 px-3 gap-6 items-center">
             <Tooltip
               title={signup_builder_sidebar.MINUS_BUTTON}
@@ -138,7 +138,7 @@ export const InputFieldStyling = ({
               />
             </Tooltip>
             <span className="flex items-center text-xs">
-              {styles.box.borderSize > 0 && styles.box.borderSize < 10
+              {styles.box.borderSize >= 0 && styles.box.borderSize < 10
                 ? `0${styles.box.borderSize}`
                 : styles.box.borderSize}
             </span>
@@ -174,11 +174,11 @@ export const InputFieldStyling = ({
           </div>
         </div>
       </div>
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-customBlack-400">
+      <div className="flex flex-col gap-2">
+        <span className="text-xs   text-customBlack-400">
           {signup_builder_sidebar.BORDER_RADIUS}
         </span>
-        <div className="flex w-2/4 items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="flex border rounded-md	 border-natural-5 bg-white py-1.5 px-3 gap-6 items-center">
             <Tooltip
               title={signup_builder_sidebar.MINUS_BUTTON}
@@ -217,7 +217,7 @@ export const InputFieldStyling = ({
             </Tooltip>
 
             <span tabIndex={0} className="flex items-center text-xs">
-              {styles.box.borderRadius > 0 && styles.box.borderRadius < 10
+              {styles.box.borderRadius >=0 && styles.box.borderRadius < 10
                 ? `0${styles.box.borderRadius}`
                 : styles.box.borderRadius}
             </span>

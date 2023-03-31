@@ -13,9 +13,9 @@ export const SelectComponent = ({
   options: SelectProps[];
 }) => {
   return (
-    <div className="flex items-center">
-      {label && <span tabIndex={0} aria-label={label} className="text-xs w-2/4 text-customBlack-400">{label}</span>}
-      <div className={`${label ? "w-2/4" : "w-full"} flex gap-2 items-center`}>
+    <div className="flex gap-2 flex-col">
+      {label && <span tabIndex={0} aria-label={label} className="text-xs  text-customBlack-400">{label}</span>}
+      <div className={`w-full flex gap-2 items-center`}>
         <Select
           className="w-full"
           value={value}

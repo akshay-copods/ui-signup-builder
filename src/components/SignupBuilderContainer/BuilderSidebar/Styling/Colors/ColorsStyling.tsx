@@ -7,7 +7,7 @@ export const ColorsStyling = () => {
     useThemeStore();
 
   return (
-    <div className="px-5">
+    <div className="px-5 pb-5 flex flex-col gap-5">
       <ColorPickerComponent
         label={signup_builder_sidebar.PRIMARY_COLOR}
         value={theme.primaryColor}
